@@ -1,0 +1,42 @@
+namespace = ME_Kamchatkan_Events
+
+country_event = { #kamchatkan migration
+	id = ME_Kamchatkan_Events.1
+	title = ME_Kamchatkan_Events.1.t
+	desc = ME_Kamchatkan_Events.1.d
+	picture = COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #move capital
+		name = ME_Kamchatkan_Events.1.a
+		
+		random_owned_province = {
+			limit = {
+				OR = {
+					region = cascadia_region
+					region = california_region
+				}
+				is_state = yes
+			}
+			move_capital_effect = yes
+		}
+		add_country_modifier = {
+			name = KCH_great_migration
+			duration = 14600
+		}
+		
+		ai_chance = { factor = 33 }
+	}
+	option = { #dont move
+		name = ME_Kamchatkan_Events.1.b
+		
+		capital_scope = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+		
+		ai_chance = { factor = 33 }
+	}
+}

@@ -1,0 +1,91 @@
+#########
+#Made by claivin for Missions Expanded Mod
+#########
+
+donghai_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			was_tag = EJZ
+			tag = EJZ
+		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+	}
+	has_country_shield = yes
+	
+	EJZ_jianzhou = {
+		icon = mission_junk_boat
+		required_missions = {}
+		position = 1
+		trigger = {
+			ningguta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			NOT = { exists = MJZ }
+		}
+		effect = {
+			add_mil_power = 25
+			country_event = {
+				id = ME_Manchu_Events.MJZ
+			}
+		}
+	}
+	
+	EJZ_ming = {
+		icon = mission_junk_boat
+		required_missions = {}
+		position = 2
+		trigger = {
+			if = {
+				limit = {
+					exists = MNG
+				}
+				OR = {
+					AND = {
+						is_subject_of = MNG
+						reverse_has_opinion = {
+							who = MNG
+							value = 65
+						}
+					}
+					AND = {
+						is_neighbor_of = MNG
+						reverse_has_opinion = {
+							who = MNG
+							value = 110
+						}
+					}
+				}
+			}
+			else = {
+				always = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = MCH_ming_trade
+				duration = 9125
+			}
+		}
+	}
+	
+	EJZ_ginseng = {
+		icon = mission_high_income
+		required_missions = {
+			EJZ_ming
+		}
+		position = 3
+		trigger = {
+			stability = 1
+			any_owned_province = {
+				base_production = 10
+			}
+		}
+		effect = {
+			country_event = { id = ME_Manchu_Events.1 }
+		}
+	}
+}

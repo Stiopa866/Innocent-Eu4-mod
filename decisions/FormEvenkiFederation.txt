@@ -1,0 +1,98 @@
+#########
+#Made by claivin for Missions Extended Mod
+#########
+
+
+country_decisions = {
+
+	form_evenk_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = EVK }
+			NOT = { has_country_flag = has_formed_evenki_fed }
+			was_never_end_game_tag_trigger = yes
+			is_colonial_nation = no
+			normal_or_historical_nations = yes
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			AND = { #for all evenk cultures except jurchen and yukagyr
+				culture_group = evenks
+				NOT = { primary_culture = manchu }
+				NOT = { primary_culture = yukagyr }
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4664 #oroqen
+				province_id = 1053 #hinggan
+				province_id = 2102 #urkan
+				province_id = 4662 #halacha
+				province_id = 1049 #haiilanboo
+				province_id = 2103 #udi
+				province_id = 4659 #tulutingshan
+				province_id = 1048 #miyoo gasan
+				province_id = 4214 #kalar
+				province_id = 1050 #deren
+				province_id = 4658 #nangha'er
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			owns = 4664 
+			owns = 1053 
+			owns = 2102 
+			owns = 4662 
+			owns = 1049 
+			owns = 2103 
+			owns = 4659 
+			owns = 1048 
+			owns = 4214 
+			owns = 1050 
+			owns = 4658 
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			stability = 3
+		}
+		effect = {
+			change_tag = EVK
+			if = {
+				limit = {
+					is_tribal = yes
+				}
+				add_government_reform = siberian_tribe_federation
+			}
+			set_country_flag = has_formed_evenki_fed
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 2
+					}
+				}
+				set_government_rank = 2
+			}
+			#swap_non_generic_missions = yes
+			central_heilongjiang_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_jilin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

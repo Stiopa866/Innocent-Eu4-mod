@@ -1,0 +1,193 @@
+﻿l_english:
+#written by claivin for Missions Expanded
+
+ EVK: "Evenk"
+ EVK_ADJ: "Evenki"
+
+#modifiers
+ EVK_reindeer_cavalry: "Reindeer Cavalry"
+ desc_EVK_reindeer_cavalry: "The Evenk people are highly skilled in their handling of riding and controlling Reindeer. It is not a radical idea to harness this skill for warfare."
+
+ EVK_guns: "Adopting Chinese Firearms"
+ desc_EVK_guns: "It seems this new invention could be more effective in warfare than simple bows and arrows - given that we have enough men to make it count!"
+ 
+ EVK_bhuddist: "Bhuddist Zeal"
+ desc_EVK_bhuddist: "Bhuddism and its tenets are spreading like wildfire amongst our tribesmen."
+ 
+ EVK_shamanism: "Shamanist Traditionalism"
+ desc_EVK_shamanism: "We will follow the ways of our ancestral peoples."
+ 
+ EVK_sledge_paths: "Mapped Sledge Paths"
+ desc_EVK_sledge_paths: "Paths for pack reindeer make navigation through the cold all the more easy."
+ EVK_sledge_paths.tt: "Future owned provinces in East Siberia, West Siberia, and Manchuria will recieve this."
+ 
+ EVK_colonize_base: "Establishing Encampments"
+ desc_EVK_colonize_base: "Expeditionary tribesmen have begun constructing settlements in the area."
+ 
+ EVK_yakut_mountain: "Ynnakh Mountain"
+ desc_EVK_yakut_mountain: "Ynnakh means 'creepy' in Yakut!"
+ 
+ EVK_shamanist_toleration: "Shamanistic Toleration"
+ desc_EVK_shamanist_toleration: "Other shamanistic belief aren't too different from our own."
+ 
+ EVK_yakut_cow: "Yakutian Cattle"
+ desc_EVK_yakut_cow: "The hardiest cows around."
+ 
+ EVK_buryat_herding: "Buryat Herding Practice"
+ desc_EVK_buryat_herding: "Lead them here, lead them there. I think that's how it works."
+ 
+ EVK_tungus_grow: "Far West Evenks"
+ desc_EVK_tungus_grow: "How did they even get here?!"
+ 
+ EVK_writing: "Yukaghir Script"
+ desc_EVK_writing: "The pen is mightier than... having no pen."
+ 
+ EVK_big_raven: "Legacy of Big Raven"
+ desc_EVK_big_raven: "The Top Shaman of the Koryaks."
+ 
+ EVK_big_raven_home: "Domain of Big Raven"
+ desc_EVK_big_raven_home: "We have granted this province to the religious leaders of the Koryaks."
+ 
+ EVK_true_faith: "Traditional Fervor"
+ desc_EVK_true_faith: "New places of worship!"
+ 
+ EVK_capital_defense: "Defend the Chief"
+ desc_EVK_capital_defense: "The Chief guides us, so we must defend him with our lives, lest we become lost."
+ 
+ #events
+ ME_Evenk_Events.1.t: "Traditions of the [Root.Culture.GetName]"
+ ME_Evenk_Events.1.d: "Prior to recent conquests, the [Root.Culture.GetName] people were not a homogeneous group. Especially apparent were the differences between the settled and the nomadic [Root.Culture.GetName]; the settled tribes were more likely to follow foreign faiths, while the nomads likely followed the ancestral shamanistic faiths. If we are to unite as a tribe, we should pick one for all the tribesmen to call their own."
+ ME_Evenk_Events.1.a: "We cannot abandon the ancestral faith!"
+ ME_Evenk_Events.1.b: "We will follow the way of Tengri."
+ ME_Evenk_Events.1.c: "We shall follow in the footsteps of our Mongol neighbors."
+ 
+ ME_Evenk_Events.2.t: "Map the Taiga"
+ ME_Evenk_Events.2.d: "Our lands are difficult to navigate; the mere act of traversing the wilderness could be fatal. We must create paths for our people to connect with nearby small settlements."
+ ME_Evenk_Events.2.a: "Conquer the cold!"
+ 
+ ME_Evenk_Events.3.t: "Wow!"
+ ME_Evenk_Events.3.d: "If you're reading this, something broke."
+ ME_Evenk_Events.3.a: "Unless you're scouring the files for some reason."
+ 
+ ME_Evenk_Events.4.t: "Assimilate the Tribes of [me_evk_colonized_province.GetName]"
+ ME_Evenk_Events.4.d: "A small party of explorers have been dispatched to make amends with the local tribesmen of [me_evk_colonized_province.GetName]. They appear to be of [me_evk_colonized_province.Culture.GetName] descent, and have remained fairly amicable. If we continue to maintain good relations with them and push for closer ties, it is likely they will join us - safety in numbers, after all."
+ ME_Evenk_Events.4.a: "Another tribe of the Federation."
+ colonizing_event_warning.tt: "Events to colonize Siberia will continue as long as we retain the §YSiberian Tribal Federation§! Government.\nYou can have 1 active anytime, with an 1 additional frontier for every 100 total development over 100, up to 4 simultaneous colonies.\n"
+ 
+ ME_Evenk_Events.44.t: "asdf"
+ ME_Evenk_Events.44.d: "asdf"
+ ME_Evenk_Events.44.a: "asdf"
+ 
+ ME_Evenk_Events.5.t: "Uncontacted Tribes of [Root.GetName]"
+ ME_Evenk_Events.5.d: "After setting out for nearly a month, a party of [Root.Owner.GetAdjective.] explorers have returned... but they were not alone. While out mapping the lands, they seem to have run into a previously overlooked tribe of people nestled in a shallow valley. They managed to communicate mostly by gesturing in the beginning, but curiously, the tribes people seemed to share some of our words."
+ ME_Evenk_Events.5.a: "A distant relative, it seems..."
+ 
+ ME_Evenk_Events.6.t: "A Yakut Village"
+ ME_Evenk_Events.6.d: "Deep in the area known as [Root.GetName], a significant settlement inhabited by people known as 'Yakut' has been contacted. They seem to be content with joining the Federation, as long as they may retain autonomy. The explorers agreed to the notion, knowing it would be the same situation either way."
+ ME_Evenk_Events.6.a: "An smart proposition."
+ ME_Evenk_Events.6.b: "Insist they leave here, and invite them to live closer to our people."
+
+ ME_Evenk_Events.7.t: "Ynnakh Mountain"
+ ME_Evenk_Events.7.d: "In the culture and lands of the Yakuts, there are certain natural features, like Kigilyakh - standing rock formation - which hold great significance amongst the people. Chief among these is the Ynnakh Mountain, which is held in great reference to the the shamanistic traditions."
+ ME_Evenk_Events.7.a: "We should respect it as well."
+ 
+ ME_Evenk_Events.8.t: "Yakutian Cattle"
+ ME_Evenk_Events.8.d: "Among the Yakuts there is a certain breed of cattle heavily adapted to the cold and barren environment. They are capable of thriving under miniscule feed conditions, are practically immune to the cold, and are resistant to numerous diseases."
+ ME_Evenk_Events.8.a: "We should expand the domestication of this breed!"`
+ 
+ ME_Evenk_Events.9.t: "A Buryat Village"
+ ME_Evenk_Events.9.d: "To the West lies a group of nomads known as the Buryats. Their way of life shares many similarities with the Mongols, but their culture shares many similarities with us. Explorers to the region have extended their hand in invitation to each Buryat tribe they come across."
+ ME_Evenk_Events.9.a: "Assure they will retain their nomadic ways."
+ ME_Evenk_Events.9.b: "Invite them to settle down where we have built our homes."
+ 
+ ME_Evenk_Events.10.t: "Buryat Herding"
+ ME_Evenk_Events.10.d: "The Buryats are a skilled group of herders, experience with cattle, horses, sheep, and goats. Their people have spent centuries perfecting this practice, and although we may have our own specialties, we should not be so arrogant as to overlook theirs."
+ ME_Evenk_Events.10.a: "I agree, we should look to learn something."
+ 
+ ME_Evenk_Events.11.t: "The Evenks of the Far West"
+ ME_Evenk_Events.11.d: "In the Far West, it was thought that the explorers of our nation had reached the ends of the known world. It was all the more surprising when they came across a familiar sounding tongue! With careful deliberation, they were able to inform them of the Federation and invite them to the Federation. In turn they have given us some information on nearby clans. Perhaps they too can be convinced?"
+ ME_Evenk_Events.11.a: "How strange."
+ 
+ ME_Evenk_Events.12.t: "The Yukaghir"
+ ME_Evenk_Events.12.d: "As the explorers in [Root.GetName] continued northward, they had begun to think going any further would be a waste. This was the furthest north any man had ever traveled, surely. And yet, at the edge of the world, bathed in a practically unending night and half-year winter, were the Yukaghir. They spoke no familiar language, though their lifestyles in reindeer herding were reminiscent of home. After much trouble and the explorers had managed to literally draw a picture of the scenario."
+ ME_Evenk_Events.12.a: "How far did you go?"
+ 
+ ME_Evenk_Events.13.t: "Yukaghir Script"
+ ME_Evenk_Events.13.d: "When we found them, they Yukaghir people had a curious innovation, despite living in a relatively primitive state: writing! Of course, we have not yet developed our own, so perhaps it would be better if we adopted such a practice and used it for our own language?"
+ ME_Evenk_Events.13.a: "Indeed."
+ 
+ ME_Evenk_Events.14.t: "The Nemelan and Chaucu"
+ ME_Evenk_Events.14.d: "The Evenki people are no strangers to the Sea. Some tribes and clans are experienced, long-time fishermen and know the eastern waters well. Despite that, we have seldom come into contact with the fishers and herders of the furthest eastern point of land. They speak a strange language, but appear not too dissimilar from us; there are the Nemelan, the settled fishermen, and then there are the Chacu, the nomadic reindeer herders."
+ ME_Evenk_Events.14.a: "Quite similar indeed."
+ 
+ ME_Evenk_Events.15.t: "The Legacy of Big Raven"
+ ME_Evenk_Events.15.d: "The religion of the Koryak tribes follow a curious religion where in a Supreme Being resides over the known world. Their faith tells of a mythical shaman, 'Big Raven,' who was the first man and is the protector of the Koryaks."
+ ME_Evenk_Events.15.a: "Their faith may be different, but we will preserve their rights all the same."
+ 
+ ME_Evenk_Events.16.t: "The Ainu of [Root.GetName]"
+ ME_Evenk_Events.16.d: "In the area of [Root.GetName] we have encountered a group of people known as the Ainu. They appear to be hunting and fishing peoples; they hold the bear and bear spirits in high regard; the women wear mouth tattoos, and the men never shave. Their culture is quite foreign to our own, but there is always more room within the federation."
+ ME_Evenk_Events.16.a: "Curious to see."
+ 
+ ME_Evenk_Events.17.t: "Pointing the Way"
+ ME_Evenk_Events.17.d: "Newly admitted Ainu tribesmen have described the ancestral homeland. They call it 'Aynu Mosir,' or 'The Land Where The Ainu Live.' Sakhalin is one part of it, but they tell of a large island to the East, where great numbers of Ainu thrive in a place we would find quite familiar."
+ ME_Evenk_Events.17.a: "Across the sea, eh?"
+ 
+ ME_Evenk_Events.18.t: "Harsh Winter Forces Cooperation"
+ ME_Evenk_Events.18.d: "An unusually powerful northern wind has come into [Root.GetName]. What was thought to have been a simple cold front has evolved into a multi-week cold spell with no end in sight. Surrounding tribes have approached our own settlement, asking to stay for the winter. If all goes well, they may decide to stay."
+ ME_Evenk_Events.18.a: "How could we turn them away?"
+ 
+ ME_Evenk_Events.19.t: "Migratory Tribes"
+ ME_Evenk_Events.19.d: "A wandering group of tribes people have come across our settlement. They seem to be in no big trouble, but have expressed difficulties out of the country as of late."
+ ME_Evenk_Events.19.a: "We have plenty of extra room."
+ 
+ ME_Evenk_Events.20.t: "A New Holy Site"
+ ME_Evenk_Events.20.d: "The faith of the [Root.GetAdjective] is decentralized and difficult to enforce uniformity. We have no places of worship or canonical stories of faith - even our oral traditions can vary from tribe to tribe. We should establish a holy site for all to aspire to in the seat of our Chiefdom."
+ ME_Evenk_Events.20.a: "The spirits approve."
+ ME_Evenk_Events.20.b: "I already feel more pious!"
+ 
+#government
+ siberian_tribe_federation: "Siberian Tribal Federation"
+ siberian_tribe_federation_desc: "A form of government where the several Siberian Tribes have joined as one, each acting with great autonomy, but nevertheless answering to a central chief authority."
+ 
+ siberian_tribe_federation_legacy: "Siberian Tribal Federation"
+ siberian_tribe_federation_legacy_desc: "A form of government where the several Siberian Tribes have joined as one, each acting with great autonomy, but nevertheless answering to a central chief authority."
+
+#decision
+ form_evenk_nation_title: "Form Evenk Federation"
+ form_evenk_nation_desc: "The Evenk peoples were once quite literally wide spread and disparate. As our skirmishes evolved into all out war amongst the Evenk tribes, one has risen to the top: Us. We shall join these far-flung tribes under a single central authority."
+
+#missions
+ EVK_feudalism_title: "Adopt Firearms"
+ EVK_feudalism_desc: "From the South, there is word of fascinating new weapons called 'firearms'. Some claim it harnesses the power of mighty thunder itself..."
+ 
+ EVK_reindeer_title: "Gather the Herd"
+ EVK_reindeer_desc: "Reindeer are not often kept in large groups, as it is unnecessary. However, if we are to defend our tribesmen from outsiders, we should consider utilizing them like southerners utilize horses."
+ 
+ EVK_cultures_title: "Expand the Federation"
+ EVK_cultures_desc: "Our tribesmen may be of similar culture and tradition, but our federation can grow to accommodate even the most different of peoples."
+ EVK_cultures.tt: "Events to gradually colonize Siberia will occur."
+ 
+ EVK_forcelimit_title: "Rally the Tribes"
+ EVK_forcelimit_desc: "We must gather the tribesmen to secure our way of life against foreign threats."
+ 
+ EVK_grow_title: "Subjugate Neighbor Tribes"
+ EVK_grow_desc: "The Tribe has grown considerably under the guidance of the Chief. Soon our tribe and people will be One."
+ 
+ EVK_jurchen_clans_north_title: "Conquer Northern Jurchens"
+ EVK_jurchen_clans_north_desc: "Like we were once, the Jurchens are a disunited group, divided by clan and lineage. This makes them perfect to assimilate into our own tribes"
+ EVK_enables_manchu_form.tt: "Enables decision to form Manchu"
+ 
+ EVK_shamans_title: "Faith of the Tribe"
+ EVK_shamans_desc: "We people are widespread and may follow any variety of faiths - even our own ancestral beliefs are un-centralized. We should promote a single faith to increase our commonalities and unity."
+ 
+ EVK_siberian_empire_title: "Siberian Empire"
+ EVK_siberian_empire_desc: "From the harsh taigas of Siberia rise a powerful nation. Against all odds we have managed to fend off powerful steppe nomads, wild clansmen, and western invaders."
+ 
+ EVK_survey_title: "Siberian Land Survey"
+ EVK_survey_desc: "We must map out the surrounding territories and devise clear paths of travel between the settlements we have."
+ 
+ EVK_church_title: "Create a Holy Site"
+ EVK_church_desc: "We must create a place where our worshipers can gather and commune. Oral traditions are well and good, but what good are they if we can't tell them to anyone?"
+ 
+ EVK_capital_title: "Defend [Root.Capital.GetName]"
+ EVK_capital_desc: "[Root.Capital.GetName] is the center of our tribe, and yet it sits open to for any enemy to simply take. We should fortify and prepare."

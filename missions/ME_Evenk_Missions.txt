@@ -1,0 +1,340 @@
+#########
+#Made by claivin for Missions Expanded Mod
+#########
+
+evenk_generic_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = SOL
+			tag = NVK
+			tag = BRT
+			tag = EVK
+		}
+	}
+	has_country_shield = yes
+	
+	EVK_capital = {
+		icon = mission_junk_boat
+		required_missions = { EVK_feudalism }
+		position = 2
+		provinces_to_highlight = {
+			owned_by = ROOT
+			is_capital = yes
+		}
+		trigger = {
+			capital_scope = {
+				fort_level = 3
+				has_building = barracks
+			}
+			advisor = fortification_expert 
+		}
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = EVK_capital_defense
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+evenk_generic_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = SOL
+			tag = NVK
+			tag = BRT
+			tag = EVK
+		}
+	}
+	has_country_shield = yes
+	
+	EVK_feudalism = {
+		icon = mission_junk_boat
+		required_missions = {}
+		position = 1
+		trigger = {
+			has_institution = feudalism
+			mil_tech = 6
+		}
+		effect = {
+			add_country_modifier = {
+				name = EVK_guns
+				duration = 10950
+			}
+		}
+	}
+	
+	EVK_reindeer = {
+		icon = mission_junk_boat
+		required_missions = { EVK_feudalism }
+		position = 2
+		trigger = {
+			army_tradition = 33
+			capital_scope = {
+				cavalry_in_province = 4
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = EVK_reindeer_cavalry
+				duration = -1
+			}
+		}
+	}
+	
+	EVK_survey = {
+		icon = mission_junk_boat
+		required_missions = { EVK_reindeer }
+		position = 3
+		trigger = {
+			tag = EVK
+			NOT = { average_autonomy = 30 }
+		}
+		effect = {
+			country_event = {
+				id = ME_Evenk_Events.2
+			}
+		}
+	}
+}
+
+evenk_generic_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = SOL
+			tag = NVK
+			tag = BRT
+			tag = EVK
+		}
+	}
+	has_country_shield = yes
+	
+	EVK_forcelimit = {
+		icon = mission_junk_boat
+		required_missions = {}
+		position = 1
+		trigger = {
+			army_size_percentage = 1.0
+			capital_scope = {
+				base_manpower = 6
+			}
+		}
+		effect = {
+			add_manpower = 2.5
+			capital_scope = {
+				area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = {  is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	EVK_grow = {
+		icon = mission_junk_boat
+		required_missions = { EVK_forcelimit }
+		position = 2
+		provinces_to_highlight = {
+			culture_group = evenks
+			NOT = { culture = manchu }
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 9
+				culture_group = evenks
+				NOT = { culture = manchu }
+			}
+		}
+		effect = {
+			heilongjiang_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_heilongjiang_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ilan_hala_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sakhalin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	EVK_jurchen_clans_north = {
+		icon = mission_junk_boat
+		required_missions = { EVK_grow }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = central_heilongjiang_area
+				area = central_jilin_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			tag = EVK
+			central_heilongjiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_jilin_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = EVK_enables_manchu_form.tt
+			manchuria_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+evenk_generic_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = SOL
+			tag = NVK
+			tag = BRT
+			tag = EVK
+		}
+	}
+	has_country_shield = yes
+	
+	EVK_shamans = {
+		icon = mission_junk_boat
+		required_missions = {}
+		position = 1
+		trigger = {
+			stability = 3
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+				}
+				has_reform = martial_society_reform
+				has_reform = civil_society_reform
+			}
+		}
+		effect = {
+			country_event = {
+				id = ME_Evenk_Events.1
+			}
+		}
+	}
+	
+	EVK_cultures = {
+		icon = mission_junk_boat
+		required_missions = { EVK_shamans }
+		position = 2
+		trigger = {
+			tag = EVK
+			OR = {
+				num_accepted_cultures = 2
+				AND = {
+					num_of_subjects = 1
+					num_accepted_cultures = 1
+				}
+				num_of_subjects = 2
+			}
+		}
+		effect = {
+			hidden_effect = {
+				country_event = {
+					id = ME_Evenk_Events.4
+				}
+			}
+			custom_tooltip = EVK_cultures.tt
+		}
+	}
+	
+	EVK_siberian_empire = {
+		icon = mission_junk_boat
+		required_missions = { EVK_cultures }
+		position = 2
+		trigger = {
+			NOT = { is_tribal = yes }
+			total_development = 400
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			set_government_rank = 3
+		}
+	}
+}
+
+evenk_generic_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = SOL
+			tag = NVK
+			tag = BRT
+			tag = EVK
+		}
+	}
+	has_country_shield = yes
+	
+	EVK_church = {
+		icon = mission_junk_boat
+		required_missions = { EVK_shamans }
+		position = 2
+		trigger = {
+			temple = 5
+			capital_scope = {
+				has_building = temple
+			}
+		}
+		effect = {
+			country_event = {
+				id = ME_Evenk_Events.20
+			}
+			add_country_modifier = {
+				name = EVK_true_faith
+				duration = 9125
+			}
+		}
+	}
+}

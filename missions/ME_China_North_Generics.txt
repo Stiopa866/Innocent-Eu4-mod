@@ -1,0 +1,1265 @@
+#########
+#Made by claivin for Missions Expanded Mod
+#########
+
+north_china_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR  = {
+			tag = CSH
+			tag = QIN
+			tag = JIN
+			tag = LNG
+			tag = TNG
+			tag = YAN
+			tag = QIC
+		}
+	}
+	has_country_shield = yes
+	
+	nchina_fortify = {
+		icon = mission_junk_boat
+		required_missions = {}
+		position = 1
+		provinces_to_highlight = {
+			owned_by = ROOT
+			is_capital = yes
+			NOT = { fort_level = 2}
+		}
+		trigger = {
+			capital_scope = {
+				fort_level = 3
+				base_manpower = 5
+			}
+			army_size_percentage = 1.0
+		}
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = nchina_fortify_modifier
+					duration = -1
+				}
+			}
+			custom_tooltip = nchina_fortify.tt
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						limit = {
+							region = north_china_region
+							NOT = { is_core = ROOT }
+							NOT = { is_permanent_claim = ROOT }
+						}
+						add_permanent_claim = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	nchina_wheat = {
+		icon = mission_junk_boat
+		required_missions = { nchina_fortify }
+		position = 2
+		provinces_to_highlight = {
+			owned_by = ROOT
+			trade_goods = grain
+			NOT = { base_production = 4 }
+			NOT = { has_building = workshop }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				trade_goods = grain
+				has_building = workshop
+				base_production = 4
+			}
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = nchina_grain
+				duration = 9125
+			}
+		}
+	}
+	
+	nchina_dikes = {
+		icon = mission_junk_boat
+		required_missions = {
+			nchina_wheat
+			nchina_plain
+		}
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = shandong_area
+				area = north_henan_area
+				area = henan_area
+				area = jiangsu_area
+			}
+			owned_by = ROOT
+			NOT = { base_manpower = 4 }
+		}
+		trigger = {
+			natural_scientist = 3
+			shandong_area = {
+				type = all
+				base_manpower = 4
+				owned_by = ROOT
+			}
+			north_henan_area = {
+				type = all
+				base_manpower = 4
+				owned_by = ROOT
+			}
+			henan_area = {
+				type = all
+				base_manpower = 4
+				owned_by = ROOT
+			}
+			jiangsu_area = {
+				type = all
+				base_manpower = 4
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = ME_china_generic_events.4
+			}
+		}
+	}
+	
+	nchina_yangtze = {
+		icon = mission_junk_boat
+		required_missions = { 
+			nchina_eoc
+			nchina_dikes
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = south_jiangsu_area
+				area = south_anhui_area
+				area = huguang_area
+				area = sichuan_area
+				area = chuanbei_area
+			}
+			owned_by = ROOT
+			NOT = { devastation = 1 }
+			NOT = { unrest = 1 }
+		}
+		trigger = {
+			south_jiangsu_area = {
+				type = all
+				NOT = { devastation = 1 }
+				NOT = { unrest = 1 }
+				NOT = { nationalism = 1 }
+				owned_by = ROOT
+			}
+			south_anhui_area = {
+				type = all
+				NOT = { devastation = 1 }
+				NOT = { unrest = 1 }
+				NOT = { nationalism = 1 }
+				owned_by = ROOT
+			}
+			huguang_area = {
+				type = all
+				NOT = { devastation = 1 }
+				NOT = { unrest = 1 }
+				NOT = { nationalism = 1 }
+				owned_by = ROOT
+			}
+			sichuan_area = {
+				type = all
+				NOT = { devastation = 1 }
+				NOT = { unrest = 1 }
+				NOT = { nationalism = 1 }
+				owned_by = ROOT
+			}
+			chuanbei_area = {
+				type = all
+				NOT = { devastation = 1 }
+				NOT = { unrest = 1 }
+				NOT = { nationalism = 1 }
+				owned_by = ROOT
+			}
+			south_jiangsu_area = {
+				fort_level = 2
+			}
+			south_anhui_area = {
+				fort_level = 2
+			}
+			huguang_area = {
+				fort_level = 2
+			}
+			sichuan_area = {
+				fort_level = 2
+			}
+			chuanbei_area = {
+				fort_level = 2
+			}
+		}
+		effect = {
+			south_jiangsu_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yangtze_control
+					duration = -1
+				}
+			}
+			south_anhui_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yangtze_control
+					duration = -1
+				}
+			}
+			huguang_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yangtze_control
+					duration = -1
+				}
+			}
+			sichuan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yangtze_control
+					duration = -1
+				}
+			}
+			chuanbei_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yangtze_control
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	nchina_southchina_factories = {
+		icon = mission_junk_boat
+		required_missions = {
+			nchina_southeast
+			nchina_yangtze
+		}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = fujian_area
+				area = zhejiang_area
+			}
+			owned_by = ROOT
+			has_manufactory_trigger = no
+		}
+		trigger = {
+			fujian_area = {
+				type = all
+				has_manufactory_trigger = yes
+				owned_by = ROOT
+			}
+			zhejiang_area = {
+				type = all
+				has_manufactory_trigger = yes
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			fujian_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_prosperity = 100
+			}
+			zhejiang_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_prosperity = 100
+			}
+			add_mercantilism = 1
+			add_country_modifier = {
+				name = nchina_industrial
+				duration = -1
+			}
+		}
+	}
+	
+	nchina_uni = {
+		icon = mission_junk_boat
+		required_missions = {
+			nchina_southchina_factories
+		}
+		position = 7
+		provinces_to_highlight = {
+			owned_by = ROOT
+			AND = {
+				NOT = { has_building = university }
+				NOT = { development = 20 }
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				has_building = university
+				development = 20
+			}
+		}
+		effect = {
+			change_innovativeness = 5
+			add_country_modifier = {
+				name = nchina_uni_modifier
+				duration = 9125
+			}
+		}
+	}
+}
+
+north_china_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR  = {
+			tag = CSH
+			tag = QIN
+			tag = JIN
+			tag = LNG
+			tag = TNG
+			tag = YAN
+			tag = QIC
+		}
+	}
+	has_country_shield = yes
+	
+	nchina_assert_control = {
+		icon = mission_junk_boat
+		required_missions = { nchina_fortify }
+		position = 2
+		provinces_to_highlight = {
+			region = north_china_region
+			is_capital = yes
+			owner = {
+				NOT = { tag = ROOT }
+				total_development = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = assert_control.tt
+				all_country = {
+					OR = {
+						capital_scope = {
+							region = north_china_region
+							owner = {
+								NOT = { total_development = ROOT }
+							}
+						}
+						capital_scope = {
+							NOT = { region = north_china_region }
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			hebei_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_hebei_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shandong_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_henan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			henan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			jiangsu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			anhui_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nchina_beijing = {
+		icon = mission_junk_boat
+		required_missions = { nchina_assert_control }
+		position = 3
+		provinces_to_highlight = {
+			province_id = 1816
+			NOT = { is_core = ROOT }
+		}
+		trigger = {
+			1816 = {	#beijing
+				owned_by = ROOT
+			}
+			stability = 1
+		}
+		effect = {
+			1816 = {
+				add_core = ROOT
+				move_capital_effect = yes
+			}
+			add_prestige = 20
+		}
+	}
+	
+	nchina_hwai = {
+		icon = mission_junk_boat
+		required_missions = { nchina_plain }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = jiangsu_area
+				area = anhui_area
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { base_manpower = 5 }
+		}
+		trigger = {
+			jiangsu_area = {
+				type = all
+				base_manpower = 5
+				base_production = 5
+				owned_by = ROOT
+			}
+			anhui_area = {
+				type = all
+				base_manpower = 5
+				base_production = 5
+				owned_by = ROOT
+			}
+			any_owned_province = {
+				OR = {
+					area = jiangsu_area
+					area = anhui_area
+				}
+				fort_level = 4
+			}
+		}
+		effect = {
+			jiangsu_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_hwai_irrigation
+					duration = -1
+				}
+			}
+			anhui_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_hwai_irrigation
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	nchina_southeast = {
+		icon = mission_junk_boat
+		required_missions = { nchina_eoc }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = fujian_area
+				area = zhejiang_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			fujian_area = {
+				type = all
+				owned_by = ROOT
+			}
+			zhejiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = nchina_build_factories
+				duration = 12775
+			}
+		}
+	}
+	
+	nchina_navy = {
+		icon = mission_junk_boat
+		required_missions = {
+			nchina_southeast
+		}
+		position = 6
+		trigger = {
+			sailors = 8000
+			num_of_light_ship = 25
+		}
+		effect = {
+			taiwan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = nchina_navy_modifier
+				duration = 9125
+			}
+		}
+	}
+	
+	nchina_taiwan = {
+		icon = mission_junk_boat
+		required_missions = {
+			nchina_navy
+		}
+		position = 7
+		provinces_to_highlight = {
+			area = taiwan_area
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			taiwan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 50
+		}
+	}
+}
+
+north_china_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR  = {
+			tag = CSH
+			tag = QIN
+			tag = JIN
+			tag = LNG
+			tag = TNG
+			tag = YAN
+			tag = QIC
+		}
+	}
+	has_country_shield = yes
+	
+	nchina_inner_mongolia = {
+		icon = mission_junk_boat
+		required_missions = { 
+			nchina_north
+		}
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = ordos_area
+				area = inner_mongolia_area
+				area = chahar_area
+				area = eastern_mongolia
+				area = cicigar_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				OR = {
+					area = ordos_area
+					area = inner_mongolia_area
+					area = chahar_area
+					area = eastern_mongolia
+					area = cicigar_area
+				}
+			}
+			has_country_modifier = great_wall_reparations
+		}
+		effect = {
+			mongolia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					is_empty = no
+				}
+				add_permanent_claim = ROOT
+			}
+			country_event = {
+				id = ME_china_generic_events.1
+			}
+		}
+	}
+	
+	nchina_plain = {
+		icon = mission_junk_boat
+		required_missions = { nchina_assert_control }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = south_hebei_area
+				area = shandong_area
+				area = north_henan_area
+				area = henan_area
+				area = jiangsu_area
+				area = anhui_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			south_hebei_area = {
+				type = all
+				owned_by = ROOT
+			}
+			shandong_area = {
+				type = all
+				owned_by = ROOT
+			}
+			north_henan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			henan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			jiangsu_area = {
+				type = all
+				owned_by = ROOT
+			}
+			anhui_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			shandong_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yellow_river
+					duration = -1
+				}
+			}
+			jiangsu_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yellow_river
+					duration = -1
+				}
+			}
+			north_henan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yellow_river
+					duration = -1
+				}
+			}
+			henan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = nchina_yellow_river
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	nchina_qufu = {
+		icon = mission_junk_boat
+		required_missions = { nchina_plain }
+		position = 3
+		provinces_to_highlight = {
+			province_id = 2140 #yanzhou
+		}
+		trigger = {
+			OR = {
+				harmony = 100
+				religious_unity = 1.0
+				has_idea_group = religious_ideas
+			}
+			2140 = {
+				NOT = { devastation = 1 }
+				NOT = { nationalism = 1 }
+				has_building = temple
+			}
+		}
+		effect = {
+			country_event = {
+				id = ME_china_generic_events.6
+			}
+		}
+	}
+	
+	nchina_huanan = {
+		icon = mission_junk_boat
+		required_missions = { nchina_eoc }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = guangdong_area
+				area = west_guangdong_area
+				area = guangxi_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			guangdong_area = {
+				type = all
+				owned_by = ROOT
+			}
+			west_guangdong_area = {
+				type = all
+				owned_by = ROOT
+			}
+			guangxi_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = nchina_reign
+				duration = 9125
+			}
+		}
+	}
+	nchina_xinan = {
+		icon = mission_junk_boat
+		required_missions = { nchina_huanan }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = yun_gui_area
+				area = chuannan_area
+				area = yun_gui_borderland_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			yun_gui_area = {
+				type = all
+				owned_by = ROOT
+			}
+			chuannan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			yun_gui_borderland_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			tibet_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			663 = { #guangnan
+				add_base_production = 3
+			}
+			662 = { #yunnan
+				add_base_production = 3
+				add_province_modifier = {
+					name = nchina_yunnan
+					duration = -1
+				}
+			}
+			675 = { #umung
+				add_base_production = 3
+			}
+		}
+	}
+	nchina_tibet = {
+		icon = mission_junk_boat
+		required_missions = { nchina_xinan }
+		position = 5
+		provinces_to_highlight = {
+			region = tibet_region
+			NOT = { owns_or_subject_of = ROOT }
+		}
+		trigger = {
+			tibet_region = {
+				type = all
+				owns_or_subject_of = ROOT
+			}
+		}
+		effect = {
+			677 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 30
+					key = NCHINA_LHASA
+				}
+			}
+		}
+	}
+}
+
+north_china_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR  = {
+			tag = CSH
+			tag = QIN
+			tag = JIN
+			tag = LNG
+			tag = TNG
+			tag = YAN
+			tag = QIC
+		}
+	}
+	has_country_shield = yes
+	
+	nchina_north = {
+		icon = mission_junk_boat
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			owner = {
+				is_neighbor_of = ROOT
+				has_reform = steppe_horde
+				AND = {
+					NOT = { alliance_with = ROOT }
+					NOT = { is_subject_of = ROOT }
+					NOT = { truce_with = ROOT }
+				}
+			}
+		}
+		trigger = {
+			stability = 1
+			custom_trigger_tooltip = {
+				tooltip = nchina_neighbor_hordes.tt
+				all_neighbor_country = {
+					OR = {
+						AND = {
+							has_reform = steppe_horde
+							OR = {
+								alliance_with = ROOT
+								is_subject_of = ROOT
+								truce_with = ROOT
+							}
+						}
+						NOT = { has_reform = steppe_horde }
+					}
+				}			
+			}
+		}
+		effect = {
+			custom_tooltip = nchina_north_reward.tt
+			tooltip = {
+				add_mil_power = 150
+			}
+			custom_tooltip = nchina_north_reward_2.tt
+			tooltip = {
+				add_dip_power = 150
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						any_subject_country = {
+							has_reform = steppe_horde
+						}
+					}
+					add_mil_power = 150
+				}
+			}
+			ordos_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			inner_mongolia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			chahar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			eastern_mongolia = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			cicigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			liaoning_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nchina_eoc = {
+		icon = mission_junk_boat
+		required_missions = { 
+			nchina_plain
+			nchina_north
+		}
+		position = 4
+		provinces_to_highlight = {
+			owner = {
+				NOT = { tag = ROOT }
+				is_emperor_of_china = yes
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Mandate of Heaven"
+					any_country = {
+						is_emperor_of_china = yes
+					}
+				}
+				is_emperor_of_china = yes
+				else = {
+					government_rank = 3
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Mandate of Heaven"
+				}
+				add_mandate = 15
+			}
+			else = {
+				add_stability_or_adm_power = yes 
+			}
+			north_china_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_china_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { area = taiwan_area }
+				}
+				add_permanent_claim = ROOT
+			}
+			xinan_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nchina_zhongnan = {
+		icon = mission_junk_boat
+		required_missions = { nchina_eoc }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = jiangxi_area
+				area = hunan_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			jiangxi_area = {
+				type = all
+				owned_by = ROOT
+			}
+			hunan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = nchina_state_cost
+				duration = -1
+			}
+		}
+	}
+	
+	nchina_world_port = {
+		icon = mission_junk_boat
+		required_missions = { nchina_zhongnan }
+		position = 6
+		provinces_to_highlight = {
+			province_id = 667 #canton
+		}
+		trigger = {
+			667 = {
+				development = 30
+				has_building = stock_exchange
+				has_building = grand_shipyard
+				has_building = grand_shipyard
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					province_has_center_of_trade_of_level = 3
+				}
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = nchina_foreign_trade
+				duration = 9125
+			}
+		}
+	}
+	
+	nchina_minorities = {
+		icon = mission_junk_boat
+		required_missions = { nchina_world_port }
+		position = 7
+		provinces_to_highlight = {
+			region = xinan_region
+			NOT = { culture_group = east_asian }
+		}
+		trigger = {
+			xinan_region = {
+				type = all
+				owned_by = ROOT
+				NOT = { nationalism = 1 }
+				NOT = { local_autonomy = 30 }
+				has_building = courthouse
+			}
+			guangxi_area = {
+				type = all
+				owned_by = ROOT
+				NOT = { nationalism = 1 }
+				NOT = { local_autonomy = 30 }
+				has_building = courthouse
+			}
+		}
+		effect = {
+			add_adm_power = 25
+			country_event = {
+				id = ME_china_generic_events.7
+			}
+		}
+	}
+}
+
+north_china_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR  = {
+			tag = CSH
+			tag = QIN
+			tag = JIN
+			tag = LNG
+			tag = TNG
+			tag = YAN
+			tag = QIC
+		}
+	}
+	has_country_shield = yes
+	
+	nchina_manchu = {
+		icon = mission_junk_boat
+		required_missions = { 
+			nchina_north
+		}
+		position = 2
+		provinces_to_highlight = {
+			area = liaoning_area
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			anhui_area = {
+				type = all
+				owned_by = ROOT
+			}
+			OR = {
+				accepted_culture = manchu
+				accepted_culture = manchu_new
+			}
+		}
+		effect = {
+			manchuria_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					is_empty = no
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nchina_manchu_2 = {
+		icon = mission_junk_boat
+		required_missions = { 
+			nchina_manchu
+		}
+		position = 2
+		provinces_to_highlight = {
+			region = manchuria_region
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 35
+				region = manchuria_region
+			}
+		}
+		effect = {
+			korea_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					is_empty = no
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					any_province = {
+						culture = manchu
+					}
+				}
+				country_event = {
+					id = ME_china_generic_events.2
+				}
+			}
+		}
+	}
+	
+	nchina_korea = {
+		icon = mission_junk_boat
+		required_missions = { 
+			nchina_manchu_2
+			nchina_eoc
+		}
+		position = 5
+		provinces_to_highlight = {
+			region = korea_region
+			NOT = { owns_or_subject_of = ROOT }
+		}
+		trigger = {
+			OR = {
+				korea_region = {
+					type = all
+					owned_by = ROOT
+				}
+				KOR = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = nchina_korea.tt
+			tooltip = {
+				country_event = {
+					id = ME_china_generic_events.3
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						KOR = {
+							is_subject_of = ROOT
+						}
+					}
+					country_event = {
+						id = ME_china_generic_events.3
+					}
+				}
+			}
+			add_dip_power = 50
+		}
+	}
+}

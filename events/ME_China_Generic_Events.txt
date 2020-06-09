@@ -1,0 +1,330 @@
+#########
+#Made by claivin for Missions Expanded
+#########
+
+namespace = ME_china_generic_events
+
+country_event = { #restoring the great wall (JIN)
+	id = ME_china_generic_events.1
+	title = ME_china_generic_events.1.t
+	desc = ME_china_generic_events.1.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		#triggered by mission nchina_inner_mongolia
+	}
+	
+	option = { #restore jin era wall
+		name = ME_china_generic_events.1.a
+		add_mil_power = -50
+		chahar_area = {
+			add_province_modifier = {
+				name = nchina_jin_wall
+				duration = -1
+			}
+		}
+		eastern_mongolia = {
+			add_province_modifier = {
+				name = nchina_jin_wall
+				duration = -1
+			}
+		}
+		cicigar_area = {
+			add_province_modifier = {
+				name = nchina_jin_wall
+				duration = -1
+			}
+		}
+	}
+	
+	option = { #restore jin era wall
+		name = ME_china_generic_events.1.b
+		add_country_modifier = {
+			name = nchina_no_jin_wall
+			duration = 3650
+		}
+	}
+}
+
+country_event = { #assimiliating the jurchens
+	id = ME_china_generic_events.2
+	title = ME_china_generic_events.2.t
+	desc = ME_china_generic_events.2.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		#triggered by mission nchina_manchu_2
+	}
+	
+	option = { #convert jurchen to manchu
+		name = ME_china_generic_events.2.a
+		add_dip_power = 100
+		custom_tooltip = manchu_culture_tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					culture = manchu
+				}
+				change_culture = manchu_new
+			}
+			every_country = {
+				limit = {
+					primary_culture = manchu
+				}
+				change_primary_culture = manchu_new
+			}
+		}
+	}
+}
+
+country_event = { #Peace of <korean capital>
+	id = ME_china_generic_events.3
+	title = ME_china_generic_events.3.t
+	desc = ME_china_generic_events.3.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		#triggered by mission nchina_manchu_2
+	}
+	
+	option = { #friends with korea.
+		name = ME_china_generic_events.3.a
+		custom_tooltip = nchina_korea_peace.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = korea_region
+				}
+				cede_province = KOR
+				add_core = KOR
+				remove_core = ROOT
+				remove_claim = ROOT
+			}
+		}
+		KOR = {
+			add_historical_friend = ROOT
+		}
+		add_historical_friend = KOR
+		add_country_modifier = {
+			name = nchina_korea
+			duration = -1
+		}
+	}
+	
+	option = { #not friends with korea.
+		name = ME_china_generic_events.3.b
+		add_mil_power = 50
+	}
+}
+
+country_event = { #Taming the Yellow River
+	id = ME_china_generic_events.4
+	title = ME_china_generic_events.4.t
+	desc = ME_china_generic_events.4.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		#triggered by mission nchina_dikes
+	}
+	
+	option = { #we will wait and see
+		name = ME_china_generic_events.4.a
+		custom_tooltip = nchina_yellow_river_event.tt
+		hidden_effect = {
+			country_event = {
+				id = ME_china_generic_events.5
+				days = 1825
+				random = 365
+			}
+		}
+		add_country_modifier = {
+			name = nchina_dike_construction
+			duration = 1825
+		}
+	}
+	
+	option = { #we cannot wait
+		name = ME_china_generic_events.4.b
+		shandong_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_hasty_dikes
+				duration = 9125
+			}
+		}
+		north_henan_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_hasty_dikes
+				duration = 9125
+			}
+		}
+		henan_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_hasty_dikes
+				duration = 9125
+			}
+		}
+		jiangsu_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_hasty_dikes
+				duration = 9125
+			}
+		}
+	}
+}
+
+country_event = { #Taming the Yellow River - followup
+	id = ME_china_generic_events.5
+	title = ME_china_generic_events.5.t
+	desc = ME_china_generic_events.5.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		#triggered by ME_china_generic_events.4
+	}
+	
+	option = { #pay off
+		name = ME_china_generic_events.5.a
+		shandong_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_dikes
+				duration = -1
+			}
+		}
+		north_henan_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_dikes
+				duration = -1
+			}
+		}
+		henan_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_dikes
+				duration = -1
+			}
+		}
+		jiangsu_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = nchina_dikes
+				duration = -1
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = shandong_area
+					area = north_henan_area
+					area = henan_area
+					area = jiangsu_area
+				}
+				trade_goods = grain
+			}
+			add_base_production = 2
+		}
+	}
+}
+
+country_event = { #qufu - confucian holy sites
+	id = ME_china_generic_events.6
+	title = ME_china_generic_events.6.t
+	desc = ME_china_generic_events.6.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		#triggered by mission nchina_qufu
+	}
+	
+	option = { #pay off
+		name = ME_china_generic_events.6.a
+		custom_tooltip = nchina_qufu.tt
+		custom_tooltip = nchina_qufu.tt2
+		tooltip = {
+			2140 = {
+				add_province_modifier = {
+					name = nchina_dummy_qufu_1
+					duration = -1
+				}
+			}
+		}
+		custom_tooltip = nchina_qufu.tt3
+		tooltip = {
+			2140 = {
+				add_province_modifier = {
+					name = nchina_dummy_qufu_2
+					duration = -1
+				}
+			}
+		}
+		
+		hidden_effect = {
+			2140 = {
+				add_province_triggered_modifier = religious_center_qufu
+				add_province_triggered_modifier = me_qufu
+			}
+		}
+	}
+}
+
+country_event = { #minority affairs
+	id = ME_china_generic_events.7
+	title = ME_china_generic_events.7.t
+	desc = ME_china_generic_events.7.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		#triggered by mission nchina_minorities
+	}
+	
+	option = { #accept
+		name = ME_china_generic_events.7.a
+		add_dip_power = 100
+		add_country_modifier = {
+			name = nchina_culture_accpetance
+			duration = -1
+		}
+	}
+	option = { #persecute
+		name = ME_china_generic_events.7.b
+		add_country_modifier = {
+			name = nchina_culture_convert
+			duration = 9125
+		}
+	}
+}

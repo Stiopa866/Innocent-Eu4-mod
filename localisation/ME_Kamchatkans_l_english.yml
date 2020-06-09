@@ -1,0 +1,62 @@
+﻿l_english:
+#written by claivin for Missions Expanded
+
+ KCH: "Koryaks"
+ EVK_ADJ: "Koryak"
+ 
+#events
+ ME_Kamchatkan_Events.1.t: "The Great Migration"
+ ME_Kamchatkan_Events.1.d: "We have shown that the Eastern Lands are teeming with with life and of bountiful game. The elder Chiefs of the Federation have gathered to discuss a proposition: to move the seat of the Chiefdom to the East. They argue that the lands here are too dangerous, with too many potential invaders, and that despite leaving behind our homelands, we can carry the memory of them within our oral traditions. Understandably, the reception is mixed; this is a turning point for our nation, after all."
+ ME_Kamchatkan_Events.1.a: "A leap of faith."
+ ME_Kamchatkan_Events.1.b: "We must preserve our motherland."
+ 
+#modifiers
+ KCH_kamchatkan_faith: "Blessings of Naiinyinen"
+ desc_KCH_kamchatkan_faith: "The Supreme Being watches over us all."
+ 
+ KCH_great_migration: "The Great Migration"
+ desc_KCH_great_migration: "We will move Eastward."
+ 
+#decisions
+ form_koryak_nation_title: "Form Koryak Federation"
+ form_koryak_nation_desc: "The Koryak peoples of Kamchatka were once quite literally wide spread and disparate. As our skirmishes evolved into all out war amongst the Koryak tribes, one has risen to the top: Us. We shall join these far-flung tribes under a single central authority."
+ kch_formation_req.tt: "All Kamchatkan and Yukaghir nations are either vassals of §Y[Root.GetName]§! or do not exist."
+
+#missions
+ KCH_feudalism_title: "Conquest of Kamchatka"
+ KCH_feudalism_desc: "The peninsula is a wide and sparsely inhabited expanse. Our tribe can no longer be content with sharing the few resources of the continent with the lesser tribes."
+ 
+ KCH_reindeer_title: "Gather the Herd"
+ KCH_reindeer_desc: "Reindeer are not often kept in large groups, as it is unnecessary. However, if we are to defend our tribesmen from outsiders, we should consider utilizing them like southerners utilize horses."
+ 
+ KCH_survey_title: "Siberian Land Survey"
+ KCH_survey_desc: "We must map out the surrounding territories and devise clear paths of travel between the settlements we have."
+ 
+ KCH_forcelimit_title: "Rally the Tribes"
+ KCH_forcelimit_desc: "We must gather the tribesmen to secure our way of life against foreign threats."
+ 
+ KCH_grow_title: "Assimilate Tribes"
+ KCH_grow_desc: "The Tribe has grown considerably under the guidance of the Chief. Soon our tribe and people will be One."
+ 
+ KCH_jurchen_title: "Return to Manchuria"
+ KCH_jurchen_desc: "Our people once occupied vast swathes of land all the way doen to Manchuria. They were displaced from this region by the Evenks, but the time is now to return in force."
+ EVK_enables_manchu_form.tt: "§Y[Root.GetName]§! owns at least §Y10§! provinces in the §YManchuria§! region"
+ 
+ KCH_shamans_title: "Faith of the Tribe"
+ KCH_shamans_desc: "We people are widespread and may follow any variety of faiths - even our own ancestral beliefs are un-centralized. We should promote a single faith to increase our commonalities and unity."
+ 
+ KCH_bering_title: "Cross the Strait"
+ KCH_bering_desc: "To the west lies a narrow strait across which lies unknown lands. To most, it would be difficult task to cross, but our people are a skilled and worthy one to overcome this challenge."
+ 
+ KCH_siberian_empire_title: "Siberian Empire"
+ KCH_siberian_empire_desc: "From the harsh taigas of Siberia rise a powerful nation. Against all odds we have managed to fend off powerful steppe nomads, wild clansmen, and western invaders."
+ 
+ KCH_church_title: "Create a Holy Site"
+ KCH_church_desc: "We must create a place where our worshipers can gather and commune. Oral traditions are well and good, but what good are they if we can't tell them to anyone?"
+ 
+ KCH_capital_title: "Defend [Root.Capital.GetName]"
+ KCH_capital_desc: "[Root.Capital.GetName] is the center of our tribe, and yet it sits open to for any enemy to simply take. We should fortify and prepare."
+ 
+ KCH_new_world_title: "Settle the Eastern Lands"
+ KCH_new_world_desc: "There is evidence to show that the Eastern Lands are more vast than we may have thought. Wide open areas, warm weather, vast natural landscapes... What more can we ask for?"
+ kch_will_move_capital.tt: "You will be given a choice to move your capital to America."

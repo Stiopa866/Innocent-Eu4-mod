@@ -1,0 +1,107 @@
+#########
+#Made by claivin for Missions Expanded Mod
+#########
+
+udege_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			was_tag = NHX
+			tag = NHX
+		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+	}
+	has_country_shield = yes
+	
+	NHX_unite_yeren = {
+		icon = me_mission_manchu_man
+		required_missions = {}
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { units_in_province = ROOT }
+		}
+		position = 1
+		trigger = {
+			stability = 1
+			legitimacy_equivalent = 90
+			all_owned_province = {
+				units_in_province = ROOT
+			}
+			army_size_percentage = 1.0
+		}
+		effect = {
+			capital_scope = {
+				add_base_manpower = 4
+			}
+			add_manpower = 2
+		}
+	}
+	
+	NHX_buriats = {
+		icon = me_mission_manchu_buriat
+		required_missions = {
+			NHX_unite_yeren
+		}
+		position = 2
+		provinces_to_highlight = {
+			area = ilan_hala_area
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			OR = {
+				NOT = { exists = SOL }
+				overlord_of = SOL
+			}
+			OR = {
+				NOT = { exists = NVK }
+				overlord_of = NVK
+			}
+			ilan_hala_area = {
+				type = all
+				country_or_subject_holds = ROOT
+			}
+		}
+		effect = {
+			east_siberia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_siberia_region = {
+				discover_country = ROOT
+			}
+		}
+	}
+	
+	NHX_siberian_tribes = {
+		icon = me_mission_manchu_siberia
+		required_missions = {
+			NHX_buriats
+		}
+		position = 3
+		provinces_to_highlight = {
+			region = east_siberia_region
+			is_empty = no
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			east_siberia_region = {
+				type = all
+				OR = {
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = MCH_siberian_traditions
+				duration = -1
+			}
+		}
+	}
+}

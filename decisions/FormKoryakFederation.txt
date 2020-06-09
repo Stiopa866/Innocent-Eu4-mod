@@ -1,0 +1,98 @@
+country_decisions = {
+
+	form_koryak_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = KCH }
+			NOT = { has_country_flag = has_formed_koryak_fed }
+			was_never_end_game_tag_trigger = yes
+			is_colonial_nation = no
+			normal_or_historical_nations = yes
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			OR = {
+				primary_culture = kamchatkan
+				primary_culture = yukagyr
+			}
+		}
+		provinces_to_highlight = {
+			owner = {
+				OR = {
+					primary_culture = kamchatkan
+					primary_culture = yukagyr
+				}
+			}
+			NOT = { owns_or_non_sovereign_subject_of = ROOT }
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = kch_formation_req.tt 
+				all_country = {
+					OR = {
+						AND = {
+							NOT = { primary_culture = kamchatkan }
+							NOT = { primary_culture = yukagyr }
+						}
+						AND = {
+							OR = {
+								primary_culture = kamchatkan
+								primary_culture = yukagyr
+							}
+							OR = {
+								exists = no
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+			}
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			stability = 3
+		}
+		effect = {
+			change_tag = KCH
+			if = {
+				limit = {
+					is_tribal = yes
+				}
+				add_government_reform = siberian_tribe_federation
+			}
+			set_country_flag = has_formed_koryak_fed
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 2
+					}
+				}
+				set_government_rank = 2
+			}
+			every_subject_country = {
+				limit = {
+					OR = {
+						primary_culture = kamchatkan
+						primary_culture = yukagyr
+					}
+				}
+				every_owned_province = {
+					add_core = ROOT
+					cede_province = ROOT
+				}
+			}
+			#swap_non_generic_missions = yes
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

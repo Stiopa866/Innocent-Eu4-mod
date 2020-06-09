@@ -1,0 +1,202 @@
+﻿l_english:
+#Made by claivin for Missions Expanded
+#modifiers
+ nchina_fortify_modifier: "Garrison Duty"
+ desc_nchina_fortify_modifier: "We have to defend against the nomadic barbarians!"
+ 
+ nchina_grain: "Stable Grain Supplies"
+ desc_nchina_grain: "Let them eat bread!"
+ 
+ nchina_yellow_river: "Land of the Yellow Earth"
+ desc_nchina_yellow_river: "The fertile lands of the Central Plain are nourished by the mineral rich Yellow River."
+ 
+ nchina_jin_wall: "Restored Jin Dynasty Wall"
+ desc_nchina_jin_wall: "We fixed the big ol' wall."
+ 
+ nchina_no_jin_wall: "Reallocated Reconstruction Funds"
+ desc_nchina_no_jin_wall: "The money went to better use, I guess."
+
+ nchina_korea: "Tributary Diplomacy"
+ desc_nchina_korea: "Be nice, get nice stuff."
+ 
+ nchina_dike_construction: "Yellow River Public Works Funding"
+ desc_nchina_dike_construction: "It ain't cheap."
+
+ nchina_hasty_dikes: "Hastily Constructed Dikes"
+ desc_nchina_hasty_dikes: "Cut twice, measure once! I think..."
+
+ nchina_dikes: "Yellow River Works"
+ desc_nchina_dikes: "Sturdily constructed riverside fortifications and drainage canals. Who can say it doesn't work?"
+
+ religious_center_qufu: "Religious Center"
+ desc_religious_center_qufu: "The importance of this province as a Religious Center will make it very difficult to convert."
+
+ me_qufu: "Custodian of The San Kong"
+ desc_me_qufu: "We are in control of Qufu, birthplace and former home of Confucius. Here lie the three Holy Sites of Confucianism."
+ 
+ nchina_yangtze_control: "Control of the Yangtze"
+ desc_nchina_yangtze_control: "Controlling rivers is one of the key strategies in all of history."
+
+ nchina_hwai_irrigation: "Hwai River Irrigation"
+ desc_nchina_hwai_irrigation: "The Hwai River nourishes the farmlands of the region."
+
+ nchina_dummy_qufu_1: "Religious Center"
+ desc_nchina_dummy_qufu_1: "blah"
+
+ nchina_dummy_qufu_2: "Custodian of The San Kong"
+ desc_nchina_dummy_qufu_2: "blah"
+ 
+ nchina_build_factories: "Zhejiang Spirit"
+ desc_nchina_build_factories: "Build, build, build!"
+
+ nchina_industrial: "Economic Development Zones"
+ desc_nchina_industrial: "We should plan out our provinces for the best way to develop their local economies."
+ 
+ nchina_reign: "Reign in The South"
+ desc_nchina_reign: "We will show them our benevolent ways, whether they like it or not."
+ 
+ nchina_yunnan: "Kingdom of Zinc"
+ desc_nchina_yunnan: "The Zinc deposits of Gejiu is the greatest in all of China."
+ 
+ NCHINA_LHASA: "Gateway to the West"
+ 
+ nchina_state_cost: "Hunan Offices"
+ desc_nchina_state_cost: "As they say in real estate, 'location, location, location!'"
+ 
+ nchina_culture_convert: "Settlement of Xinan"
+ desc_nchina_culture_convert: "We will send our settlers to the frontier and make it ours."
+ 
+ nchina_culture_accpetance: "Xinan Autonomous Region"
+ desc_nchina_culture_accpetance: "It pays to be nice!"
+ 
+ nchina_uni_modifier: "Funded Scholarship"
+ desc_nchina_uni_modifier: "Give money, get science."
+ 
+ nchina_foreign_trade: "Foreign Trade"
+ desc_nchina_foreign_trade: "Get the boats! There's money at stake!"
+ 
+ nchina_navy_modifier: "New Merchant Fleet"
+ desc_nchina_navy_modifier: "Set Sail!"
+ 
+#missions
+ nchina_fortify_title: "A New Kingdom"
+ nchina_fortify_desc: "A new Chinese kingdom has arisen from the seat of power in the city of [Root.Capital.GetCapitalName]. Our armies are small and defenses weak, so we must bide our time and defend.\n\n'You can ensure the safety of your defense if you only hold positions that cannot be attacked.' ~ Art of War 6:7"
+ nchina_fortify.tt: "§Y[Root.GetName]§! gains a permanent claim on §Yevery neighbor province in the North China region§!."
+ 
+ nchina_wheat_title: "Wheat Granaries"
+ nchina_wheat_desc: "Wheat and bread is the of the lifeblood of the North. Without the grains, armies cannot march, subjects cannot work, and the state does not function. We must protect not only against the northern nomads, but the ever present danger of famine.\n\n 'Bring war material with you from home, but forage on the enemy. Thus the army will have food enough for its needs.' ~ Art of War 2:9"
+ 
+ nchina_north_title: "Protect Against Nomads"
+ nchina_north_desc: "The nomadic steppe hordes of the North are an ever present threat to the vulnerable Central Plain of North China. Either by Pen or Sword, something has to be done.\n\n'Peace proposals unaccompanied by a sworn covenant indicate a plot.' ~ Art of War 9:26"
+ nchina_neighbor_hordes.tt: "§YAll neighbor hordes§! have either an alliance, truce, or is a subject of §Y[Root.GetName]§!"
+ nchina_north_reward.tt: "If you have at least one steppe nomad subject:"
+ nchina_north_reward_2.tt: "If you have at least one steppe nomad ally:"
+
+ nchina_assert_control_title: "Huabei Supremacy"
+ nchina_assert_control_desc: "Like the Era of the Five Dynasties, only one power can truly exist in the North of China. The terrain is indefensible and the fields full of bounty. Such a scenario favors unilateral sovereignty.\n\n'But a kingdom that has once been destroyed can never come again into being' ~ Art of War 12:21"
+ assert_control.tt: "Has the most development of any country whose capital is in the §YNorth China§! region"
+
+ nchina_plain_title: "Control Zhongyuan"
+ nchina_plain_desc: "The Central Plain, Zhongyuan, is the cradle of Chinese Civilization. Historically, every successful polity had to ensure control over this region, as it is home some of the richest, most fertile lands in all of China.\n\n'Make forays in fertile country in order to supply your army with food.' ~ Art of War 11:21"
+ 
+ nchina_beijing_title: "March on [1816.GetName]"
+ nchina_beijing_desc: "The seat of the Ming Emperors is within reach...\n\n'The enlightened ruler lays his plans well ahead; the good general cultivates his resources.' ~ Art of War 12:16"
+ 
+ nchina_eoc_title: "Claim the Mandate"
+ nchina_eoc_desc: "Domination of the Central Plain clearly shows that we are a fit successor to the Mandate of Heaven. No such great power of North China had ever existed without doing so.\n\n'The enlightened ruler lays his plans well ahead; the good general cultivates his resources.' ~ Art of War  12:16"
+ 
+ nchina_inner_mongolia_title: "Secure Inner Mongolia"
+ nchina_inner_mongolia_desc: "Diplomacy is a fickle beast, and promises of peace can only maintain for so long. If we wish to live in peace we must prepare for war.\n\n'Ground which can be freely traversed by both sides is called ACCESSIBLE. With regard to ground of this nature, be before the enemy in occupying the raised and sunny spots, and carefully guard your line of supplies.' ~ Art of War 10:2-3"
+ 
+ nchina_manchu_title: "Dongbei Campaign"
+ nchina_manchu_desc: "Dongbei, or The Northeast, is one of the extremities of China. The people there are rugged and tough, but the luckily the greatest population centers are located near, in the south.\n\n'...We are not fit to lead an army on the march unless we are familiar with the face of the country—its mountains and forests, its pitfalls and precipices, its marshes and swamps.' ~ Art of War 11:52"
+ 
+ nchina_manchu_2_title: "Assimilate the Jurchens"
+ nchina_manchu_2_desc: "Upon further inspection, the Jurchens may not be as unlike us as we think.\n\n'We cannot enter into alliance with neighboring princes until we are acquainted with their designs... ~ Art of War 11:52"
+ 
+ nchina_korea_title: "Rule Chaoxian"
+ nchina_korea_desc: "The Korean Kingdom is an insular society, largely isolated from the affairs of even it's direct neighbors. We can allow them to continue, with the understanding that we our their sovereign, or something more... direct.\n\n'Therefore the skillful leader subdues the enemy's troops without any fighting; he captures their cities without laying siege to them; he overthrows their kingdom without lengthy operations in the field.' ~ Art of War 3:6"
+ nchina_korea.tt: "If Korea is a Subject:"
+ 
+ nchina_dikes_title: "Tame Huang He"
+ nchina_dikes_desc: "The Yellow River floods as reliably as the sun sets; traditionally the response to deal with this has been to construct levees alongside its path."
+ 
+ nchina_hwai_title: "On the River Hwai"
+ nchina_hwai_desc: "The Hwai river is the most prone to flooding in all of China. To control it is folly; instead we should focus on harnessing this natural phenomenon by constructing irrigation canals and tributaries to regional farmlands."
+ 
+ nchina_yangtze_title: "Down the Yangthze"
+ nchina_yangtze_desc: "The Yangthze River both separates the North from the South as much as it binds all of China together. The river is instrumental to the economy of the nation, transport across continent, and creation of the contemporary state."
+ 
+ nchina_qufu_title: "Restore San Kong"
+ nchina_qufu_desc: "Qufu has been in a state of neglect. A town as important as this should not befall such a tragic fate."
+ 
+ nchina_southeast_title: "Dongnan Campaign"
+ nchina_southeast_desc: "Southeast China, despite its terrain, is one of the most industrious and wealthy regions of China. Since the time of the Song, it has been associated with Chinese luxury."
+ 
+ nchina_huanan_title: "Huanan Campaign"
+ nchina_huanan_desc: "South China lies far from the political centers in the East and North; the region also happens to host the most international trade and foreign wealth. As such, it has had a long history of autonomy even under other dynasties."
+ 
+ nchina_zhongnan_title: "Zhongnan Campaign"
+ nchina_zhongnan_desc: "South Central China is the center of the Chinese nation, equally accessible from all parts of China. Even if the political and population centers lie elsewhere, this would be a key location of administrative offices."
+ 
+ nchina_xinan_title: "Xinan Campaign"
+ nchina_xinan_desc: "Formerly the Kingdom of Dali, Xinan has similarly seen long eras of independence and autonomy. Furthermore, the people of the region are foreign and adhere their local faiths. It may be part of China, but it is a worlds away from the familiar East."
+ 
+ nchina_navy_title: "The [Root.GetName] Navy"
+ nchina_navy_desc: "The Seas are the gateway to the rest of the world. Just over the horizon lie great trade opportunities."
+ 
+ nchina_southchina_factories_title: "Zhejiang Factories"
+ nchina_southchina_factories_desc: "To stay still is to move backwards. We must stay on the edge of modernity lest we be left behind by the rest of the world."
+ 
+ nchina_taiwan_title: "Invade Taiwan"
+ nchina_taiwan_desc: "A small island that has long been separate from the Chinese sphere of influence. A curious anomaly, considering it's immediate proximity to one of the most prosperous regions of the country."
+ 
+ nchina_world_port_title: "International Port"
+ nchina_world_port_desc: "Canton is a world-class port that is more or less the front-facing image of the Chinese Empire. We must restore the port city to its peak brilliance."
+ 
+ nchina_tibet_title: "Kingdom of Monks"
+ nchina_tibet_desc: "In the mountains, the Monks of Tibet exercise great independence. While they present no threat at the moment, they also effectively control the source of the Yangtzhe and Yellow Rivers, lifebloods of the Chinese Empire."
+ 
+ nchina_minorities_title: "Minority Affairs"
+ nchina_minorities_desc: "The people of the Southwest are quite different from the Han and other regional Chinese in the East. Should we embark on a policy of acceptance or displacement?"
+ 
+ nchina_uni_title: "Promote Scholarship"
+ nchina_uni_desc: "Confucian ideals dictate a great focus towards scholarship and meritocracy. We should build places for the intellectuals of China to gather and develop new ideas in philosophy and the natural sciences."
+ 
+#events
+ ME_china_generic_events.1.t: "Restoration of the Jin Era Wall"
+ ME_china_generic_events.1.d: "The old Jurchen Jin Dynasty was a non-Han state hailing from the Northeast in Jilin and Heilongjiang. They ruled North China for roughly a century before succumbing to Mongol rule. During their time, The Great Wall saw a significant expansion into Inner Mongolia stretching far north to the reaches of Heilongjiang. Originally, this was meant to secure against Mongolian steppe nomads..."
+ ME_china_generic_events.1.a: "Second time's the charm!"
+ ME_china_generic_events.1.b: "We would be better off allocating that money elsewhere."
+ 
+ ME_china_generic_events.2.t: "Sinicization of the Jurchens"
+ ME_china_generic_events.2.d: "The Jurchens may be a barbarous tribal people now, but they have shown that they are fully willing to adopt Han Chinese customs. In fact, the Jin Dynasty was well on it's way to become fully assimilated into the Chinese cultural sphere before its untimely end by the Mongols. Let unity and prosperity reign."
+ ME_china_generic_events.2.a: "They shall be known as 'Manchu'."
+ 
+ ME_china_generic_events.3.t: "Peace of [KOR.Capital.GetName]"
+ ME_china_generic_events.3.d: "The subjugation of Korea may not have been bloodless, but [KOR.Monarch.GetTitle] [KOR.Monarch.GetName] understands how the game is played and has accepted defeat with grace; knowing [KOR.Monarch.GetSheHe] has lost, [KOR.Monarch.GetSheHe] is ready to accept terms of defeat, expecting a reasonable treaty."
+ ME_china_generic_events.3.a: "Let a new age begin."
+ ME_china_generic_events.3.b: "The [KOR.Monarch.GetTitle] is an enemy."
+ nchina_korea_peace.tt: "§YAll provinces§! in Korea region will be §Rceded§! to §YKorea§!.\n§YAll cores§! and §Yall claims§! of §Y[Root.GetName]§! on the §YKorea§! region will be §Rremoved§!."
+ 
+ ME_china_generic_events.4.t: "Yellow River Works"
+ ME_china_generic_events.4.d: "In an effort to prevent undue death and destruction, [Root.Monarch.GetTitle] [Root.Monarch.GetName] has commissioned the engineer [Root.Adm_Advisor] to devise a solution to at least limit the the effects of the Yellow River flooding. "
+ ME_china_generic_events.4.a: "We will wait and see."
+ ME_china_generic_events.4.b: "We cannot afford to wait."
+ nchina_yellow_river_event.tt: "Constructions will be complete in four to six years."
+ 
+ ME_china_generic_events.5.t: "Yellow River Works Completed"
+ ME_china_generic_events.5.d: "After many years, hundreds of miles of dikes, numerous outlet canals, hundreds of tens of thousands of workers, and hundreds of thousands of tons of material, the Yellow River construction projects are complete. While no man-made structure can last for eternity, it is possible that this one may outlast us all."
+ ME_china_generic_events.5.a: "Who knows how many lives have been saved..."
+ 
+ ME_china_generic_events.6.t: "Qufu, Home of Confucius"
+ ME_china_generic_events.6.d: "Born on the nearby Mount Ni, Confucius called this town his home over a thousand years ago. Here lie the San Kong, or the Three Confucian Holy Sites: Kong Miao, Kong Lin, and Kong Fu or, The Temple, Cemetery, and Family Mansion of Confucius.\n\nThe Temple of Confucius is the largest in all of China, and the second largest complex, behind only The Forbidden City. Officials and Emperors alike have visited to pay respects to Confucius.\n\nThe Cemetery of Confucius is a hallowed ground in which Confucius himself and thousands of his descendants are buried, with the oldest grave markers dating back to the Zhou.\n\nThe Family Mansion of Confucius is where the direct descendants of Confucius currently reside. They govern the largest private estate in China, and tend to the other two sites."
+ ME_china_generic_events.6.a: "I will pay a visit myself."
+ nchina_qufu.tt: "§Y[2140.GetName]§! will become a §YHoly Site§! for §YConfucianism§!.\n"
+ nchina_qufu.tt2: "While §Y[2140.GetName]§! is §YConfucian§!:"
+ nchina_qufu.tt3: "While §Y[Root.GetName]§! is §YConfucian§!:"
+ 
+ ME_china_generic_events.7.t: "People of the Frontier"
+ ME_china_generic_events.7.d: "The people of Xinan would be quite unfamiliar to the fairly metropolitan Han or other coastal Chinese. They are highly varied; their language is different, their traditions strange, and their religion an reminiscent of our own folk religions. There are simply too many to overlook, and they must be addressed."
+ ME_china_generic_events.7.a: "Leave it be, stability is best."
+ ME_china_generic_events.7.b: "Settle it."

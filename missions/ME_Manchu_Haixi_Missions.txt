@@ -1,0 +1,94 @@
+#########
+#Made by claivin for Missions Expanded Mod
+#########
+
+haixi_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			was_tag = MHX
+			tag = MHX
+		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+	}
+	has_country_shield = yes
+	
+	MHX_ming = {
+		icon = mission_junk_boat
+		required_missions = {}
+		position = 1
+		trigger = {
+			OR = {
+				NOT = { exists = MNG }
+				is_subject_of = MNG
+				AND = {
+					is_neighbor_of = MNG
+					reverse_has_opinion = {
+						who = MNG
+						value = 50
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = MCH_ming_trade
+				duration = 9125
+			}
+		}
+	}
+	MHX_girin = {
+		icon = mission_dominate_home_trade_node
+		required_missions = {
+			MHX_ming
+		}
+		provinces_to_highlight = {
+			province_id = 730
+		}
+		position = 2
+		trigger = {
+			730 = {
+				development = 20
+			}
+		}
+		effect = {
+			730 = {
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+	MHX_nomadic_traditions = {
+		icon = me_mission_manchu_mounted_soldier
+		required_missions = {
+			MHX_jurchen_eat_mjz
+		}
+		position = 3
+		provinces_to_highlight = {
+			province_id = 4201
+			NOT = { is_core = ROOT }
+		}
+		trigger = {
+			stability = 1
+			4201 = {
+				is_core = ROOT
+			}
+			OR = {
+				employed_advisor = { type = army_reformer }
+				employed_advisor = { type = army_organiser }
+				employed_advisor = { type = commandant }
+				employed_advisor = { type = quartermaster }
+				employed_advisor = { type = recruitmaster }
+				employed_advisor = { type = fortification_expert }
+				employed_advisor = { type = grand_captain }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = MCH_mhx_nomads
+				duration = 9125
+			}
+		}
+	}
+}
