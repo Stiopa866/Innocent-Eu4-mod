@@ -27,6 +27,7 @@ country_event = {
 		add_country_modifier = {
 			name = muscovy_muscovite_supremacy
 			duration = -1 #until the end of the war
+			desc = muscovy_muscovite_supremacy_tt
 		}
 	}
 }
@@ -528,7 +529,7 @@ country_event = {
 	option = {
 		name = ME_Muscovy_Events.70.a
 		
-		ai_chance = { factor = 7 }
+		ai_chance = { factor = 19 }
 		
 		add_stability = -1
 		
@@ -558,7 +559,7 @@ country_event = {
 	option = {
 		name = ME_Muscovy_Events.70.b
 		
-		ai_chance = { factor = 3 }
+		ai_chance = { factor = 1 }
 		
 		add_stability = -1
 		
@@ -570,9 +571,11 @@ country_event = {
 			dynasty = "Shemyaka"
 			claim = 20
 			adm = 1
+			max_random_adm = 1
 			dip = 5
+			max_random_dip = 5
 			mil = 3
-			fixed = yes
+			max_random_mil = 3
 			male = yes
 		}
 		hidden_effect = {
@@ -734,9 +737,11 @@ country_event = {
 			country_of_origin = BYZ
 			dynasty = "Palailogos"
 			adm = 4
+			max_random_adm = 4
 			dip = 3
+			max_random_dip = 3
 			mil = 1
-			fixed = yes
+			max_random_mil = 1
 			female = yes
 		}
 		

@@ -1,0 +1,423 @@
+namespace = ME_Greek_Minors_Events
+
+country_event = {
+	id = ME_Greek_Minors_Events.1
+	title = ME_Greek_Minors_Events.1.t
+	desc = ME_Greek_Minors_Events.1.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Greek_Minors_Events.1.a
+		
+		ai_chance = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				
+				has_country_flag = greek_crusaders_missions
+			}
+		}
+		
+		if = {
+			limit = { has_country_flag = greek_crusaders_missions }
+			
+			change_primary_culture = greek
+			change_religion = orthodox
+			clr_country_flag = greek_crusaders_missions
+			set_country_flag = greek_minors_missions
+			swap_non_generic_missions = yes
+			complete_mission = greek_minors_agonas
+			complete_mission = greek_minors_supremacy
+			
+			hidden_effect = {
+				set_variable = { which = num_of_won_battles value = 0 }
+				set_variable = { which = num_of_lost_battles value = 0 }
+			}
+		}
+		else = {
+			clr_country_flag = greek_minors_missions
+			custom_tooltip = ME_Greek_Minors_Events.1.tt
+		}
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.1.b
+		
+		ai_chance = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				
+				has_country_flag = greek_minors_missions
+			}
+		}
+		
+		if = {
+			limit = { has_country_flag = greek_minors_missions }
+			
+			change_religion = catholic
+			
+			if = {
+				limit = {
+					NOT = { culture_group = latin }
+				}
+				change_primary_culture = tuscan
+			}
+			
+			clr_country_flag = greek_minors_missions
+			set_country_flag = greek_crusaders_missions
+			swap_non_generic_missions = yes
+			complete_mission = greek_crusaders_supremacy
+		}
+		else = {
+			clr_country_flag = greek_crusaders_missions
+			custom_tooltip = ME_Greek_Minors_Events.1.tt
+		}
+	}
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.2
+	title = ME_Greek_Minors_Events.2.t
+	desc = ME_Greek_Minors_Events.2.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Greek_Minors_Events.2.a
+		
+		ai_chance = { factor = 0 }
+		
+		change_government = monarchy
+		add_government_reform = feudalism_reform
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.2.b
+		
+		ai_chance = { factor = 0 }
+		
+		change_government = republic
+		add_government_reform = oligarchy_reform
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.2.c
+		
+		ai_chance = { factor = 1 }
+		
+		add_stability_or_adm_power = yes
+	}
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.3
+	title = ME_Greek_Minors_Events.3.t
+	desc = ME_Greek_Minors_Events.3.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Greek_Minors_Events.3.a
+		
+		add_country_modifier = {
+			name = greek_minors_west
+			duration = -1 #Modifier goes away if you formed anyone else other than Greece
+		}
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.3.b
+		
+		add_country_modifier = {
+			name = greek_minors_warfare
+			duration = -1 #Modifier goes away if you formed anyone else other than Greece
+		}
+	}
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.4
+	title = ME_Greek_Minors_Events.4.t
+	desc = ME_Greek_Minors_Events.4.d
+	picture = xxx_eventPicture
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			has_country_modifier = greek_minors_west
+			has_country_modifier = greek_minors_warfare
+		}
+		NOT = { mission_completed = greek_minors_army }
+		NOT = { tag = GRE }
+	}
+	
+	immediate = {
+		remove_country_modifier = greek_minors_west
+		remove_country_modifier = greek_minors_warfare
+	}
+	
+	option = { }
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.5
+	title = ME_Greek_Minors_Events.5.t
+	desc = ME_Greek_Minors_Events.5.d
+	picture = xxx_eventPicture
+	hidden = yes
+	
+	trigger = {
+		has_country_modifier = greek_minors_prelude
+		NOT = { mission_completed = greek_minors_fleet }
+		NOT = { tag = GRE }
+	}
+	
+	immediate = { remove_country_modifier = greek_minors_prelude }
+	
+	option = { }
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.6
+	title = ME_Greek_Minors_Events.6.t
+	desc = ME_Greek_Minors_Events.6.d
+	picture = xxx_eventPicture
+	hidden = yes
+	
+	trigger = {
+		has_country_modifier = greek_minors_forces
+		NOT = { mission_completed = greek_minors_klephts }
+		NOT = { tag = GRE }
+	}
+	
+	immediate = { remove_country_modifier = greek_minors_forces }
+	
+	option = { }
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.7
+	title = ME_Greek_Minors_Events.7.t
+	desc = ME_Greek_Minors_Events.7.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Greek_Minors_Events.7.a
+		
+		add_yearly_manpower = 2
+		
+		add_country_modifier = {
+			name = greek_crusaders_revenge
+			duration = 9125 #25 years
+		}
+	}
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.8
+	title = ME_Greek_Minors_Events.8.t
+	desc = ME_Greek_Minors_Events.8.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = { clr_country_flag = greek_crusaders_forsaken }
+	
+	option = {
+		name = ME_Greek_Minors_Events.8.a
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 0
+				
+				is_at_war = yes
+			}
+			
+			modifier = {
+				factor = 0
+				
+				NOT = { manpower = 30 }
+			}
+		}
+		
+		add_manpower = -10
+		tooltip = {
+			FROM = { add_manpower = 10 }
+		}
+		
+		set_country_flag = mission_manpower
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.8.b
+		
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 0
+				
+				num_of_loans = 1
+			}
+			
+			modifier = {
+				factor = 0
+				
+				NOT = { treasury = 300 }
+			}
+		}
+		
+		add_treasury = -100
+		tooltip = {
+			FROM = { add_treasury = 100 }
+		}
+		
+		set_country_flag = mission_treasury
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.8.c
+		
+		ai_chance = { factor = 1 }
+		
+		tooltip = {
+			reverse_add_opinion = {
+				who = FROM
+				modifier = greek_crusaders_aid
+			}
+		}
+		
+		set_country_flag = mission_opinion
+	}
+	
+	after = {
+		FROM = {
+			country_event = { #[From.GetName] sends their regard
+				id = ME_Greek_Minors_Events.9
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.9
+	title = ME_Greek_Minors_Events.9.t
+	desc = ME_Greek_Minors_Events.9.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Greek_Minors_Events.9.a
+		
+		trigger = {
+			FROM = { has_country_flag = mission_manpower }
+		}
+		
+		add_manpower = 10
+		FROM = { clr_country_flag = mission_manpower }
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.9.b
+		
+		trigger = {
+			FROM = { has_country_flag = mission_treasury }
+		}
+		
+		add_treasury = 100
+		FROM = { clr_country_flag = mission_treasury }
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.9.c
+		
+		trigger = {
+			FROM = { has_country_flag = mission_opinion }
+		}
+		
+		add_opinion = {
+			who = FROM
+			modifier = greek_crusaders_aid
+		}
+		
+		FROM = { clr_country_flag = mission_opinion }
+	}
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.10
+	title = ME_Greek_Minors_Events.10.t
+	desc = ME_Greek_Minors_Events.10.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Greek_Minors_Events.10.a
+		
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			379 = {
+				NOT = { has_owner_religion = yes }
+			}
+		}
+		
+		palestine_area = {
+			change_religion = ROOT
+			change_culture = ROOT
+			add_devastation = 50
+		}
+	}
+	
+	option = {
+		name = ME_Greek_Minors_Events.10.b
+		
+		ai_chance = { factor = 0 }
+		
+		palestine_area = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+		
+		if = {
+			limit = { has_dlc = "Mandate of Heaven" }
+			379 = { add_prosperity = 50 }
+		}
+	}
+}
+
+country_event = {
+	id = ME_Greek_Minors_Events.11
+	title = ME_Greek_Minors_Events.11.t
+	desc = ME_Greek_Minors_Events.11.d
+	picture = xxx_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Greek_Minors_Events.11.a
+		
+		add_ruler_modifier = {
+			name = greek_crusaders_king
+			duration = -1
+		}
+		
+		custom_tooltip = ME_Greek_Minors_Events.11.tt
+		set_country_flag = knights_templar_flag
+	}
+}

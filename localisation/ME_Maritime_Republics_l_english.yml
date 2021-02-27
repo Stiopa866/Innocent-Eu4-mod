@@ -1,7 +1,7 @@
 ﻿l_english:
 #Events
  ME_Maritime_Republics_Events.2.T: "A Steady Timber Supply"
- ME_Maritime_Republics_Events.2.D: "Acquisition of our own domestic supply of quality timber will allow us to build vessels without having to rely on foreign sources. As such, the capacity of the Arsenal to supply our navy can be expanded greatly.\n\nIn addition to the obvious applications, our new supply of wood can also be used as wooden piles, meant for expanding Venezia and erecting new structures."
+ ME_Maritime_Republics_Events.2.D: "Acquisition of our own domestic supply of quality timber will allow us to build vessels without having to rely on foreign sources. As such, the capacity of the Arsenal to supply our navy can be expanded greatly.\n\nIn addition to the obvious applications, our new supply of wood can also be used as wooden piles, meant for expanding [Root.Capital.GetName] and erecting new structures."
  ME_Maritime_Republics_Events.2.OPT1: "Excellent"
 
  ME_Maritime_Republics_Events.3.T: "The Porta Magna"
@@ -15,12 +15,12 @@
  ME_Maritime_Republics_Events.4.OPT3: "New Oceans awaits us"
 
  ME_Maritime_Republics_Events.7.T: "The Goods of Cyprus"
- ME_Maritime_Republics_Events.7.D: "The formal annexation of the island of Cyprus has been a long time coming, with the various intertwining deals involving the Lusignan dynasty and the Republic. The territory has always been an excellent source of salt and grains to feed the homeland, but an debate has begun amongst the upper echelon of the Venetian bureaucracy on whether our efforts are better spent cultivating the fields or harvesting the salt pans. The Senate wishes to further our grip on the salt monopoly, while the Council of Ten wishes the focus on wheat exports to properly prepare for future shortages and famines."
+ ME_Maritime_Republics_Events.7.D: "The formal annexation of the island of Cyprus has been a long time coming, with the various intertwining deals involving the Lusignan dynasty and the Republic. The territory has always been an excellent source of salt and grains to feed the homeland, but an debate has begun amongst the upper echelon of the [Root.Culture.GetName] bureaucracy on whether our efforts are better spent cultivating the fields or harvesting the salt pans. The Senate wishes to further our grip on the salt monopoly, while the Council of Ten wishes the focus on wheat exports to properly prepare for future shortages and famines."
  ME_Maritime_Republics_Events.7.OPT1: "We need to keep that monopoly going!"
  ME_Maritime_Republics_Events.7.OPT2: "Follow the Council. What good is money if you can't eat?"
 
  ME_Maritime_Republics_Events.8.T: "Wealth of the Orient"
- ME_Maritime_Republics_Events.8.D: "Our re-entry as a major player in the spice trade has brought with it all the wealth and riches one might expect. Tales of Venezia are told from near and far, describing the opulent structures, extravagant citizens, and bountiful lifestyles. This would harken back to the height of our Republic, but that time is now."
+ ME_Maritime_Republics_Events.8.D: "Our re-entry as a major player in the spice trade has brought with it all the wealth and riches one might expect. Tales of [Root.Capital.GetName] are told from near and far, describing the opulent structures, extravagant citizens, and bountiful lifestyles. This would harken back to the height of our Republic, but that time is now."
  ME_Maritime_Republics_Events.8.OPT1: "A sight to behold!"
  ME_Maritime_Republics_Events.8.OPT2: "A sight to behold!"
 
@@ -34,7 +34,7 @@
  mr_production_quality_timber: "Production of Quality Timber"
 
 #Event Modifiers
- mr_the_arsenal: "Arsenale di Venezia"
+ mr_the_arsenal: "Arsenale Repubblicano"
  mr_piles_supplies: "Pile Supplies"
  mr_permanent_mercantile_fleet: "Permanent Mercantile Fleet"
  mr_permanent_fighting_fleet: "Permanent Fighting Fleet"

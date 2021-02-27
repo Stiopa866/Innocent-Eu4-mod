@@ -1,4 +1,4 @@
-name_space = ME_HRE_CB_Events
+namespace = ME_HRE_CB_Events
 
 country_event = {
 	id = ME_HRE_CB_Events.1

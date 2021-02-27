@@ -10,13 +10,7 @@ genoa_missions_1 = {
 			#	was_tag = GEN
 			#}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 
@@ -256,7 +250,7 @@ genoa_missions_1 = {
 					limit = {
 						country_or_non_sovereign_subject_holds = ROOT
 					}
-					create_or_add_center_of_trade_level = { value = 1 }
+					create_or_add_center_of_trade_level = { level = 1 }
 				}
 			}
 			crimea_area = {
@@ -359,32 +353,37 @@ genoa_missions_1 = {
 		}
 		effect = {
 			lower_don_area = {
-				random_province = {
-					random_list = {
-						33 = { add_base_tax = 1 }
-						33 = { add_base_production = 1 }
-						33 = { add_base_manpower = 1 }
-					}
-				}
 				add_province_modifier = {
 					name = gen_return_genoese_ruling
 					duration = 9125
 				}
 			}
 			zaporizhia_area = {
-				random_province = {
-					random_list = {
-						33 = { add_base_tax = 1 }
-						33 = { add_base_production = 1 }
-						33 = { add_base_manpower = 1 }
-					}
-				}
 				add_province_modifier = {
 					name = gen_return_genoese_ruling
 					duration = 9125
 				}
 			}
-
+			random_province = {
+				limit = {
+					area = lower_don_area
+				}
+				random_list = {
+					33 = { add_base_tax = 1 }
+					33 = { add_base_production = 1 }
+					33 = { add_base_manpower = 1 }
+				}
+			}
+			random_province = {
+				limit = {
+					area = zaporizhia_area
+				}
+				random_list = {
+					33 = { add_base_tax = 1 }
+					33 = { add_base_production = 1 }
+					33 = { add_base_manpower = 1 }
+				}
+			}
 		}
 	}
 
@@ -437,7 +436,7 @@ genoa_missions_1 = {
 					faction_in_power = mr_traders
 				}
 				835 = {
-					create_or_add_center_of_trade_level = { value = 1 }
+					create_or_add_center_of_trade_level = { level = 1 }
 				}
 			}
 			else_if = {
@@ -449,7 +448,7 @@ genoa_missions_1 = {
 					}
 				}
 				835 = {
-					create_or_add_center_of_trade_level = { value = 1 }
+					create_or_add_center_of_trade_level = { level = 1 }
 				}
 			}
 			else = {
@@ -471,13 +470,7 @@ genoa_missions_2 = {
 			#	was_tag = GEN
 			#}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 
@@ -1226,13 +1219,7 @@ genoa_missions_3 = {
 			#	was_tag = GEN
 			#}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 
@@ -1762,21 +1749,15 @@ genoa_missions_3 = {
 		required_missions = { gen_reign_in_italy }
 		position = 13
 		trigger = {
-			all_country = {
-				OR = {
-					AND = {
-						NOT = { culture_group = latin }
-						NOT = {
-							capital_scope = {
-								region = italy_region
-							}
-						}
+			NOT = {
+				any_country = {
+					culture_group = latin
+					capital_scope = {
+						region = italy_region
 					}
-					NOT = {
-						army_strength = {
-							who = ROOT
-							value = 1
-						}
+					army_strength = {
+						who = ROOT
+						value = 1
 					}
 				}
 			}
@@ -1799,13 +1780,7 @@ genoa_missions_4 = {
 			#	was_tag = GEN
 			#}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 
@@ -2112,13 +2087,7 @@ genoa_missions_5 = {
 			#	was_tag = GEN
 			#}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 

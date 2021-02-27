@@ -375,12 +375,12 @@ Timurid_princes_missions_5 = {
 		required_missions = { }
 		position = 1
 		trigger = {
-			OR = {
-				has_tax_building_trigger = yes
-			}
 			calc_true_if = {
 				all_owned_province = {
-					development = 30
+					OR = {
+						has_tax_building_trigger = yes
+						development = 30
+					}
 				}
 				amount = 5
 			}

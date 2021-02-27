@@ -1,0 +1,4 @@
+greek_crusaders_aid = {
+	opinion = -50
+	yearly_decay = 1
+}

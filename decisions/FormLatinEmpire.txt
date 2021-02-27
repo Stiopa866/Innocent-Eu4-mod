@@ -1,0 +1,49 @@
+country_decisions = {
+	form_latin_empire_nation = {
+		major = yes
+		potential = {
+			has_country_flag = greek_crusaders_empire
+			NOT = { has_country_flag = form_latin_empire_nation_flag }
+		}
+		provinces_to_highlight = {
+			province_id = 151
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+				NOT = { religion = catholic }
+			}
+		}
+		allow = {
+			151 = {
+				owned_by = ROOT
+				is_core = ROOT
+				religion = catholic
+			}
+			
+			religion = catholic
+			NOT = { government = republic }
+			NOT = { has_reform = celestial_empire }
+			NOT = { is_at_war = yes }
+			NOT = { tag = KOJ }
+		}
+		effect = {
+			override_country_name = latin_empire_nation
+			set_government_rank = 3
+			
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					set_in_empire = no
+				}
+			}
+			
+			set_capital = 151
+			add_government_reform = holy_state_reform
+			set_country_flag = form_latin_empire_nation_flag
+			add_prestige = 15
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

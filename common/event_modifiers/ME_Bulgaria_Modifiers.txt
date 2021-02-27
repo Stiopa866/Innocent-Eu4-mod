@@ -215,7 +215,6 @@ bul_estates_happy = {
 	brahmins_muslim_loyalty_modifier = 0.10
 	brahmins_other_loyalty_modifier = 0.10
 	church_loyalty_modifier = 0.10
-	clergy_loyalty_modifier = 0.10
 	cossacks_loyalty_modifier = 0.10
 	dhimmi_loyalty_modifier = 0.10
 	estate_maya_loyalty_modifier = 0.10

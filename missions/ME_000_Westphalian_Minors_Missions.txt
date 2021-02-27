@@ -304,7 +304,7 @@ westphalian_minor_missions_missions_4 = {
 			temple = 3
 		}
 		effect = {
-			add_stability = 1
+			add_stability_or_adm_power = yes
 		}
 	}
 	wes_min_splendid_court = {
@@ -437,7 +437,7 @@ westphalian_minor_missions_missions_5 = {
 			religious_unity = 1
 		}
 		effect = {
-			add_stability = 1
+			add_stability_or_adm_power = yes
 		}
 	}
 }

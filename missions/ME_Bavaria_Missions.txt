@@ -701,7 +701,7 @@ bavaria_missions_3 = {
 				limit = {
 					NOT = { stability = 3 }
 				}
-				add_stability = 1
+				add_stability_or_adm_power = yes
 			}
 			else = {
 				add_adm_power = 200
@@ -733,6 +733,21 @@ bavaria_missions_4 = {
 			religion = catholic
 			OR = {
 				full_idea_group = religious_ideas
+				if = {
+					limit = {
+						is_expanded_mod_active = { mod = idea_groups }
+					}
+					OR = {
+						full_idea_group = christian_idea_groups_expanded
+						full_idea_group = muslim_idea_groups_expanded
+						full_idea_group = confucian_idea_groups_expanded
+						full_idea_group = muslim_idea_groups_expanded
+						full_idea_group = religious_ideas
+					}
+				}
+				else = {
+					full_idea_group = religious_ideas
+				}
 				AND = {
 					full_idea_group = humanist_ideas
 					is_papal_controller = yes
@@ -746,7 +761,13 @@ bavaria_missions_4 = {
 		effect = {
 			if = {
 				limit = {
-					has_idea_group = religious_ideas
+					OR = {
+						has_idea_group = christian_idea_groups_expanded
+						has_idea_group = muslim_idea_groups_expanded
+						has_idea_group = confucian_idea_groups_expanded
+						has_idea_group = muslim_idea_groups_expanded
+						has_idea_group = religious_ideas
+					}
 				}
 				if = {
 					limit = {

@@ -999,8 +999,8 @@ maya_missions_2 = {
 				}
 			}
 			2633 = {
-				change_province_name = "Màayapáan"
-				rename_capital = "Màayapáan"
+				change_province_name = "Mayapan"
+				rename_capital = "Mayapan"
 				add_province_modifier = {
 					name = maya_rebuild_abandoned_cities_province_modifier
 					duration = -1
@@ -2723,7 +2723,22 @@ maya_missions_5 = {
 		required_missions = { maya_sacrifices_for_kinich_ahau }
 		position = 5
 		trigger = {
-			full_idea_group = religious_ideas
+			if = {
+				limit = {
+					is_expanded_mod_active = { mod = idea_groups }
+				}
+				OR = {
+					full_idea_group = christian_idea_groups_expanded
+					full_idea_group = muslim_idea_groups_expanded
+					full_idea_group = confucian_idea_groups_expanded
+					full_idea_group = muslim_idea_groups_expanded
+					full_idea_group = humanist_ideas
+					full_idea_group = religious_ideas
+				}
+			}
+			else = {
+				full_idea_group = religious_ideas
+			}
 		}
 		effect = {
 			add_years_of_income = 1

@@ -1,4 +1,4 @@
-namespace = ME_Maritime_Republics
+namespace = ME_Maritime_Republics_Events
 
 country_event = { # A Steady Timber Supply
 	id = ME_Maritime_Republics_Events.2
@@ -278,29 +278,4 @@ country_event = { #Wealth of the Orient
 			}
 		}
 	}
-}
-
-country_event = {
-	id = ME_Maritime_Republics_Events.
-	title = ME_Maritime_Republics_Events..T
-	desc = ME_Maritime_Republics_Events..D
-
-	is_triggered_only = yes
-
-	option = {
-		name = ME_Maritime_Republics_Events..OPT1
-
-		ai_chance = {
-			factor = 50
-		}
-	}
-
-	option = {
-		name = ME_Maritime_Republics_Events..OPT2
-
-		ai_chance = {
-			factor = 50
-		}
-	}
-	
 }

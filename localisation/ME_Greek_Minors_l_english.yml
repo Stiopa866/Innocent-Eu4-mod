@@ -1,0 +1,136 @@
+﻿l_english:
+ #Missions
+ greek_minors_enosis_title: "Enosis"
+ greek_minors_enosis_desc: "xxx"
+ greek_minors_fleet_title: "Establish a Merchant Fleet"
+ greek_minors_fleet_desc: "xxx"
+ greek_minors_countryside_title: "Modernize the Countryside"
+ greek_minors_countryside_desc: "xxx"
+ 
+ greek_minors_islands_title: "Consolidate the Islands"
+ greek_minors_islands_desc: "xxx"
+ greek_minors_trade_title: "The Centers of Trade"
+ greek_minors_trade_desc: "xxx"
+ 
+ greek_minors_agonas_title: "Agonas"
+ greek_minors_agonas_desc: "xxx"
+ greek_minors_supremacy_title: "Supremacy in Greece"
+ greek_minors_supremacy_desc: "xxx"
+ greek_minors_society_title: "A Secure and Safe Society"
+ greek_minors_society_desc: "xxx"
+ greek_minors_nation_title: "The First Greek Nation"
+ greek_minors_nation_desc: "xxx"
+ greek_minors_nation_tt: "Allows formation of Greece without administrative technology 10"
+ 
+ greek_minors_mainland_title: "Consolidate the Mainland"
+ greek_minors_mainland_desc: "xxx"
+ greek_minors_wall_title: "Build a Wooden Wall"
+ greek_minors_wall_desc: "xxx"
+ 
+ greek_minors_army_title: "Establish a Greek Army"
+ greek_minors_army_desc: "xxx"
+ greek_minors_army_won10: "Has won at least §Y10§! battles (currently §Y[This.num_of_won_battles.GetValue]§!) after the '§YSupremacy in Greece§!' mission was completed"
+ greek_minors_army_wonmore: "Has §Gwon§! more battles than §Rlost§! (§G[This.num_of_won_battles.GetValue]§! > §R[This.num_of_lost_battles.GetValue]§!) after the '§YSupremacy in Greece§!' mission was completed"
+ greek_minors_navy_title: "A Greek Navy"
+ greek_minors_navy_desc: "xxx"
+ greek_minors_klephts_title: "Organize the Klephts"
+ greek_minors_klephts_desc: "xxx"
+ greek_minors_klephts_tt: "Gain access to the Klephts mercenary company"
+ 
+ greek_crusaders_forsaken_title: "A Forsaken Crusade"
+ greek_crusaders_forsaken_desc: "xxx"
+ 
+ greek_crusaders_army_title: "The Crusader Army"
+ greek_crusaders_army_desc: "xxx"
+ greek_crusaders_states_title: "The Old Crusader States"
+ greek_crusaders_states_desc: "xxx"
+ greek_crusaders_empire_title: "A New Latin Empire"
+ greek_crusaders_empire_desc: "xxx"
+ greek_crusaders_empire_tt: "Unlock 'Re-Establish the Frankokratia' decision"
+ 
+ greek_crusaders_supremacy_title: "Supremacy in Greece"
+ greek_crusaders_supremacy_desc: "xxx"
+ greek_crusaders_revenge_title: "Ignite the Flames of Revenge"
+ greek_crusaders_revenge_desc: "xxx"
+ greek_crusaders_vult_title: "Deus Vult!"
+ greek_crusaders_vult_desc: "xxx"
+ 
+ greek_crusaders_fleet_title: "Prepare the Crusader Fleet"
+ greek_crusaders_fleet_desc: "xxx"
+ greek_crusaders_bastion_title: "The Crusader Bastion"
+ greek_crusaders_bastion_desc: "xxx"
+ greek_crusaders_jerusalem_title: "The Kingdom of Jerusalem"
+ greek_crusaders_jerusalem_desc: "xxx"
+ 
+ greek_crusaders_malta_title: "The Brotherhood of Malta"
+ greek_crusaders_malta_desc: "We find ourselves in a dangerous strategic position, surviving largely because our enemies have not yet decided to levy their full force against us. We must secure an ally in the west and convince them to donate some more defensible territory to our cause."
+ 
+ #Modifiers
+ greek_minors_antistasi: "Antistasi"
+ greek_minors_hegemon: "Hegemon of the Greeks"
+ greek_minors_west: "Following the Steps of the West"
+ greek_minors_warfare: "Traditional Methods of Warfare"
+ greek_minors_prelude: "Prelude to Greek Trade Supremacy"
+ greek_minors_land: "Land Supremacy"
+ greek_minors_branch: "Re-Organized Naval Branch"
+ greek_minors_organization: "Land Re-Organization"
+ greek_minors_forces: "Organized Resistance Forces"
+ 
+ greek_crusaders_revenge: "Flames of Revenge"
+ greek_crusaders_frankokratia: "Restore the Frankokratia"
+ greek_crusaders_cfleet: "The Crusader Fleet"
+ greek_crusaders_restored: "A Legacy Restored"
+ greek_crusaders_king: "The Crusader King"
+ 
+ #Events
+ ME_Greek_Minors_Events.1.t: "The Future of [This.GetName]"
+ ME_Greek_Minors_Events.1.d: "xxx"
+ ME_Greek_Minors_Events.1.a: "The Greek people shall be unified"
+ ME_Greek_Minors_Events.1.b: "The legacy of the Crusades lives on"
+ ME_Greek_Minors_Events.1.tt: "Keep current missions"
+ 
+ ME_Greek_Minors_Events.2.t: "A New Government"
+ ME_Greek_Minors_Events.2.d: "xxx"
+ ME_Greek_Minors_Events.2.a: "One Ruler, One Nation."
+ ME_Greek_Minors_Events.2.b: "True power derives from a mandate from the masses."
+ ME_Greek_Minors_Events.2.c: "We shall retain our ways"
+ 
+ ME_Greek_Minors_Events.3.t: "The Future of Warfare"
+ ME_Greek_Minors_Events.3.d: "xxx"
+ ME_Greek_Minors_Events.3.a: "Follow a Western Module Army"
+ ME_Greek_Minors_Events.3.b: "We follow the old ways of warfare"
+ 
+ ME_Greek_Minors_Events.7.t: "Call to Arms"
+ ME_Greek_Minors_Events.7.d: "xxx"
+ ME_Greek_Minors_Events.7.a: "The people demand revenge! Deus Vult!"
+ 
+ ME_Greek_Minors_Events.8.t: "The Crusaders Ask for Aid"
+ ME_Greek_Minors_Events.8.d: "xxx"
+ ME_Greek_Minors_Events.8.a: "We shall aid them with men"
+ ME_Greek_Minors_Events.8.b: "We shall send them war funds"
+ ME_Greek_Minors_Events.8.c: "We have our own stuff to worry about"
+ 
+ ME_Greek_Minors_Events.9.t: "[From.GetName] sends their regard"
+ ME_Greek_Minors_Events.9.d: "xxx"
+ ME_Greek_Minors_Events.9.a: "[From.GetName] shall aid us with men"
+ ME_Greek_Minors_Events.9.b: "[From.GetName] shall send us war funds"
+ ME_Greek_Minors_Events.9.c: "[From.GetName] has their own stuff to worry about"
+ 
+ ME_Greek_Minors_Events.10.t: "The Future of the Holy City"
+ ME_Greek_Minors_Events.10.d: "xxx"
+ ME_Greek_Minors_Events.10.a: "Slaughter the [379.Religion.GetName], all of them!"
+ ME_Greek_Minors_Events.10.b: "As long as they don't cause problems, let them live."
+ 
+ ME_Greek_Minors_Events.11.t: "A New Crusader Era"
+ ME_Greek_Minors_Events.11.d: "xxx"
+ ME_Greek_Minors_Events.11.a: "Deus Vult!"
+ ME_Greek_Minors_Events.11.tt: "Unlocks the Knights Templar mercenary company"
+ 
+ #Opinions
+ greek_crusaders_aid: "Refused giving aid"
+ 
+ #Decisions
+ form_latin_empire_nation_title: "Re-Establish the Frankokratia"
+ form_latin_empire_nation_desc: "xxx"
+ latin_empire_nation: "Latin Empire"
+ 

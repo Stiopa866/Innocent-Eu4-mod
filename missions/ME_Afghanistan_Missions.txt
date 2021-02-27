@@ -457,7 +457,21 @@ Afghanistan_missions_slot_5 = {
 		}
 		trigger = {
 			OR = {
-				religious_ideas = 7
+				if = {
+					limit = {
+						is_expanded_mod_active = { mod = idea_groups }
+					}
+					OR = {
+						christian_idea_groups_expanded = 7
+						muslim_idea_groups_expanded = 7
+						confucian_idea_groups_expanded = 7
+						muslim_idea_groups_expanded = 7
+						religious_ideas = 7
+					}
+				}
+				else = {
+					religious_ideas = 7
+				}
 				AND = {
 					AFG_ideas = 3
 					at_war_with_religious_enemy = yes

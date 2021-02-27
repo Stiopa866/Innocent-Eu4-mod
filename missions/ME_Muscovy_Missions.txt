@@ -61,16 +61,14 @@ MOS_1 = {
 			}
 		}
 		trigger = {
-			calc_true_if = {
-				all_owned_province = {
-					NOT = { development = 15 }
-					OR = {
-						has_building = temple
-						has_building = cathedral
-					}
-					has_owner_religion = yes
+			num_of_owned_provinces_with = {
+				NOT = { development = 15 }
+				OR = {
+					has_building = temple
+					has_building = cathedral
 				}
-				amount = 7
+				has_owner_religion = yes
+				value = 7
 			}
 		}
 		effect = {
@@ -552,6 +550,11 @@ MOS_3 = {
 			if = {
 				limit = {
 					NOT = { owns_core_province = 310 }
+					NOT = {
+						any_country = {
+							ai = no
+						}
+					}
 				}
 				country_event = {
 					id = ME_Muscovy_Events.10 #Subjugation of Novgorod
@@ -1009,14 +1012,12 @@ MOS_5 = {
 		}
 		trigger = {
 			OR = {
-				calc_true_if = {
-					all_owned_province = {
-						OR = {
-							has_building = courthouse
-							has_building = town_hall
-						}
+				num_of_owned_provinces_with = {
+					OR = {
+						has_building = courthouse
+						has_building = town_hall
 					}
-					amount = 5
+					value = 5
 				}
 				adm = 5
 			}

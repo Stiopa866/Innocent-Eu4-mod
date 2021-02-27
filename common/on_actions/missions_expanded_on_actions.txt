@@ -63,6 +63,22 @@ on_startup = {
 	}
 	if = {
 		limit = {
+			NOT = { has_country_flag = greek_crusaders_missions }
+			
+			OR = {
+				has_country_flag = greek_minors_missions
+				
+				tag = ACH #Achaea
+				tag = CEP #Corfu
+				tag = CRT #Crete
+				tag = MOE #Morea
+			}
+		}
+		change_variable = { which = num_of_won_battles value = 0 }
+		change_variable = { which = num_of_lost_battles value = 0 }
+	}
+	if = {
+		limit = {
 			tag = SWE
 		}
 		change_variable = { swe_num_of_wars_against_non_catholics = 0 }
@@ -440,6 +456,20 @@ on_battle_won_country = {
 			mission_completed = takeda_rise_of_takeda_shingen
 		}
 		change_variable = { which = num_of_won_battles value = 1 }
+	}
+	if = {
+		limit = {
+			mission_completed = greek_minors_supremacy
+		}
+		change_variable = { which = num_of_won_battles value = 1 }
+	}
+	FROM = {
+		if = {
+			limit = {
+				mission_completed = greek_minors_supremacy
+			}
+			change_variable = { which = num_of_lost_battles value = 1 }
+		}
 	}
 }
 

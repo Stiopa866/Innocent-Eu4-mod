@@ -18,10 +18,6 @@ spriteTypes = {
 		textureFile = "gfx/interface/expanded_mod_family/governments_expanded_icon.dds"
 	}
 	spriteType = {
-		name = "GFX_mod_icon_idea_groups_expanded"
-		textureFile = "gfx/interface/expanded_mod_family/idea_groups_expanded_icon.dds"
-	}
-	spriteType = {
 		name = "GFX_mod_icon_missions_expanded"
 		textureFile = "gfx/interface/expanded_mod_family/missions_expanded_icon.dds"
 	}
@@ -44,10 +40,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_mod_icon_ages_and_splendor_expanded"
 		textureFile = "gfx/interface/expanded_mod_family/ages_and_splendor_expanded_icon.dds"
-	}
-	spriteType = {
-		name = "GFX_mod_icon_advisors_expanded"
-		textureFile = "gfx/interface/expanded_mod_family/advisors_expanded_icon.dds"
 	}
 	spriteType = {
 		name = "GFX_mod_icon_flavour_and_events_expanded"

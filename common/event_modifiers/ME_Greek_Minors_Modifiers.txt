@@ -1,0 +1,57 @@
+greek_minors_antistasi = {
+	land_morale = 0.05
+}
+greek_minors_hegemon = {
+	diplomatic_reputation = 1
+	infantry_power = 0.05
+}
+greek_minors_west = {
+	mil_tech_cost_modifier = -0.05
+	fire_damage_received = -0.05
+}
+greek_minors_warfare = {
+	shock_damage = 0.05
+	cavalry_power = 0.1
+}
+greek_minors_prelude = {
+	global_ship_trade_power = 0.1
+	naval_tradition_from_trade = 0.25
+}
+greek_minors_land = {
+	discipline = 0.025
+	global_regiment_cost = -0.1
+}
+greek_minors_branch = {
+	naval_morale = 0.1
+}
+greek_minors_organization = {
+	global_tax_modifier = 0.15
+	global_autonomy = -0.05
+}
+greek_minors_forces = {
+	hostile_attrition = 1
+	infantry_fire = 0.1
+}
+
+greek_crusaders_revenge = {
+	land_forcelimit = 10
+}
+greek_crusaders_frankokratia = {
+	land_morale = 0.1
+	cavalry_shock = 0.5
+}
+greek_crusaders_cfleet = {
+	galley_power = 0.15
+	naval_morale = 0.1
+}
+greek_crusaders_tyrant = {
+	discipline = 0.05
+}
+greek_crusaders_restored = {
+	global_unrest = -2
+	core_creation = -0.1
+}
+greek_crusaders_king = {
+	discipline = 0.025
+	land_morale = 0.05
+}

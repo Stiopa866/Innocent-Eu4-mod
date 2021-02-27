@@ -1,0 +1,670 @@
+greek_crusaders_missions_1 = {
+	slot = 1
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_minors_missions }
+		
+		OR = {
+			has_country_flag = greek_crusaders_missions
+			
+			AND = {
+				OR = {
+					tag = ATH #Athens
+					tag = EPI #Epirus
+					#tag = NAX #Naxos
+				}
+				OR = {
+					NOT = { has_dlc = "Emperor" }
+					AND = {
+						has_dlc = "Emperor"
+						has_country_flag = use_missions_expanded_missions_instead_of_paradox
+					}
+				}
+			}
+		}
+	}
+	
+	greek_crusaders_forsaken = {
+		icon = xxx_icon
+		position = 4
+		required_missions = { greek_crusaders_army }
+		trigger = {
+			OR = {
+				calc_true_if = {
+					amount = 2
+					all_known_country = {
+						religion = catholic
+						capital_scope = { continent = europe }
+						total_development = 100
+						
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+				
+				TUR = { is_crusade_target = yes }
+				grown_by_development = 25
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					calc_true_if = {
+						amount = 2
+						all_known_country = {
+							religion = catholic
+							capital_scope = { continent = europe }
+							total_development = 100
+							
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						religion = catholic
+						capital_scope = { continent = europe }
+						total_development = 100
+						
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+					set_country_flag = greek_crusaders_forsaken
+					
+					country_event = { #The Cruasders Ask for Aid
+						id = ME_Greek_Minors_Events.8
+						days = 1
+					}
+				}
+				
+				random_country = {
+					limit = {
+						religion = catholic
+						capital_scope = { continent = europe }
+						total_development = 100
+						
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+						
+						NOT = { has_country_flag = greek_crusaders_forsaken }
+					}
+					country_event = { #The Cruasders Ask for Aid
+						id = ME_Greek_Minors_Events.8
+						days = 1
+					}
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = greek_crusaders_tyrant
+					duration = 5475 #15 years
+				}
+			}
+		}
+	}
+}
+
+greek_crusaders_missions_2 = {
+	slot = 2
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_minors_missions }
+		
+		OR = {
+			has_country_flag = greek_crusaders_missions
+			
+			AND = {
+				OR = {
+					tag = ATH #Athens
+					tag = EPI #Epirus
+					#tag = NAX #Naxos
+				}
+				OR = {
+					NOT = { has_dlc = "Emperor" }
+					AND = {
+						has_dlc = "Emperor"
+						has_country_flag = use_missions_expanded_missions_instead_of_paradox
+					}
+				}
+			}
+		}
+	}
+	
+	greek_crusaders_army = {
+		icon = xxx_icon
+		position = 3
+		required_missions = { greek_crusaders_revenge }
+		trigger = {
+			land_forcelimit = 10
+			army_size_percentage = 1
+			advisor = army_reformer
+		}
+		effect = {
+			add_country_modifier = {
+				name = greek_crusaders_frankokratia
+				duration = 9125 #25 years
+			}
+			
+			northern_greece_area = {
+				limit = {
+					OR = {
+						province_id = 147
+						province_id = 4699
+					}
+					
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			macedonia_area = {
+				limit = {
+					NOT = { province_id = 3001 }
+					NOT = { province_id = 4780 }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			thrace_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			morea_area = {
+				limit = {
+					NOT = { province_id = 163 }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	greek_crusaders_states = {
+		icon = xxx_icon
+		position = 4
+		required_missions = { greek_crusaders_army }
+		provinces_to_highlight = {
+			OR = {
+				#area = northern_greece_area
+				province_id = 147
+				province_id = 4699
+				area = macedonia_area
+				area = thrace_area
+				area = morea_area
+			}
+			
+			NOT = { province_id = 3001 }
+			NOT = { province_id = 4780 }
+			NOT = { province_id = 163 }
+			NOT = { owned_by = ROOT }
+			
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 6
+						OR = {
+							#area = northern_greece_area
+							province_id = 147
+							province_id = 4699
+							area = macedonia_area
+							area = thrace_area
+							area = morea_area
+						}
+						
+						NOT = { province_id = 3001 }
+						NOT = { province_id = 4780 }
+						NOT = { province_id = 163 }
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 6
+				OR = {
+					#area = northern_greece_area
+					province_id = 147
+					province_id = 4699
+					area = macedonia_area
+					area = thrace_area
+					area = morea_area
+				}
+				
+				NOT = { province_id = 3001 }
+				NOT = { province_id = 4780 }
+				NOT = { province_id = 163 }
+			}
+		}
+		effect = { add_yearly_manpower = 1 }
+	}
+	
+	greek_crusaders_empire = {
+		icon = xxx_icon
+		position = 5
+		required_missions = {
+			greek_crusaders_forsaken
+			greek_crusaders_states
+		}
+		provinces_to_highlight = {
+			OR = {
+				#area = northern_greece_area
+				province_id = 147
+				province_id = 4699
+				area = macedonia_area
+				area = thrace_area
+				area = morea_area
+			}
+			
+			NOT = { province_id = 3001 }
+			NOT = { province_id = 4780 }
+			NOT = { province_id = 163 }
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			northern_greece_area = {
+				type = all
+				OR = {
+					AND = {
+						NOT = { province_id = 147 }
+						NOT = { province_id = 4699 }
+					}
+					owned_by = ROOT
+				}
+			}
+			
+			macedonia_area = {
+				type = all
+				OR = {
+					province_id = 3001
+					province_id = 4780
+					owned_by = ROOT
+				}
+			}
+			
+			thrace_area = {
+				type = all
+				owned_by = ROOT
+			}
+			
+			morea_area = {
+				type = all
+				OR = {
+					province_id = 163
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = greek_crusaders_empire_tt
+			set_country_flag = greek_crusaders_empire
+			
+			add_ruler_modifier = {
+				name = greek_crusaders_restored
+				duration = -1
+			}
+		}
+	}
+}
+
+greek_crusaders_missions_3 = {
+	slot = 3
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_minors_missions }
+		
+		OR = {
+			has_country_flag = greek_crusaders_missions
+			
+			AND = {
+				OR = {
+					tag = ATH #Athens
+					tag = EPI #Epirus
+					#tag = NAX #Naxos
+				}
+				OR = {
+					NOT = { has_dlc = "Emperor" }
+					AND = {
+						has_dlc = "Emperor"
+						has_country_flag = use_missions_expanded_missions_instead_of_paradox
+					}
+				}
+			}
+		}
+	}
+	
+	greek_crusaders_supremacy = {
+		icon = xxx_icon
+		position = 1
+		required_missions = { }
+		provinces_to_highlight = {
+			area_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			capital_scope = {
+				area_for_scope_province = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			set_country_flag = greek_crusaders_missions
+			country_event = { #The Future of [This.GetName]
+				id = ME_Greek_Minors_Events.1
+				days = 0
+			}
+			
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				capital_scope = { add_prosperity = 25 }
+			}
+			else = {
+				capital_scope = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+			}
+		}
+	}
+	
+	greek_crusaders_revenge = {
+		icon = xxx_icon
+		position = 2
+		required_missions = { greek_crusaders_supremacy }
+		trigger = {
+			#If Catholic and Pope exists, Pope's opinion of ROOT is at least 120
+			if = {
+				limit = {
+					religion = catholic
+					exists = PAP
+				}
+				reverse_has_opinion = {
+					who = PAP
+					value = 120
+				}
+			}
+			else = { grown_by_development = 10 }
+		}
+		effect = {
+			country_event = { #Call to Arms
+				id = ME_Greek_Minors_Events.7
+				days = 0
+			}
+		}
+	}
+	
+	greek_crusaders_vult = {
+		icon = xxx_icon
+		position = 6
+		required_missions = {
+			greek_crusaders_empire
+			greek_crusaders_jerusalem
+		}
+		trigger = {
+			OR = {
+				has_country_flag = form_latin_empire_nation_flag
+				tag = KOJ
+				was_tag = KOJ
+			}
+		}
+		effect = {
+			country_event = { #A New Crusader Era
+				id = ME_Greek_Minors_Events.11
+				days = 0
+			}
+		}
+	}
+}
+
+greek_crusaders_missions_4 = {
+	slot = 4
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_minors_missions }
+		
+		OR = {
+			has_country_flag = greek_crusaders_missions
+			
+			AND = {
+				OR = {
+					tag = ATH #Athens
+					tag = EPI #Epirus
+					#tag = NAX #Naxos
+				}
+				OR = {
+					NOT = { has_dlc = "Emperor" }
+					AND = {
+						has_dlc = "Emperor"
+						has_country_flag = use_missions_expanded_missions_instead_of_paradox
+					}
+				}
+			}
+		}
+	}
+	
+	greek_crusaders_fleet = {
+		icon = xxx_icon
+		position = 3
+		required_missions = { greek_crusaders_revenge }
+		trigger = {
+			naval_forcelimit = 15
+			navy_size_percentage = 1
+			advisor = naval_reformer
+		}
+		effect = {
+			add_country_modifier = {
+				name = greek_crusaders_cfleet
+				duration = 7300 #20 years
+			}
+		}
+	}
+	
+	greek_crusaders_bastion = {
+		icon = xxx_icon
+		position = 4
+		required_missions = { greek_crusaders_fleet }
+		provinces_to_highlight = {
+			province_id = 321
+			NOT = { owned_by = ROOT }
+		}
+		trigger = { owns = 321 }
+		effect = {
+			palestine_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	greek_crusaders_jerusalem = {
+		icon = xxx_icon
+		position = 5
+		required_missions = {
+			greek_crusaders_bastion
+			greek_crusaders_malta
+		}
+		provinces_to_highlight = {
+			area = palestine_area
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			
+			NOT = { is_at_war = yes }
+		}
+		effect = {
+			country_event = { #The Future of the Holy City
+				id = ME_Greek_Minors_Events.10
+				days = 0
+			}
+		}
+	}
+}
+
+greek_crusaders_missions_5 = {
+	slot = 5
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_minors_missions }
+		
+		OR = {
+			has_country_flag = greek_crusaders_missions
+			
+			AND = {
+				OR = {
+					tag = ATH #Athens
+					tag = EPI #Epirus
+					#tag = NAX #Naxos
+				}
+				OR = {
+					NOT = { has_dlc = "Emperor" }
+					AND = {
+						has_dlc = "Emperor"
+						has_country_flag = use_missions_expanded_missions_instead_of_paradox
+					}
+				}
+			}
+		}
+	}
+	
+	greek_crusaders_malta = {
+		icon = mission_imperial_spain
+		position = 4
+		required_missions = { greek_crusaders_fleet }
+		provinces_to_highlight = {
+			province_id = 126
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			is_subject = no
+			if = {
+				limit = {
+					NOT = { has_global_flag = knights_malta_event_flag }
+					126 = {
+						owner = {
+							is_subject = no
+						}
+					}
+				}
+				OR = {
+					126 = { country_or_non_sovereign_subject_holds = ROOT }
+					126 = {
+						owner = {
+							alliance_with = ROOT
+							has_opinion = {
+								who = ROOT
+								value = 150
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_global_flag = knights_malta_event_flag }
+				}
+				OR = {
+					126 = { country_or_non_sovereign_subject_holds = ROOT }
+					126 = {
+						owner = {
+							overlord = {
+								alliance_with = ROOT
+								has_opinion = {
+									who = ROOT
+									value = 150
+								}
+							}
+						}
+					}
+				}
+			}
+			else = {
+				126 = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						126 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					126 = {
+						owner = { is_subject = no }
+					}
+					NOT = { has_global_flag = knights_malta_event_flag }
+				}
+				126 = {
+					owner = {
+						set_country_flag = kni_malta_mision_flag
+						country_event = { id = flavor_kni.100 }
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						126 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					126 = {
+						owner = { is_subject = yes }
+					}
+					NOT = { has_global_flag = knights_malta_event_flag }
+				}
+				126 = {
+					owner = {
+						overlord = {
+							set_country_flag = kni_malta_mision_flag
+							country_event = { id = flavor_kni.100 }
+						}
+					}
+				}
+			}
+			else = {
+				add_dip_power = 100
+			}
+		}
+	}
+}

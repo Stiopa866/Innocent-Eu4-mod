@@ -9,6 +9,8 @@ l_english:
  # loc for decision to update missions
  the_fix_title: "§YUpdate Missions§!"
  the_fix_desc: "If your mission tree is missing a lot or its empty, click this button. If it doesnt work, then blame the LordVarangian for it. Blame his new generic missions as well."
+ me_rename_title: "Restore Original Name"
+ me_rename_desc: "If you wish to restore the original name of the country you are playing, click this button."
 
  # ME custom loc:
  string_me_get_country_flag: "@[This.GetTag]"

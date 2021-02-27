@@ -619,7 +619,8 @@ country_event = {
 	id = ME_Genoa_Events.9
 	title = ME_Genoa_Events.9.T
 	desc = ME_Genoa_Events.9.D
-
+	picture = BAD_WITH_MONARCH_eventPicture #heck off error log
+	
 	hidden = yes
 	fire_only_once = yes
 
@@ -652,30 +653,6 @@ country_event = {
 
 	option = {
 		name = ME_Genoa_Events.9.OPT1
-
-		ai_chance = {
-			factor = 50
-		}
-	}
-}
-
-country_event = {
-	id = ME_Genoa_Events.
-	title = ME_Genoa_Events..T
-	desc = ME_Genoa_Events..D
-
-	is_triggered_only = yes
-
-	option = {
-		name = ME_Genoa_Events..OPT1
-
-		ai_chance = {
-			factor = 50
-		}
-	}
-
-	option = {
-		name = ME_Genoa_Events..OPT2
 
 		ai_chance = {
 			factor = 50

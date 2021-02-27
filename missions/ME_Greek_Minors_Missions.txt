@@ -1,0 +1,736 @@
+greek_minors_missions_1 = {
+	slot = 1
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_crusaders_missions }
+		
+		OR = {
+			has_country_flag = greek_minors_missions
+			
+			tag = ACH #Achaea
+			tag = CEP #Corfu
+			tag = CRT #Crete
+			tag = MOE #Morea
+		}
+	}
+	
+	greek_minors_enosis = {
+		icon = xxx_icon
+		position = 3
+		required_missions = { greek_minors_supremacy }
+		trigger = {
+			OR = {
+				all_known_country = {
+					OR = {
+						NOT = { primary_culture = greek }
+						tag = BYZ
+					}
+				}
+				
+				AND = {
+					calc_true_if = {
+						amount = 2
+						all_known_country = {
+							primary_culture = greek
+							NOT = { tag = BYZ }
+							
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+						}
+					}
+					
+					all_known_country = {
+						OR = {
+							NOT = { primary_culture = greek }
+							tag = BYZ
+							
+							NOT = {
+								military_strength = {
+									who = ROOT
+									value = 1
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = greek_minors_hegemon
+				duration = 5475 #15 years
+			}
+			
+			balkan_region = {
+				limit = {
+					culture = greek
+					province_is_on_an_island = yes
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			anatolia_region = {
+				limit = {
+					culture = greek
+					province_is_on_an_island = yes
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	greek_minors_fleet = {
+		icon = xxx_icon
+		position = 4
+		required_missions = { }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_port = yes
+			NOT = { has_dock_building_trigger = yes }
+			
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 5
+						has_dock_building_trigger = yes
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_light_ship = 15
+			
+			num_of_owned_provinces_with = {
+				value = 5
+				has_dock_building_trigger = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = greek_minors_prelude
+				duration = -1 #Modifier goes away if you formed anyone else other than Greece
+			}
+		}
+	}
+	
+	greek_minors_countryside = {
+		icon = xxx_icon
+		position = 5
+		required_missions = { greek_minors_fleet }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_tax_building_trigger = yes
+			}
+			
+			num_of_owned_provinces_with = {
+				value = 5
+				has_production_building_trigger = yes
+			}
+			
+			num_of_owned_provinces_with = {
+				value = 3
+				development = 15
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = greek_minors_organization
+				duration = 5475 #15 years
+			}
+		}
+	}
+}
+
+greek_minors_missions_2 = {
+	slot = 2
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_crusaders_missions }
+		
+		OR = {
+			has_country_flag = greek_minors_missions
+			
+			tag = ACH #Achaea
+			tag = CEP #Corfu
+			tag = CRT #Crete
+			tag = MOE #Morea
+		}
+	}
+	
+	greek_minors_islands = {
+		icon = xxx_icon
+		position = 4
+		required_missions = { greek_minors_enosis }
+		provinces_to_highlight = {
+			culture = greek
+			
+			OR = {
+				region = balkan_region
+				region = anatolia_region
+			}
+			
+			province_is_on_an_island = yes
+			NOT = { owned_by = ROOT }
+			
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 3
+						culture = greek
+						
+						OR = {
+							region = balkan_region
+							region = anatolia_region
+						}
+						
+						province_is_on_an_island = yes
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				culture = greek
+				
+				OR = {
+					region = balkan_region
+					region = anatolia_region
+				}
+				
+				province_is_on_an_island = yes
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					capital_scope = { has_port = yes }
+				}
+				capital_scope = {
+					add_unit_construction = {
+						type = galley
+						amount = 5
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+			else = {
+				random_owned_province = {
+					limit = { has_port = yes }
+					add_unit_construction = {
+						type = galley
+						amount = 5
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+	}
+	
+	greek_minors_trade = {
+		icon = xxx_icon
+		position = 5
+		required_missions = { greek_minors_fleet }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			province_has_center_of_trade_of_level = 1
+			
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 3
+						province_has_center_of_trade_of_level = 2
+					}
+					
+					any_owned_province = { province_has_center_of_trade_of_level = 3 }
+				}
+			}
+		}
+		trigger = {
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 3
+					province_has_center_of_trade_of_level = 2
+				}
+				
+				any_owned_province = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = {
+					province_has_center_of_trade_of_level = 1
+					NOT = { has_province_flag = greek_minors_trade_flag }
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+				
+				set_province_flag = greek_minors_trade_flag
+			}
+			
+			random_owned_province = {
+				limit = {
+					province_has_center_of_trade_of_level = 1
+					NOT = { has_province_flag = greek_minors_trade_flag }
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+				
+				set_province_flag = greek_minors_trade_flag
+			}
+			
+			random_owned_province = {
+				limit = {
+					province_has_center_of_trade_of_level = 1
+					NOT = { has_province_flag = greek_minors_trade_flag }
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+				
+				set_province_flag = greek_minors_trade_flag
+			}
+			
+			random_owned_province = {
+				limit = {
+					province_has_center_of_trade_of_level = 1
+					NOT = { has_province_flag = greek_minors_trade_flag }
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+				
+				set_province_flag = greek_minors_trade_flag
+			}
+			
+			random_owned_province = {
+				limit = {
+					province_has_center_of_trade_of_level = 1
+					NOT = { has_province_flag = greek_minors_trade_flag }
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+				
+				set_province_flag = greek_minors_trade_flag
+			}
+		}
+	}
+}
+
+greek_minors_missions_3 = {
+	slot = 3
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_crusaders_missions }
+		
+		OR = {
+			has_country_flag = greek_minors_missions
+			
+			tag = ACH #Achaea
+			tag = CEP #Corfu
+			tag = CRT #Crete
+			tag = MOE #Morea
+		}
+	}
+	
+	greek_minors_agonas = {
+		icon = xxx_icon
+		position = 1
+		required_missions = { }
+		trigger = {
+			army_size_percentage = 1
+			NOT = { is_subject = yes }
+			NOT = { is_at_war = yes }
+		}
+		effect = {
+			capital_scope = {
+				area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					
+					add_permanent_claim = ROOT
+				}
+			}
+			
+			add_country_modifier = {
+				name = greek_minors_antistasi
+				duration = 7300 #20 years
+			}
+			
+			add_army_tradition = 10
+		}
+	}
+	
+	greek_minors_supremacy = {
+		icon = xxx_icon
+		position = 2
+		required_missions = { greek_minors_agonas }
+		provinces_to_highlight = {
+			area_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			capital_scope = {
+				area_for_scope_province = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			set_country_flag = greek_minors_missions
+			
+			country_event = { #The Future of [This.GetName]
+				id = ME_Greek_Minors_Events.1
+				days = 0
+			}
+			
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				capital_scope = { add_prosperity = 25 }
+			}
+			else = {
+				capital_scope = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+			}
+			
+			hidden_effect = {
+				set_variable = { which = num_of_won_battles value = 0 }
+				set_variable = { which = num_of_lost_battles value = 0 }
+			}
+		}
+	}
+	
+	greek_minors_society = {
+		icon = xxx_icon
+		position = 3
+		required_missions = { greek_minors_supremacy }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = {
+				unrest = 1
+				units_in_province = REB
+			}
+		}
+		trigger = {
+			all_owned_province = {
+				NOT = { unrest = 1 }
+			}
+			
+			NOT = { num_of_rebel_armies = 1 }
+			grown_by_development = 25
+		}
+		effect = {
+			country_event = { #A New Government?
+				id = ME_Greek_Minors_Events.2
+				days = 0
+			}
+			
+			add_stability_or_adm_power = yes
+		}
+	}
+	
+	greek_minors_nation = {
+		icon = xxx_icon
+		position = 5
+		required_missions = {
+			greek_minors_islands
+			greek_minors_society
+			greek_minors_mainland
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					region = balkan_region
+					culture = greek
+					NOT = { owned_by = ROOT }
+				}
+				
+				AND = {
+					region = anatolia_region
+					culture = greek
+					province_is_on_an_island = yes
+					NOT = { owned_by = ROOT }
+					NOT = { province_id = 321 }
+				}
+			}
+		}
+		trigger = {
+			#Owns all Greek cultured provinces in the Balkans, and all Greek cultured islands in Anatolia (excluding Cyprus)
+			balkan_region = {
+				type = all
+				OR = {
+					owned_by = ROOT
+					NOT = { culture = greek }
+				}
+			}
+			
+			anatolia_region = {
+				type = all
+				OR = {
+					owned_by = ROOT
+					NOT = { culture = greek }
+					NOT = { province_is_on_an_island = yes }
+					province_id = 321
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = greek_minors_nation_tt
+		}
+	}
+}
+
+greek_minors_missions_4 = {
+	slot = 4
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_crusaders_missions }
+		
+		OR = {
+			has_country_flag = greek_minors_missions
+			
+			tag = ACH #Achaea
+			tag = CEP #Corfu
+			tag = CRT #Crete
+			tag = MOE #Morea
+		}
+	}
+	
+	greek_minors_mainland = {
+		icon = xxx_icon
+		position = 4
+		required_missions = { greek_minors_army }
+		provinces_to_highlight = {
+			culture = greek
+			region = balkan_region
+			NOT = { province_is_on_an_island = yes }
+			NOT = { owned_by = ROOT }
+			
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 7
+						culture = greek
+						region = balkan_region
+						NOT = { province_is_on_an_island = yes }
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 7
+				culture = greek
+				region = balkan_region
+				NOT = { province_is_on_an_island = yes }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = greek_minors_land
+				duration = 5475 #15 years
+			}
+		}
+	}
+	
+	greek_minors_wall = {
+		icon = xxx_icon
+		position = 5
+		required_missions = { greek_minors_navy }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_port = yes
+			
+			OR = {
+				NOT = { has_building = coastal_defence }
+				NOT = { num_of_times_improved = 5 }
+			}
+			
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 2
+						has_building = coastal_defence
+						num_of_times_improved = 5
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				has_building = coastal_defence
+				num_of_times_improved = 5
+			}
+			
+			navy_tradition = 25
+		}
+		effect = {
+			random_owned_province = {
+				limit = {
+					has_building = coastal_defence
+					num_of_times_improved = 5
+				}
+				remove_building = coastal_defence
+				add_building = naval_battery
+			}
+			
+			random_owned_province = {
+				limit = {
+					has_building = coastal_defence
+					num_of_times_improved = 5
+				}
+				remove_building = coastal_defence
+				add_building = naval_battery
+			}
+		}
+	}
+}
+
+greek_minors_missions_5 = {
+	slot = 5
+	ai = yes
+	generic = no
+	has_country_shield = yes
+	
+	potential = {
+		NOT = { has_country_flag = greek_crusaders_missions }
+		
+		OR = {
+			has_country_flag = greek_minors_missions
+			
+			tag = ACH #Achaea
+			tag = CEP #Corfu
+			tag = CRT #Crete
+			tag = MOE #Morea
+		}
+	}
+	
+	greek_minors_army = {
+		icon = xxx_icon
+		position = 3
+		required_missions = { greek_minors_supremacy }
+		trigger = {
+			OR = {
+				full_idea_group = aristocracy_ideas
+				full_idea_group = plutocracy_ideas
+				full_idea_group = offensive_ideas
+				full_idea_group = defensive_ideas
+				full_idea_group = quality_ideas
+				full_idea_group = quantity_ideas
+				full_idea_group = naval_ideas
+			}
+			
+			custom_trigger_tooltip = {
+				tooltip = greek_minors_army_won10
+				check_variable = { which = num_of_won_battles value = 10 }
+			}
+			
+			custom_trigger_tooltip = {
+				tooltip = greek_minors_army_wonmore
+				NOT = {
+					check_variable = { which = num_of_lost_battles which = num_of_won_battles }
+				}
+			}
+		}
+		effect = {
+			country_event = { #The Future of Warfare
+				id = ME_Greek_Minors_Events.3
+				days = 0
+			}
+			
+			balkan_region = {
+				limit = {
+					culture = greek
+					NOT = { province_is_on_an_island = yes }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	greek_minors_navy = {
+		icon = xxx_icon
+		position = 4
+		required_missions = { }
+		trigger = {
+			naval_forcelimit = 25
+			navy_tradition = 20
+			num_of_galley = 15
+		}
+		effect = {
+			add_yearly_sailors = 1
+			
+			add_country_modifier = {
+				name = greek_minors_branch
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	greek_minors_klephts = {
+		icon = xxx_icon
+		position = 5
+		required_missions = { greek_minors_navy }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			devastation = 1
+		}
+		trigger = {
+			max_manpower = 20
+			all_owned_province = {
+				NOT = { devastation = 1 }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_expanded_mod_active = { mod = mercenary_companies }
+				}
+				custom_tooltip = greek_minors_klephts_tt
+				set_country_flag = greek_minors_klephts_flag
+			}
+			else = {
+				add_country_modifier = {
+					name = greek_minors_forces
+					duration = -1 #Modifier goes away if you formed anyone else other than Greece
+				}
+			}
+		}
+	}
+}

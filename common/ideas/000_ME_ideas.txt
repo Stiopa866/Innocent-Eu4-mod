@@ -88,7 +88,7 @@ SGF_ideas = {
 	}
 
 	bonus = {
-		governing_capacity = 50
+		governing_capacity = 250
 	}
 
 	trigger = {
@@ -680,51 +680,6 @@ UKS_ideas = {  #United Kingdoms
     }
 }
 
-jingtai_ideas = {
-	start = {
-		global_manpower_modifier = 0.25
-		global_trade_power = 0.2
-	}
-
-	bonus = {
-		governing_capacity = 50
-	}
-
-	trigger = {
-		tag = JNG
-	}
-	free = yes
-
-	jng_idea_1 = {
-		legitimacy = 1
-		meritocracy = 1
-		imperial_mandate = 0.05
-	}
-
-	jng_idea_2 = {
-		discipline = 0.05
-		drill_gain_modifier = 0.15
-	}
-	jng_idea_3 = {
-		idea_cost = -0.1
-	}
-
-	jng_idea_4 = {
-		global_autonomy = -0.05
-	}
-	jng_idea_5 = {
-		development_cost = -0.1
-		harmonization_speed = 0.1
-	}
-	jng_idea_6 = {
-		naval_morale = 0.1
-		heavy_ship_power = 0.1
-	}
-	jng_idea_7 = {
-		global_regiment_cost = -0.1
-	}
-}
-
 AZE_ideas = {
 	start = {
 		global_manpower_modifier = 0.2
@@ -926,4 +881,46 @@ GRC_ideas = {
 	GRC_recruit_the_llaneros = {
 		cavalry_power = 0.15
 	}
+}
+
+CAP_ideas = {
+    start = {
+        legitimacy = 1.0
+        diplomatic_upkeep = 2
+    }
+
+    bonus = {
+        ae_impact = -0.10
+    }
+
+    trigger = {
+	has_country_flag = PRO_capet_idea
+        tag = FRA
+    }
+
+    free = yes        #will be added at load.
+
+    CAP_from_father_to_son_for_france = { 
+        advisor_cost = -0.10
+        heir_chance = 0.50
+    }
+    CAP_blessed_by_carolingian_prestige = {
+        prestige = 1.0
+    }
+    CAP_rein_the_cadet_branches_in = { 
+        diplomatic_annexation_cost = -0.2
+        reduced_liberty_desire = 10
+    }
+    CAP_away_with_salic_law_in_with_new_laws = {
+        free_adm_policy = 1
+    }
+    CAP_ambitions_for_foreign_thrones = {
+        diplomatic_reputation = 1
+    }
+    CAP_crusade_memories_of_capetian_france = {
+        warscore_cost_vs_other_religion = -0.15
+    }
+    CAP_formalized_french_regality = {
+        land_morale = 0.15
+    }
 }

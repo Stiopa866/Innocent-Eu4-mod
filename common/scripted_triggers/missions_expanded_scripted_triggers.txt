@@ -17,7 +17,6 @@ country_has_both_paradox_and_me_missions = {
 				tag = CYP
 				tag = EPI
 				tag = KNI
-				tag = KOJ
 				tag = NAX
 				#Germany
 				tag = GER
@@ -90,13 +89,11 @@ country_has_both_paradox_and_me_missions = {
 		tag = HAB
 		tag = BSH
 		tag = BAV
-		tag = BOH
 		tag = CRI
 		tag = DAN
 		tag = FRA
 		tag = GOL
 		tag = HSA
-		tag = HUN
 		tag = KAZ
 		tag = KIE
 		tag = MOL
@@ -117,13 +114,11 @@ country_has_both_paradox_and_me_missions = {
 			is_random_new_world = no
 			NOT = { map_setup = map_setup_random }
 		}
-		tag = MNG
 		tag = PRU
 		tag = BRA
 		tag = KOR
 		tag = TUR
 		tag = MAM
-		tag = BYZ
 		tag = ENG
 		tag = GBR
 		tag = GLH
@@ -141,7 +136,6 @@ country_has_both_paradox_and_me_missions = {
 				tag = ILK
 			}
 		}
-		tag = PER
 		tag = KHO
 		tag = TRS
 		tag = FRS
@@ -155,7 +149,6 @@ country_has_both_paradox_and_me_missions = {
 				has_reform = indep_daimyo
 				has_reform = daimyo
 				has_reform = shogunate
-				tag = JAP
 			}
 			OR = {
 				country_gets_japanese_generic_missions = yes
@@ -211,11 +204,9 @@ country_has_both_paradox_and_me_missions = {
 			
 			
 		#Low Countries
-		tag = HOL
 		tag = UTR
 		tag = GEL
 		tag = FRI
-		tag = NED
 		tag = FLA
 		tag = BRB
 		#Italy
@@ -225,12 +216,10 @@ country_has_both_paradox_and_me_missions = {
 		tag = MAN
 		tag = MFA
 		tag = MOD
-		tag = PAP
 		tag = PAR
 		tag = PIS
 		tag = SIE
 		tag = URB
-		tag = VEN
 		#France
 		tag = BUR
 		tag = FRA
@@ -286,18 +275,13 @@ country_gets_japanese_generic_missions = {
 
 country_gets_japanese_unique_missions = {
 	OR = {
-		tag = JAP
 		tag = HSK
 		tag = ANU
 		tag = SMZ
 		tag = TKD
-		tag = ASK
 		tag = RYU
 		tag = TKG
 		tag = ODA
-		tag = SOO
-		tag = YMN
-		tag = UES
 		tag = RYU
 		tag = OTM
 	}

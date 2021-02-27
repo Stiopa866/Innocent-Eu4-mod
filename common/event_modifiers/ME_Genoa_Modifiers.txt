@@ -182,8 +182,8 @@ gen_genoese_silk_road_trade_aggreement_asiatic = {
 
 #Decisions
 gen_colonia_genovese = {
-	province_trade_power_modifier = 0.25
-	local_tax_modifier = -0.50
+	province_trade_power_modifier = -0.25
+	local_tax_modifier = 0.50
 	local_culture_conversion_cost = -0.50
 	local_unrest = -2
 }

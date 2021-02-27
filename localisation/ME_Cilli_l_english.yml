@@ -25,7 +25,7 @@
  #3
  cli_hand_cards_title: "A Hand of Cards"
  cli_hand_cards_desc: "The great game of European diplomacy is all but familiar to the House of Cilli. Having married and interacted with the great houses of Luxembourg, Habsburg, and Anjou has made us adept in all matters of diplomacy. Although recently having been denied our rightful claim to Bosnia, we still have many ties across Europe. Our hand of cards lies ready, all we have to do is make a move."
- cli_hungarian_regency_title: "The Hungarian Regency"
+ cli_hungarian_regency_title: "Hungarian Regency"
  cli_hungarian_regency_desc: ""
  cli_hunyadi_threat_title: "The Hunyadi Threat"
  cli_hunyadi_threat_desc: ""
@@ -33,7 +33,7 @@
  cli_imperial_cilli_desc: ""
  cli_secure_electors_title: "Secure Electors"
  cli_secure_electors_desc: ""
- cli_charlemagne_throne_title: "Charlemagne's Throne"
+ cli_charlemagne_throne_title: "Charlemagne Throne"
  cli_charlemagne_throne_desc: ""
 
  #4
@@ -177,6 +177,8 @@
  CLI_every_austro_province: "Every owned province of §YAustrian§! culture gets the following:"
  CLI_claims_or_cores: "If we have a §YStatesman§!, §YSpymaster§! or a §YDiplomat§! advisor, gain §YCores§! on the §YCarniola§! Area. If we don't have these advisors, grant §YPermanent Claims§! instead."
  CLI_CASTLE: "The tax bonus will be lost once the castle is upgraded."
+ CLI_rewards_if_war_with_habs: "Rewards if the mission is completed by §MWar§!:"
+ CLI_rewards_if_area: "Rewards if the mission is completed by §MArea Ownership§!:"
  #Name
  CLI_SLOVENIA: "Slovenia"
  CLI_SLOVENIA_ADJ: "Slovenian"

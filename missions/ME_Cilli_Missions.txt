@@ -1249,42 +1249,64 @@ cilli_missions_5 = {
 			}
 		}
 		effect = {
-			if = {
-				limit = {
-					exists = HAB
-				}
-				if = {
-					limit = {
-						war_with = HAB
-					}
-					add_country_modifier = {
-						name = cli_against_all_odds
-						duration = 1825
-					}
-					if = {
-						limit = {
-							statesman = 1
-							carinthia_area = {
-								country_or_non_sovereign_subject_holds = HAB
-								OR = {
-									has_building = fort_15th
-									has_building = fort_16th
-									has_building = fort_17th
-									has_building = fort_18th
-								}
-								sieged_by = ROOT
-							}
-						}
-						HAB = {
-							country_event = { id = ME_Cilli_Events.6 }
-						}
-					}
+			custom_tooltip = CLI_rewards_if_war_with_habs
+			tooltip = {
+				add_country_modifier = {
+					name = cli_against_all_odds
+					duration = 1825
 				}
 			}
-			else = {
+			custom_tooltip = CLI_rewards_if_area
+			tooltip = {
 				carinthia_area = {
 					add_base_tax = 1
 					add_nationalism = -5
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						exists = HAB
+					}
+					if = {
+						limit = {
+							war_with = HAB
+						}
+						add_country_modifier = {
+							name = cli_against_all_odds
+							duration = 1825
+						}
+						#if = {
+						#	limit = {
+						#		statesman = 1
+						#		carinthia_area = {
+						#			country_or_non_sovereign_subject_holds = HAB
+						#			OR = {
+						#				has_building = fort_15th
+						#				has_building = fort_16th
+						#				has_building = fort_17th
+						#				has_building = fort_18th
+						#			}
+						#			sieged_by = ROOT
+						#		}
+						#	}
+						#	HAB = {
+						#		country_event = { id = ME_Cilli_Events.6 }
+						#	}
+						#}
+					}
+					else = {
+						carinthia_area = {
+							add_base_tax = 1
+							add_nationalism = -5
+						}
+					}
+				}
+				else = {
+					carinthia_area = {
+						add_base_tax = 1
+						add_nationalism = -5
+					}
 				}
 			}
 		}
