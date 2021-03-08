@@ -1,0 +1,18 @@
+incident_gvg = {
+	event = ME_Incident_Guelphs_vs_Ghibellines.3
+	default_option = 0
+	
+	can_stop = {
+		NOT = {
+			exists = PAP
+		}
+	}
+	
+	0 = {
+		factor = 1
+	}
+	
+	1 = {
+		factor = 1
+	}
+}

@@ -196,3 +196,36 @@
  italy_morale: "Social Life in the Army"
  italy_development: "Development Plan"
  
+ #ME_Incident_Guelphs_vs_Ghibellines
+ incident_gvg:0 "Guelphs vs Ghibellines"
+ incident_gvg_member_alert:0 "The term Ghibelline continued to indicate attachment to the declining Imperial authority in Italy, and saw a brief resurgence during the Italian campaigns of Emperors Henry VII (1310) and Louis IV (1327). Pope John XXII was under French control through the Avignon Papacy and therefore aligned with the French-allied House of Luxembourg against the German King Louis IV. The Pope accordingly threatened heresy charges against the Ghibellines and excommunicated Louis IV in 1324. The Ghibellines then supported Louis' invasion of Italy and coronation as King of Italy and Holy Roman Emperor. Nowadays the Divine and Imperial power have found themselves on the edge once again, we shall decide what should happen."
+ incident_gvg_emperor_alert:0 "The term Ghibelline continued to indicate attachment to the declining Imperial authority in Italy, and saw a brief resurgence during the Italian campaigns of Emperors Henry VII (1310) and Louis IV (1327). Pope John XXII was under French control through the Avignon Papacy and therefore aligned with the French-allied House of Luxembourg against the German King Louis IV. The Pope accordingly threatened heresy charges against the Ghibellines and excommunicated Louis IV in 1324. The Ghibellines then supported Louis' invasion of Italy and coronation as King of Italy and Holy Roman Emperor. Nowadays the Divine and Imperial power have found themselves on the edge once again, we shall decide what should happen."
+ guelph_PAP: "Guelph Leader"
+ guelph_team: "Guelph Team"
+ guelph_EMP: "Guelph Enemy Leader"
+ guelph_enemy: "Guelph Enemy"
+ ghibelline_EMP: "Ghibelline Leader"
+ ghibelline_team: "Ghibelline Team"
+ ghibelline_PAP: "Ghibelline Enemy Leader"
+ ghibelline_enemy: "Ghibelline Enemy"
+ ME_Incident_Guelphs_vs_Ghibellines.2.t: "Should we rule over Italy"
+ ME_Incident_Guelphs_vs_Ghibellines.2.d: "The term Ghibelline continued to indicate attachment to the declining Imperial authority in Italy, and saw a brief resurgence during the Italian campaigns of Emperors Henry VII (1310) and Louis IV (1327). Pope John XXII was under French control through the Avignon Papacy and therefore aligned with the French-allied House of Luxembourg against the German King Louis IV. The Pope accordingly threatened heresy charges against the Ghibellines and excommunicated Louis IV in 1324. The Ghibellines then supported Louis' invasion of Italy and coronation as King of Italy and Holy Roman Emperor. Nowadays the Divine and Imperial power have found themselves on the edge once again, we shall decide what should happen."
+ ME_Incident_Guelphs_vs_Ghibellines.2.a: "(WIP) Decide in one year/our people scheme?"
+ ME_Incident_Guelphs_vs_Ghibellines.2.tt: "(WIP) Both [PAP.GetName] and [Emperor.GetName] contests Italy:\n war to determine winner\n\nIf [Emperor.GetName] uncontested:\nthe Italian Nation in the HRE stay (no shadow kingdom)\nThe emperor gains 25 prestige: ruling in Italy until 1550 granting +0.5 mothly imperial autority and +1 yearly/monthly prestige\n\nIf [PAP.GetName] uncontested:\nthe Italian Nation in the HRE leave immediately\nPAP gains 25 prestige, ruling in Italy until 1550 granting +0.5 monthly papal influence\n\nIf Italy uncontested:\nAll Italian Nations (countries with capital in Italy region) gain Peace in our Times -15% stability cost modifier for 15 years."
+ ME_Incident_Guelphs_vs_Ghibellines.3.a: "We shall rule over Italy once again"
+ ME_Incident_Guelphs_vs_Ghibellines.3.b: "Leave those Italics to themselves"
+ ME_Incident_Guelphs_vs_Ghibellines.5.t: "Guelph and Ghibellines"
+ ME_Incident_Guelphs_vs_Ghibellines.5.d: "During the last 500 years we, Italians have tortured ourselves questioning who would be the most fitting guide for us humans while we are on this sacred earth. \nSurely God will be the one guiding us when we live behind our mortal remains, should §[PAP.Monarch.GetName]§! the Vicar of Christ guide us or should we let $EMPERORNAME$. the successor of the emperors of old who ruled upon our lands, do it?"
+ ME_Incident_Guelphs_vs_Ghibellines.5.a: "Do not want to side"
+ ME_Incident_Guelphs_vs_Ghibellines.5.b: "The Pope must guides us in this life"
+ ME_Incident_Guelphs_vs_Ghibellines.5.c: "The Emperor is the sole one to reign"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,32 @@
+guelph_PAP = {
+	opinion = 125
+	yearly_decay = 1
+}
+guelph_team = {
+	opinion = 50
+	yearly_decay = 1
+}
+guelph_EMP = {
+	opinion = -125
+	yearly_decay = 1
+}
+guelph_enemy = {
+	opinion = -50
+	yearly_decay = 1
+}
+ghibelline_EMP = {
+	opinion = 125
+	yearly_decay = 1
+}
+ghibelline_team = {
+	opinion = 50
+	yearly_decay = 1
+}
+ghibelline_PAP = {
+	opinion = -125
+	yearly_decay = 1
+}
+ghibelline_enemy = {
+	opinion = -50
+	yearly_decay = 1
+}

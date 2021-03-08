@@ -1,0 +1,393 @@
+namespace = ME_Incident_Guelphs_vs_Ghibellines
+
+country_event = { #fire imperial incident
+	id = ME_Incident_Guelphs_vs_Ghibellines.1
+	title = ME_Incident_Guelphs_vs_Ghibellines.1.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.1.d
+	picture = HRE_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	trigger = {
+		is_emperor = yes
+		exists = PAP
+		NOT = { active_imperial_incident = any }
+		OR = {
+			NOT = { is_year = 1490 }
+			NOT = { has_global_flag = italians_leave_hre }
+		}
+	}
+	
+	immediate = {
+		set_global_flag = incident_gvg
+		set_imperial_incident = incident_gvg
+		country_event = {
+			id = ME_Incident_Guelphs_vs_Ghibellines.2
+			days = 0
+		}
+		PAP = {
+			country_event = {
+				id = ME_Incident_Guelphs_vs_Ghibellines.2
+				days = 0
+			}
+		}
+	}
+	
+	option = {
+		#hidden
+	}
+}
+
+country_event = { #Fight for Italy
+	id = ME_Incident_Guelphs_vs_Ghibellines.2
+	title = ME_Incident_Guelphs_vs_Ghibellines.2.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.2.d
+	picture = HRE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Year warning
+		name = ME_Incident_Guelphs_vs_Ghibellines.2.a
+		
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.2.tt
+	}
+}
+
+country_event = { #EMP Rule Italy?
+	id = ME_Incident_Guelphs_vs_Ghibellines.3
+	title = ME_Incident_Guelphs_vs_Ghibellines.2.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.2.d
+	picture = HRE_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		PAP = {
+			country_event = {
+				id = ME_Incident_Guelphs_vs_Ghibellines.4
+				days = 0
+			}
+		}
+	}
+	
+	option = { #We shall rule over Italy once again
+		name = ME_Incident_Guelphs_vs_Ghibellines.3.a
+		
+		ai_chance = { factor = 9 }
+		
+		set_country_flag = ruling_italy_yes
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.2.tt
+	}
+	
+	option = { #Leave those Italics to themselves
+		name = ME_Incident_Guelphs_vs_Ghibellines.3.b
+		
+		ai_chance = { factor = 1 }
+		
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.2.tt
+	}
+}
+
+country_event = { #PAP Rule Italy?
+	id = ME_Incident_Guelphs_vs_Ghibellines.4
+	title = ME_Incident_Guelphs_vs_Ghibellines.2.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.2.d
+	picture = HRE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #We shall rule over Italy once again
+		name = ME_Incident_Guelphs_vs_Ghibellines.3.a
+		
+		ai_chance = { factor = 9 }
+		
+		set_country_flag = ruling_italy_yes
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.2.tt
+	}
+	
+	option = { #Leave those Italics to themselves
+		name = ME_Incident_Guelphs_vs_Ghibellines.3.b
+		
+		ai_chance = { factor = 1 }
+		
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.2.tt
+	}
+}
+
+country_event = { #Guelph and Ghibellines
+	id = ME_Incident_Guelphs_vs_Ghibellines.5
+	title = ME_Incident_Guelphs_vs_Ghibellines.5.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.5.d
+	picture = HRE_eventPicture
+	
+	trigger = {
+		NOT = { has_country_flag = ruling_italy_yes }
+		emperor = { has_country_flag = ruling_italy_yes }
+		PAP = { has_country_flag = ruling_italy_yes }
+		culture_group = latin
+		capital_scope = { region = italy_region }
+		NOT = { is_subject = yes }
+	}
+	
+	immediate = {
+		set_country_flag = ruling_italy_yes
+	}
+	
+	option = { #Do not want to side
+		name = ME_Incident_Guelphs_vs_Ghibellines.5.a
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = { #The Pope must guides us in this life
+		name = ME_Incident_Guelphs_vs_Ghibellines.5.b
+		
+		ai_chance = { factor = 10 }
+		
+		set_country_flag = is_guelph
+		
+		PAP = {
+			add_opinion = {
+				who = ROOT
+				modifier = guelph_PAP
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = guelph_PAP
+			}
+		}
+		
+		every_known_country = {
+			limit = {
+				has_country_flag = is_guelph
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = guelph_team
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = guelph_team
+			}
+		}
+		
+		emperor = {
+			add_opinion = {
+				who = ROOT
+				modifier = guelph_EMP
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = guelph_EMP
+			}
+		}
+		
+		every_known_country = {
+			limit = {
+				has_country_flag = is_ghibelline
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = guelph_enemy
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = guelph_enemy
+			}
+		}
+	}
+	
+	option = { #The Emperor is the sole one to reign
+		name = ME_Incident_Guelphs_vs_Ghibellines.5.c
+		
+		ai_chance = { factor = 10 }
+		
+		set_country_flag = is_ghibelline
+		
+		emperor = {
+			add_opinion = {
+				who = ROOT
+				modifier = ghibelline_EMP
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = ghibelline_EMP
+			}
+		}
+		
+		every_known_country = {
+			limit = {
+				has_country_flag = is_ghibelline
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = ghibelline_team
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = ghibelline_team
+			}
+		}
+		
+		PAP = {
+			add_opinion = {
+				who = ROOT
+				modifier = ghibelline_PAP
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = ghibelline_PAP
+			}
+		}
+		
+		every_known_country = {
+			limit = {
+				has_country_flag = is_guelph
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = ghibelline_enemy
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = ghibelline_enemy
+			}
+		}
+	}
+}
+
+country_event = { #Victory for the Ghibellines
+	id = ME_Incident_Guelphs_vs_Ghibellines.6
+	title = ME_Incident_Guelphs_vs_Ghibellines.6.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.6.d
+	picture = HRE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PAP
+		had_country_flag = {
+			flag = ruling_italy_yes
+			days = 100
+		}
+		OR = {
+			emperor = {
+				NOT = { has_country_flag = ruling_italy_yes }
+			}
+			has_country_flag = won_war_gvg
+		}
+	}
+	
+	option = { #Year warning
+		name = ME_Incident_Guelphs_vs_Ghibellines.6.a
+		
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.6.tt
+	}
+}
+
+country_event = { #Victory for the Guelphs
+	id = ME_Incident_Guelphs_vs_Ghibellines.7
+	title = ME_Incident_Guelphs_vs_Ghibellines.7.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.7.d
+	picture = HRE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor = yes
+		had_country_flag = {
+			flag = ruling_italy_yes
+			days = 100
+		}
+		OR = {
+			PAP = {
+				NOT = { has_country_flag = ruling_italy_yes }
+			}
+			has_country_flag = won_war_gvg
+		}
+	}
+	
+	option = { #Year warning
+		name = ME_Incident_Guelphs_vs_Ghibellines.7.a
+		
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.7.tt
+	}
+}
+
+country_event = { #Peace in Italy Trigger
+	id = ME_Incident_Guelphs_vs_Ghibellines.8
+	title = ME_Incident_Guelphs_vs_Ghibellines.8.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.8.d
+	picture = HRE_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				had_global_flag = {
+					flag = incident_gvg
+					days = 465
+				}
+				emperor = {
+					NOT = { has_country_flag = ruling_italy_yes }
+				}
+				PAP = {
+					NOT = { has_country_flag = ruling_italy_yes }
+				}
+			}
+			AND = {
+				had_country_flag = {
+					flag = ruling_italy_yes
+					days = 14600 #40 years
+				}
+				emperor = {
+					NOT = { has_country_flag = won_war_gvg }
+				}
+				PAP = {
+					NOT = { has_country_flag = won_war_gvg }
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		emperor = {
+			country_event = {
+				id = ME_Incident_Guelphs_vs_Ghibellines.9
+				days = 0
+			}
+		}
+		PAP = {
+			country_event = {
+				id = ME_Incident_Guelphs_vs_Ghibellines.9
+				days = 0
+			}
+		}
+	}
+	
+	option = {
+		#hidden
+	}
+}
+
+country_event = { #Peace in Italy
+	id = ME_Incident_Guelphs_vs_Ghibellines.9
+	title = ME_Incident_Guelphs_vs_Ghibellines.9.t
+	desc = ME_Incident_Guelphs_vs_Ghibellines.9.d
+	picture = HRE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ME_Incident_Guelphs_vs_Ghibellines.9.a
+		
+		tooltip = ME_Incident_Guelphs_vs_Ghibellines.9.tt
+	}
+}
