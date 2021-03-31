@@ -1,4 +1,4 @@
-name="Missions Expanded Colonial Nations"
+name="Missions Expanded Claivin's Stuff"
 archive="mod/missions.zip"
 tags={
 	"Historical"
