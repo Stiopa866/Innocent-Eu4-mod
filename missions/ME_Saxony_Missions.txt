@@ -611,13 +611,25 @@ saxony_missions_slot_2 = {
 						OR = {
 							has_regency = yes
 							AND = {
-								dynasty = ROOT
-								has_heir = no
-								NOT = { legitimacy = 66 }
-							}
-							AND = {
 								has_foreign_heir = yes
 								heir_nationality = ROOT
+							}
+							AND = {
+								dynasty = ROOT
+								OR = {
+									AND = {
+										has_heir = no
+										NOT = { legitimacy = 66 }
+									}
+									AND = {
+										has_reform = elective_monarchy
+										NOT = { legitimacy = 33 }
+										OR = {
+											has_heir = no
+											NOT = { heir_claim = 66 }
+										}
+									}
+								}
 							}
 						}
 					}
@@ -647,13 +659,25 @@ saxony_missions_slot_2 = {
 						OR = {
 							has_regency = yes
 							AND = {
-								dynasty = ROOT
-								has_heir = no
-								NOT = { legitimacy = 66 }
-							}
-							AND = {
 								has_foreign_heir = yes
 								heir_nationality = ROOT
+							}
+							AND = {
+								dynasty = ROOT
+								OR = {
+									AND = {
+										has_heir = no
+										NOT = { legitimacy = 66 }
+									}
+									AND = {
+										has_reform = elective_monarchy
+										NOT = { legitimacy = 33 }
+										OR = {
+											has_heir = no
+											NOT = { heir_claim = 66 }
+										}
+									}
+								}
 							}
 						}
 					}
@@ -821,6 +845,7 @@ saxony_missions_slot_2 = {
 			OR = {
 				religion = protestant
 				religion = reformed
+				religion = hussite
 				AND = {
 					religion = catholic
 					has_country_modifier = the_statue_in_restraint_of_appeals
@@ -859,6 +884,7 @@ saxony_missions_slot_2 = {
 			OR = {
 				religion = protestant
 				religion = reformed
+				religion = hussite
 			}
 		}
 		effect = {
@@ -1130,17 +1156,8 @@ saxony_missions_slot_3 = {
 				limit = {
 					exists = THU
 				}
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_modifier = loyal_subjects
-						}
-						remove_country_modifier = loyal_subjects
-					}
-				}
-				add_country_modifier = {
-					name = loyal_subjects
-					duration = 3650
+				THU = {
+					add_liberty_desire = -25
 				}
 			}
 			58 = {
@@ -1190,17 +1207,17 @@ saxony_missions_slot_3 = {
 				area = mittelmark_area
 				province_id = 2964
 			}
-			NOT = { owned_by = ROOT }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			owns = 2964
 			neumark_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			mittelmark_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
@@ -1654,31 +1671,31 @@ saxony_missions_slot_3 = {
 					has_dlc = "Emperor"
 				}
 				OR = {
-					AND = {
-						is_emperor = yes
-						hre_reform_passed = emperor_privilegia_de_non_appelando
-					}
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						value = 60
 						OR = {
 							region = north_german_region
 							region = south_german_region
 						}
+					}
+					AND = {
+						is_emperor = yes
+						hre_reform_passed = emperor_privilegia_de_non_appelando
 					}
 				}
 			}
 			else = {
 				OR = {
-					AND = {
-						is_emperor = yes
-						hre_reform_passed = privilegia_de_non_appelando
-					}
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						value = 60
 						OR = {
 							region = north_german_region
 							region = south_german_region
 						}
+					}
+					AND = {
+						is_emperor = yes
+						hre_reform_passed = privilegia_de_non_appelando
 					}
 				}
 			}
@@ -1918,18 +1935,7 @@ saxony_missions_slot_4 = {
 					}
 					change_religion = ROOT
 				}
-				if = {
-					limit = {
-						ROOT = { religion = catholic }
-					}
-					add_province_modifier = {
-						name = saxony_renovation_of_the_st_sebastian_cathedral_province_modifier
-						duration = 10950
-					}
-				}
-				else = {
-					add_base_tax = 2
-				}
+				add_base_tax = 2
 			}
 		}
 	}

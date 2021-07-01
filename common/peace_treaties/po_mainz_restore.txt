@@ -29,9 +29,10 @@ po_mainz_restore = {
 	}
 	effect = {
 		FROM = {
-			ROOT = {
-				country_event = { id = ME_Mainz_Events.5 }
-			}
+			save_global_event_target_as = RHN_mainz_target
+		}
+		ROOT = {
+			country_event = { id = ME_Mainz_Events.5 }
 		}
 	}
 	ai_weight = {

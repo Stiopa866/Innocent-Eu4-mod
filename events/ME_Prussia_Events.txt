@@ -129,7 +129,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				is_expanded_mod_active   = { mod = governments }
+				is_expanded_mod_active = { mod = governments }
 			}
 			add_government_reform = dynastic_theocracy_reform
 		}
@@ -688,6 +688,7 @@ country_event = {
 		government = monarchy
 		NOT = { has_ruler_flag = PRU_schlosskirche }
 		owns = 41
+		has_regency = no
 	}
 	mean_time_to_happen = {
 		months = 24
@@ -1276,12 +1277,15 @@ country_event = {
 		if = {
 			limit = {
 				is_expanded_mod_active = { mod = governments }
+				has_reform_on_level = 5
+				NOT = { has_reform = kreditwerk_reform }
 			}
 			add_government_reform = kreditwerk_reform
 			#custom_tooltip = GE_Kreditwerk
 			set_country_flag = GE_Kreditwerk_flag
 		}
 		else = {
+			change_government_reform_progress = 25
 			add_country_modifier = {
 				name = BRA_reformed_kreditwerk
 				duration = 18250
@@ -1397,10 +1401,10 @@ country_event = {
 		custom_tooltip = PRU_give_religious_immigration_boni_2
 		hidden_effect = {
 			event_target:MEPRU_main_target = {
-				add_base_tax = 2
-				add_base_production = 2
-				add_base_manpower = 2
-				build_possible_manufactory_in_province = yes
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_or_upgrade_production_building = yes
 				area = {
 					limit = {
 						owned_by = ROOT

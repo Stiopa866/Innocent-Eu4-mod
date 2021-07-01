@@ -383,7 +383,7 @@ TRE_Missions_2 = {
 			}
 			else = {
 				330 = {
-					NOT = { devastation = 0.01 }
+					NOT = { devastation = 1 }
 					owned_by = ROOT
 				}
 			}
@@ -416,7 +416,7 @@ TRE_Missions_2 = {
 			else = {
 				thrace_area = {
 					type = all
-					NOT = { devastation = 0.01 }
+					NOT = { devastation = 1 }
 					owned_by = ROOT
 				}
 			}
@@ -910,7 +910,7 @@ TRE_Missions_4 = {
 				is_prosperous = no
 			}
 			else = {
-				devastation = 0.01
+				devastation = 1
 			}
 		}
 		trigger = {
@@ -927,7 +927,7 @@ TRE_Missions_4 = {
 					}
 				}
 				else = {
-					NOT = { devastation = 0.01 }
+					NOT = { devastation = 1 }
 				}
 			}
 			northern_greece_area = {
@@ -943,7 +943,7 @@ TRE_Missions_4 = {
 					}
 				}
 				else = {
-					NOT = { devastation = 0.01 }
+					NOT = { devastation = 1 }
 				}
 			}
 			morea_area = {
@@ -959,7 +959,7 @@ TRE_Missions_4 = {
 					}
 				}
 				else = {
-					NOT = { devastation = 0.01 }
+					NOT = { devastation = 1 }
 				}
 			}
 		}

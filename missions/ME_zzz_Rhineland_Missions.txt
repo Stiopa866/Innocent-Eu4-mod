@@ -3,7 +3,6 @@ generic_rhenish_missions_4_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		primary_culture = hessian
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 		OR = {
 			tag = MAI
@@ -15,7 +14,10 @@ generic_rhenish_missions_4_2 = {
 			AND = {
 				tag = RHN
 				NOT = {
-					was_tag = PAL
+					OR = {
+						was_tag = PAL
+						was_tag = HES
+					}
 				}
 			}
 			AND = {
@@ -219,7 +221,7 @@ RHN_missions_1 = {
 						province_id = 2975
 						province_id = 84
 					}
-					value = 100
+					value = 120
 				}
 			}
         }
@@ -410,6 +412,7 @@ RHN_missions_2 = {
 				}
 				value = 6
 			}
+			67 = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 			67 = {
@@ -588,7 +591,7 @@ RHN_missions_2 = {
 						limit = {
 							has_opinion = {
 								who = ROOT
-								amount = 150
+								value = 150
 							}
 							iron = 1
 						}
@@ -1010,7 +1013,7 @@ RHN_missions_4 = {
 					}
 					add_opinion = {
 						who = ROOT
-						opinion = rhn_faith 
+						modifier = rhn_faith 
 					}
 				}
 			}

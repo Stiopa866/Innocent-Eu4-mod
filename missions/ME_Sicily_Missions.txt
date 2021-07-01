@@ -11,26 +11,31 @@ sicily_mission_1 = {
 					tag = TTS
 					AND = {
 						tag = SIC
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
-			}
-			AND = {
-				was_tag = SIC
-				OR = {
-					tag = TTS
-					#tag = ITA
-				}
 			}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 
@@ -252,7 +257,6 @@ sicily_mission_2 = {
 	slot = 2
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = SIC
@@ -262,27 +266,33 @@ sicily_mission_2 = {
 					tag = TTS
 					AND = {
 						tag = SIC
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
-			}
-			AND = {
-				was_tag = SIC
-				OR = {
-					tag = TTS
-					#tag = ITA
-				}
 			}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
+	has_country_shield = yes
 
 	sic_seeking_papal_support = {
 		icon = defender_of_the_faith
@@ -489,7 +499,6 @@ sicily_mission_3 = {
 	slot = 3
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = SIC
@@ -499,27 +508,33 @@ sicily_mission_3 = {
 					tag = TTS
 					AND = {
 						tag = SIC
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
-			}
-			AND = {
-				was_tag = SIC
-				OR = {
-					tag = TTS
-					#tag = ITA
-				}
 			}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
+	has_country_shield = yes
 
 	sic_vespri_siciliani = {
 		icon = unite_the_two_sicilies
@@ -528,8 +543,8 @@ sicily_mission_3 = {
 		trigger = {
 			if = {
 				limit = { 
-					NOT = { is_subject_of = NAP }
 					is_subject = yes
+					NOT = { is_subject_of = NAP }
 				}
 				army_size_percentage = 1
 				if = {
@@ -545,7 +560,17 @@ sicily_mission_3 = {
 							any_rival_country = {
 								has_opinion = {
 									who = ROOT
-									value = 125
+									value = 100
+								}
+							}
+						}
+					}
+					else = {
+						overlord = {
+							any_rival_country = {
+								has_opinion = {
+									who = ROOT
+									value = 100
 								}
 							}
 						}
@@ -556,7 +581,7 @@ sicily_mission_3 = {
 						any_rival_country = {
 							has_opinion = {
 								who = ROOT
-								value = 125
+								value = 100
 							}
 						}
 					}
@@ -568,15 +593,6 @@ sicily_mission_3 = {
 			add_country_modifier = {
 				name = nap_struggle_anew
 				duration = 3650
-			}
-			if = {
-				limit = {
-					NOT = { is_subject_of = NAP }
-					is_subject = yes
-				}
-				country_event = {
-					id = ME_Sicily_Events.1
-				}
 			}
 			define_general = {
 				name = "Sergio di Discordia"
@@ -948,7 +964,6 @@ sicily_mission_4 = {
 	slot = 4
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = SIC
@@ -958,27 +973,33 @@ sicily_mission_4 = {
 					tag = TTS
 					AND = {
 						tag = SIC
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
-			}
-			AND = {
-				was_tag = SIC
-				OR = {
-					tag = TTS
-					#tag = ITA
-				}
 			}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
+	has_country_shield = yes
 
 	sic_citra_pharum = {		
 		icon = me_mission_aragon_lighthouse_of_alexandria
@@ -1078,7 +1099,7 @@ sicily_mission_4 = {
 			sic_mountains_aspromonte
 		}
 		provinces_to_highlight = {
-			area = calabria_area
+			area = naples_area
 			NOT = { province_id = 121 }
 			OR = {
 				NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -1156,7 +1177,6 @@ sicily_mission_5 = {
 	slot = 5
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = SIC
@@ -1166,25 +1186,33 @@ sicily_mission_5 = {
 					tag = TTS
 					AND = {
 						tag = SIC
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
-			}
-			AND = {
-				was_tag = SIC
-				tag = TTS
-				#tag = ITA
 			}
 		}
-		OR = {
-			NOT = { has_dlc = "Emperor" }
-			AND = {
-				has_dlc = "Emperor"
-				has_country_flag = use_missions_expanded_missions_instead_of_paradox
-			}
-		}
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
+	has_country_shield = yes
 
 	sic_blooming_art = {		
 		icon = sponsor_the_arts
@@ -1235,13 +1263,26 @@ sicily_mission_5 = {
 			125 = {
 				if = {
 					limit = {
-						NOT = { has_building = university }
+						NOT = { has_building = town_hall }
 					}
 					add_building_construction = {
-						building = university
+						building = town_hall
 						speed = 1
 						cost = 0
 					}
+				}
+				else_if = {
+					limit = {
+						NOT = { has_building = courthouse }
+					}
+					add_building_construction = {
+						building = courthouse
+						speed = 1
+						cost = 0
+					}
+				}
+				else = {
+					add_base_tax = 3
 				}
 				add_permanent_province_modifier = {
 					name = sic_parramentu_sicilianu_modifier

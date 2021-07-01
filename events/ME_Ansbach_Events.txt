@@ -43,19 +43,33 @@ country_event = { #Margrave War
 		}
 		ai_chance = { factor = 100 }
 		
-		declare_war_with_cb = {
-			who = event_target:ANS_target_1
-			casus_belli = cb_margrave_war
-		}
 		if = {
 			limit = {
-				ai = yes
+				NOT = { 
+					is_subject = yes
+				}
 			}
-			every_ally = {
+			declare_war_with_cb = {	
+				who = event_target:ANS_target_1
+				casus_belli = cb_margrave_war
+			}
+			if = {
 				limit = {
 					ai = yes
 				}
-				join_all_offensive_wars_of = ROOT
+				every_ally = {
+					limit = {
+						ai = yes
+					}
+					join_all_offensive_wars_of = ROOT
+				}
+			}
+		}
+		else = {
+			add_casus_belli = {
+				target = event_target:ANS_target_1
+				type = cb_margrave_war
+				months = 120
 			}
 		}
 	}

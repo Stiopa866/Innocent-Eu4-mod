@@ -4,7 +4,13 @@ TRI_Missions_1 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = TRI
+		OR = {
+			tag = TRI
+			AND = {
+				tag = RHN
+				was_tag = TRI
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -63,7 +69,13 @@ TRI_Missions_4 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = TRI
+		OR = {
+			tag = TRI
+			AND = {
+				tag = RHN
+				was_tag = TRI
+			}
+		}
 	}
 	has_country_shield = yes
 	

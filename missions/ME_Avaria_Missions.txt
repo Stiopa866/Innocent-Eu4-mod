@@ -277,7 +277,7 @@ AVR_missions_4 = {
 
 	Avaria_Ancient_Prosperity = {
 		icon = mission_ottoman_harem
-		required_missions { Avaria_Turmoil_in_Disguise }
+		required_missions = { Avaria_Turmoil_in_Disguise }
 		position = 2
 		trigger = {
 			num_of_allies = 1

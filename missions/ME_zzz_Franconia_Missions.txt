@@ -119,15 +119,7 @@
 				name = FKN_imperial_diplomacy
 				duration = 7300
 			}
-			if = {
-				limit = {
-					NOT = { has_global_flag = FKN_emperor_mission_taken }
-				}
-				custom_tooltip = FKN_emperor_tt_success
-			}
-			else = {
-				custom_tooltip = FKN_emperor_tt_failure
-			}
+			custom_tooltip = FKN_emperor_tt
 			tooltip = {
 				add_country_modifier = {
 					name = FKN_emperor_recogntion
@@ -1165,15 +1157,7 @@ FKN_Missions_3 = {
 			}
 		}
 		effect = {
-			if = {
-				limit = {
-					NOT = { accepted_culture = hessian }
-				}
-				add_accepted_culture = hessian
-			}
-			else = {
-				add_dip_power = 100
-			}
+			add_accepted_culture_or_dip_power = { culture = hessian }
 			custom_tooltip = FKN_owned_provinces_within_mission_target
 			tooltip = {
 				add_province_modifier = {
@@ -1556,15 +1540,7 @@ FKN_Missions_4 = {
 					add_stability_or_adm_power = yes
 				}
 			}
-			if = {
-				limit = { 
-					NOT = { average_unrest = 0 }
-				}
-				custom_tooltip = FKN_if_no_rebel_faction_completed
-			}
-			else = {
-				custom_tooltip = FKN_if_no_rebel_faction
-			}
+			custom_tooltip = FKN_if_no_rebel_faction
 		}
 	}
 	

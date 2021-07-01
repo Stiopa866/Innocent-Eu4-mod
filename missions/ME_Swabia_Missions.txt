@@ -1580,13 +1580,13 @@ SWA_CON_missions_3 = {
 		provinces_to_highlight = {
 			owned_by = ROOT
 			OR = {
-				devastation = 0.1
+				devastation = 1
 				local_autonomy_above_min = 0.1
 			}
 		}
 		trigger = {
 			all_owned_province = {
-				NOT = { devastation = 0.1 }
+				NOT = { devastation = 1 }
 				NOT = { local_autonomy_above_min = 0.1 }
 			}
 		}

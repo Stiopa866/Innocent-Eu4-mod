@@ -425,10 +425,10 @@ country_event = {
 		ai_chance = { factor = 50 }
 		
 		random_owned_province = {
-			peasant_rebels = 2
+			anti_tax_rebels = 2
 		}
 		random_owned_province = {
-			peasant_rebels = 1
+			anti_tax_rebels = 1
 		}
 		set_country_flag = FKN_rebels
 	}

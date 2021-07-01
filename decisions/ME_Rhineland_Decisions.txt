@@ -302,30 +302,30 @@ country_decisions = {
 		}
 	}
 	
-	RHN_bonds = {
-		potential = {
-			tag = RHN
-		}
-		allow = {
-			custom_trigger_tooltip = {
-				tooltip = RHN_hasnt_sold_in_10_years
-				OR = {
-					NOT = { has_country_flag = RHN_sold_bonds }
-					had_country_flag = {
-						flag = RHN_sold_bonds
-						days = 9125
-					}
-				}
-			}
-		}
-		effect = {
-			custom_tooltip = RHN_gain_trust_with_allies
-			custom_tooltip = RHN_lose_3_years_of_production_income
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# RHN_bonds = {
+		# potential = {
+			# tag = RHN
+		# }
+		# allow = {
+			# custom_trigger_tooltip = {
+				# tooltip = RHN_hasnt_sold_in_10_years
+				# OR = {
+					# NOT = { has_country_flag = RHN_sold_bonds }
+					# had_country_flag = {
+						# flag = RHN_sold_bonds
+						# days = 9125
+					# }
+				# }
+			# }
+		# }
+		# effect = {
+			# custom_tooltip = RHN_gain_trust_with_allies
+			# custom_tooltip = RHN_lose_3_years_of_production_income
+		# }
+		# ai_will_do = {
+			# factor = 1
+		# }
+	# }
 	
 	RHN_optics_decision = {
 		potential = {

@@ -658,22 +658,21 @@ ODA_missions_4 = {
 			province_id = 1021
 			OR = {
 				NOT = { owned_by = ROOT }
-				NOT = { base_production = 12 }
+				NOT = { base_production = 10 }
 				devastation = 1
 			}
 		}
 		trigger = {
-			treasury = 200
 			1021 = {
 				owned_by = ROOT
-				base_production = 12
+				base_production = 10
 				NOT = { devastation = 1 }
 			}
 		}
 		effect = {
-			add_treasury = -200
 			add_mercantilism = 3
 			1021 = {
+				create_or_add_center_of_trade_level = { level = 1 }
 				if = {
 					limit = {
 						NOT = { has_building = trade_depot }

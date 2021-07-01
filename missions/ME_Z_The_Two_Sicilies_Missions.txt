@@ -2,7 +2,6 @@ the_two_sicilies_missions_1 = {
 	slot = 1
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = TTS
@@ -10,10 +9,22 @@ the_two_sicilies_missions_1 = {
 				OR = {
 					tag = NAP
 					tag = SIC
+					tag = ITA
 				}
 				has_country_flag = TTS_without_tts
 			}
-			#tag = ITA
+			AND = {
+				was_tag = TTS
+				tag = ITA
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						was_tag = TUS
+						was_tag = TTS
+						was_tag = SPI
+					}
+				}
+			}
 		}
 		OR = {
 			NOT = { has_dlc = "Emperor" }
@@ -23,15 +34,41 @@ the_two_sicilies_missions_1 = {
 			}
 		}
 	}
+	has_country_shield = yes
 
 	tts_granary_kingdom = {
 		icon = prosperity_for_all
 		position = 11
 		required_missions = { tts_dream_ruggero }
+		provinces_to_highlight = {
+			OR = {
+				area = naples_area
+				area = apulia_area
+				area = calabria_area
+				area = sicily_area
+				area = western_sicily_area
+			}
+			OR = {
+				trade_goods = grain
+				trade_goods = wine
+				trade_goods = livestock
+				trade_goods = olive_oil
+				trade_goods = cheese
+				trade_goods = citrus
+				trade_goods = potato
+				trade_goods = tomato
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_production = 10 }
+				NOT = { has_manufactory_trigger = yes }
+				NOT = { has_production_building_trigger = yes }				
+			}
+		}
 		trigger = {
 			if = {
 				limit = {
-					is_expanded_mod_active = { mod = trade }
+					is_expanded_mod_active = { mod = trade_goods }
 				}
 				any_owned_province = {
 					OR = {
@@ -48,15 +85,12 @@ the_two_sicilies_missions_1 = {
 						trade_goods = olive_oil
 						trade_goods = cheese
 						trade_goods = citrus
-						trade_goods = potatoes
-						trade_goods = tomatoe
+						trade_goods = potato
+						trade_goods = tomato
 					}
 					base_production = 10
 					has_manufactory_trigger = yes
-					OR = {
-						has_building = workshop
-						has_building = counting_house
-					}
+					has_production_building_trigger = yes
 				}
 			}
 			else = {
@@ -83,27 +117,16 @@ the_two_sicilies_missions_1 = {
 			}
 		}
 		effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						area = naples_area
-						area = apulia_area
-						area = calabria_area
-						area = sicily_area
-						area = western_sicily_area
-					}
-					trade_goods = livestock
-				}
+			custom_tooltip = TTS_GRANARY_TT
+			tooltip = {
 				add_permanent_province_modifier = {
 					name = tts_transumanza
 					duration = -1
 				}
 			}
-			if = {
-				limit = {
-					is_expanded_mod_active = { mod = trade }
-				}
-				random_owned_province = {
+			custom_tooltip = TTS_GRANARY_2_TT
+			hidden_effect = {
+				every_owned_province = {
 					limit = {
 						OR = {
 							area = naples_area
@@ -111,69 +134,114 @@ the_two_sicilies_missions_1 = {
 							area = calabria_area
 							area = sicily_area
 							area = western_sicily_area
-						}					
-						OR = {
-							trade_goods = grain
-							trade_goods = wine
-							trade_goods = livestock
-							trade_goods = olive_oil
-							trade_goods = cheese
-							trade_goods = citrus
-							trade_goods = potatoes
-							trade_goods = tomatoe
 						}
+						trade_goods = livestock
 					}
-					if = {
-						limit = {
-							has_building = workshop
-						}
-						remove_building = workshop
-						add_building_construction = {
-							building = counting_house
-							speed = 0.75
-							cost = 0
-						}
-					}
-					if = {
-						limit = {
-							has_manufactory_trigger = yes
-						}
-						add_base_production = 2
+					add_permanent_province_modifier = {
+						name = tts_transumanza
+						duration = -1
 					}
 				}
-			}
-			else = {
-				random_owned_province = {
+				if = {
 					limit = {
-						OR = {
-							area = naples_area
-							area = apulia_area
-							area = calabria_area
-							area = sicily_area
-							area = western_sicily_area
-						}					
-						OR = {
-							trade_goods = grain
-							trade_goods = wine
-							trade_goods = livestock
+						is_expanded_mod_active = { mod = trade_goods }
+					}
+					while = {
+						limit = {
+							NOT = {
+								num_of_owned_provinces_with = {
+									value = 5
+									has_province_flag = tts_granary_flag
+								}
+							}
+						}
+						random_owned_province = {
+							limit = {
+								OR = {
+									area = naples_area
+									area = apulia_area
+									area = calabria_area
+									area = sicily_area
+									area = western_sicily_area
+								}
+								OR = {
+									trade_goods = grain
+									trade_goods = wine
+									trade_goods = livestock
+									trade_goods = olive_oil
+									trade_goods = cheese
+									trade_goods = citrus
+									trade_goods = potato
+									trade_goods = tomato
+								}
+								NOT = { has_province_flag = tts_granary_flag }
+							}
+							set_province_flag = tts_granary_flag
+							if = {
+								limit = {
+									has_building = workshop
+								}
+								remove_building = workshop
+								add_building_construction = {
+									building = counting_house
+									speed = 0.75
+									cost = 0
+								}
+							}
+							if = {
+								limit = {
+									has_manufactory_trigger = yes
+								}
+								add_base_production = 2
+							}
 						}
 					}
-					if = {
+				}
+				else = {
+					while = {
 						limit = {
-							has_building = workshop
+							NOT = {
+								num_of_owned_provinces_with = {
+									value = 5
+									has_province_flag = tts_granary_flag
+								}
+							}
 						}
-						remove_building = workshop
-						add_building_construction = {
-							building = counting_house
-							speed = 0.75
-							cost = 0
+						random_owned_province = {
+							limit = {
+								OR = {
+									area = naples_area
+									area = apulia_area
+									area = calabria_area
+									area = sicily_area
+									area = western_sicily_area
+								}
+								OR = {
+									trade_goods = grain
+									trade_goods = wine
+									trade_goods = livestock
+								}
+								NOT = { has_province_flag = tts_granary_flag }
+							}
+							set_province_flag = tts_granary_flag
+							if = {
+								limit = {
+									has_building = workshop
+								}
+								remove_building = workshop
+								add_building_construction = {
+									building = counting_house
+									speed = 0.75
+									cost = 0
+								}
+							}
+							if = {
+								limit = {
+									has_manufactory_trigger = yes
+								}
+								add_base_production = 2
+							}
 						}
-					}
-					if = {
-						limit = {
-							has_manufactory_trigger = yes
-						}
-						add_base_production = 2
 					}
 				}
 			}
@@ -408,7 +476,6 @@ the_two_sicilies_missions_2 = {
 	slot = 2
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = TTS
@@ -416,10 +483,22 @@ the_two_sicilies_missions_2 = {
 				OR = {
 					tag = NAP
 					tag = SIC
+					tag = ITA
 				}
 				has_country_flag = TTS_without_tts
 			}
-			#tag = ITA
+			AND = {
+				was_tag = TTS
+				tag = ITA
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						was_tag = TUS
+						was_tag = TTS
+						was_tag = SPI
+					}
+				}
+			}
 		}
 		OR = {
 			NOT = { has_dlc = "Emperor" }
@@ -429,16 +508,31 @@ the_two_sicilies_missions_2 = {
 			}
 		}
 	}
+	has_country_shield = yes
 
 	tts_army_two_sicilies = {
 		icon = military_self_reliance
 		position = 11
 		required_missions = { tts_dream_ruggero }
+		provinces_to_highlight = {
+			OR = {
+				area = naples_area
+				area = apulia_area
+				area = calabria_area
+				area = sicily_area
+				area = western_sicily_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { has_manpower_building_trigger = yes }
+				NOT = { has_forcelimit_building_trigger = yes }
+			}
+		}
 		trigger = {
 			army_size = 70
 			manpower_percentage = 0.40
 			num_of_owned_provinces_with = {
-				value = 10
+				value = 8
 				OR = {
 					area = naples_area
 					area = apulia_area
@@ -446,14 +540,8 @@ the_two_sicilies_missions_2 = {
 					area = sicily_area
 					area = western_sicily_area
 				}
-				OR = {
-					has_building = barracks
-					has_building = training_fields
-				}
-				OR = {
-					has_building = regimental_camp
-					has_building = conscription_center
-				}
+				has_manpower_building_trigger = yes
+				has_forcelimit_building_trigger = yes
 			}
 		}
 		effect = {
@@ -462,36 +550,53 @@ the_two_sicilies_missions_2 = {
 				name = tts_army_preparation
 				duration = 730
 			}
-			random_owned_province = {
+			custom_tooltip = TTS_ARMY_TT
+			while = {
 				limit = {
-					OR = {
-						area = naples_area
-						area = apulia_area
-						area = calabria_area
-						area = sicily_area
-						area = western_sicily_area
+					NOT = {
+						num_of_owned_provinces_with = {
+							value = 5
+							has_province_flag = tts_army_flag
+						}
 					}
 				}
-				if = {
+				random_owned_province = {
 					limit = {
-						has_building = barracks
+						OR = {
+							area = naples_area
+							area = apulia_area
+							area = calabria_area
+							area = sicily_area
+							area = western_sicily_area
+						}
+						OR = {
+							has_building = barracks
+							has_building = regimental_camp
+						}
+						NOT = { has_province_flag = tts_army_flag }
 					}
-					remove_building = barracks
-					add_building_construction = {
-						building = training_fields
-						speed = 0.75
-						cost = 0
+					set_province_flag = tts_army_flag
+					if = {
+						limit = {
+							has_building = barracks
+						}
+						remove_building = barracks
+						add_building_construction = {
+							building = training_fields
+							speed = 0.75
+							cost = 0
+						}
 					}
-				}
-				if = {
-					limit = {
-						has_building = regimental_camp
-					}
-					remove_building = regimental_camp
-					add_building_construction = {
-						building = conscription_center
-						speed = 0.75
-						cost = 0
+					if = {
+						limit = {
+							has_building = regimental_camp
+						}
+						remove_building = regimental_camp
+						add_building_construction = {
+							building = conscription_center
+							speed = 0.75
+							cost = 0
+						}
 					}
 				}
 			}
@@ -502,6 +607,16 @@ the_two_sicilies_missions_2 = {
 		icon = professional_army
 		position = 11
 		required_missions = { tts_army_two_sicilies }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 121
+				province_id = 125
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_manpower = 15 }
+			}
+		}
 		trigger = {
 			121 = { base_manpower = 15 }
 			125 = {	base_manpower = 15 }
@@ -527,7 +642,6 @@ the_two_sicilies_missions_3 = {
 	slot = 3
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = TTS
@@ -535,10 +649,22 @@ the_two_sicilies_missions_3 = {
 				OR = {
 					tag = NAP
 					tag = SIC
+					tag = ITA
 				}
 				has_country_flag = TTS_without_tts
 			}
-			#tag = ITA
+			AND = {
+				was_tag = TTS
+				tag = ITA
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						was_tag = TUS
+						was_tag = TTS
+						was_tag = SPI
+					}
+				}
+			}
 		}
 		OR = {
 			NOT = { has_dlc = "Emperor" }
@@ -548,6 +674,7 @@ the_two_sicilies_missions_3 = {
 			}
 		}
 	}
+	has_country_shield = yes
 
 	tts_dream_ruggero = {
 		icon = king_of_sicily
@@ -675,6 +802,7 @@ the_two_sicilies_missions_3 = {
 		}
 		effect = {
 			118 = { add_core = ROOT }
+			complete_conquest_of_rome_missions = yes
 		}
 	}
 }
@@ -683,7 +811,6 @@ the_two_sicilies_missions_4 = {
 	slot = 4
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = TTS
@@ -691,10 +818,22 @@ the_two_sicilies_missions_4 = {
 				OR = {
 					tag = NAP
 					tag = SIC
+					tag = ITA
 				}
 				has_country_flag = TTS_without_tts
 			}
-			#tag = ITA
+			AND = {
+				was_tag = TTS
+				tag = ITA
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						was_tag = TUS
+						was_tag = TTS
+						was_tag = SPI
+					}
+				}
+			}
 		}
 		OR = {
 			NOT = { has_dlc = "Emperor" }
@@ -704,16 +843,31 @@ the_two_sicilies_missions_4 = {
 			}
 		}
 	}
+	has_country_shield = yes
 
 	tts_army_sea = {
 		icon = overshadow_venice
 		position = 11
 		required_missions = { tts_dream_ruggero }
+		provinces_to_highlight = {
+			OR = {
+				area = naples_area
+				area = apulia_area
+				area = calabria_area
+				area = sicily_area
+				area = western_sicily_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { has_dock_building_trigger = yes }
+				NOT = { has_shipyard_building_trigger = yes }
+			}
+		}
 		trigger = {
 			navy_size = 120
 			sailors = 8500
 			num_of_owned_provinces_with = {
-				value = 10
+				value = 8
 				OR = {
 					area = naples_area
 					area = apulia_area
@@ -721,14 +875,8 @@ the_two_sicilies_missions_4 = {
 					area = sicily_area
 					area = western_sicily_area
 				}
-				OR = {
-					has_building = dock
-					has_building = drydock
-				}
-				OR = {
-					has_building = shipyard
-					has_building = grand_shipyard
-				}
+				has_dock_building_trigger = yes
+				has_shipyard_building_trigger = yes
 			}
 		}
 		effect = {
@@ -737,36 +885,53 @@ the_two_sicilies_missions_4 = {
 				name = tts_naval_preparation
 				duration = 5475
 			}
-			random_owned_province = {
+			custom_tooltip = TTS_NAVY_TT
+			while = {
 				limit = {
-					OR = {
-						area = naples_area
-						area = apulia_area
-						area = calabria_area
-						area = sicily_area
-						area = western_sicily_area
+					NOT = {
+						num_of_owned_provinces_with = {
+							value = 5
+							has_province_flag = tts_navy_flag
+						}
 					}
 				}
-				if = {
+				random_owned_province = {
 					limit = {
-						has_building = dock
+						OR = {
+							area = naples_area
+							area = apulia_area
+							area = calabria_area
+							area = sicily_area
+							area = western_sicily_area
+						}
+						OR = {
+							has_building = dock
+							has_building = shipyard
+						}
+						NOT = { has_province_flag = tts_navy_flag }
 					}
-					remove_building = dock
-					add_building_construction = {
-						building = drydock
-						speed = 0.75
-						cost = 0
+					set_province_flag = tts_navy_flag
+					if = {
+						limit = {
+							has_building = dock
+						}
+						remove_building = dock
+						add_building_construction = {
+							building = drydock
+							speed = 0.75
+							cost = 0
+						}
 					}
-				}
-				if = {
-					limit = {
-						has_building = shipyard
-					}
-					remove_building = shipyard
-					add_building_construction = {
-						building = grand_shipyard
-						speed = 0.75
-						cost = 0
+					if = {
+						limit = {
+							has_building = shipyard
+						}
+						remove_building = shipyard
+						add_building_construction = {
+							building = grand_shipyard
+							speed = 0.75
+							cost = 0
+						}
 					}
 				}
 			}
@@ -779,60 +944,121 @@ the_two_sicilies_missions_4 = {
 		required_missions = { tts_army_sea }
 		trigger = {
 			navy_size_percentage = 1
-			any_country = {
-				341 = {
-					trade_share = {
-						share = 1
-						country = PREV
+			if = {
+				limit = {
+					any_country = {
+						341 = {
+							trade_share = {
+								share = 1
+								country = PREV
+							}
+						}
 					}
 				}
-				NOT = { navy_size = ROOT }
+				any_country = {
+					341 = {
+						trade_share = {
+							share = 1
+							country = PREV
+						}
+					}
+					NOT = { navy_size = ROOT }
+				}
 			}
-			any_country = {
-				1298 = {
-					trade_share = {
-						share = 1
-						country = PREV
+			if = {
+				limit = {
+					any_country = {
+						1298 = {
+							trade_share = {
+								share = 1
+								country = PREV
+							}
+						}
 					}
 				}
-				NOT = { navy_size = ROOT }
+				any_country = {
+					1298 = {
+						trade_share = {
+							share = 1
+							country = PREV
+						}
+					}
+					NOT = { navy_size = ROOT }
+				}
 			}
-			any_country = {
-				1308 = {
-					trade_share = {
-						share = 1
-						country = PREV
+			if = {
+				limit = {
+					any_country = {
+						1308 = {
+							trade_share = {
+								share = 1
+								country = PREV
+							}
+						}
 					}
 				}
-				NOT = { navy_size = ROOT }
+				any_country = {
+					1308 = {
+						trade_share = {
+							share = 1
+							country = PREV
+						}
+					}
+					NOT = { navy_size = ROOT }
+				}
 			}
-			any_country = {
-				1320 = {
-					trade_share = {
-						share = 1
-						country = PREV
+			if = {
+				limit = {
+					any_country = {
+						1320 = {
+							trade_share = {
+								share = 1
+								country = PREV
+							}
+						}
 					}
 				}
-				NOT = { navy_size = ROOT }
+				any_country = {
+					1320 = {
+						trade_share = {
+							share = 1
+							country = PREV
+						}
+					}
+					NOT = { navy_size = ROOT }
+				}
 			}
-			any_country = {
-				358 = {
-					trade_share = {
-						share = 1
-						country = PREV
+			if = {
+				limit = {
+					any_country = {
+						358 = {
+							trade_share = {
+								share = 1
+								country = PREV
+							}
+						}
 					}
 				}
-				NOT = { navy_size = ROOT }
+				any_country = {
+					358 = {
+						trade_share = {
+							share = 1
+							country = PREV
+						}
+					}
+					NOT = { navy_size = ROOT }
+				}
 			}
 		}
 		effect = {
 			add_country_modifier = {
 				name = tts_marine_infrantry_corps
-				duration = -1
+				duration = 9125
 			}
 			125 = {
 				add_permanent_province_modifier = {
 					name = tts_real_marina
+					duration = -1
 				}
 			}
 		}
@@ -843,7 +1069,6 @@ the_two_sicilies_missions_5 = {
 	slot = 5
 	generic = no
 	ai = yes
-	has_country_shield = yes
 	potential = {
 		OR = {
 			tag = TTS
@@ -851,10 +1076,22 @@ the_two_sicilies_missions_5 = {
 				OR = {
 					tag = NAP
 					tag = SIC
+					tag = ITA
 				}
 				has_country_flag = TTS_without_tts
 			}
-			#tag = ITA
+			AND = {
+				was_tag = TTS
+				tag = ITA
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						was_tag = TUS
+						was_tag = TTS
+						was_tag = SPI
+					}
+				}
+			}
 		}
 		OR = {
 			NOT = { has_dlc = "Emperor" }
@@ -864,41 +1101,43 @@ the_two_sicilies_missions_5 = {
 			}
 		}
 	}
+	has_country_shield = yes
 
 	tts_tonnare_siciliane = {
 		icon = develop_the_po_valley
 		position = 11
 		required_missions = { tts_dream_ruggero }
+		provinces_to_highlight = {
+			OR = {
+				area = sicily_area
+				area = western_sicily_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_production = 10 }
+				NOT = { has_manufactory_trigger = yes }
+				NOT = { has_production_building_trigger = yes }
+			}
+		}
 		trigger = {
 			any_owned_province = {
 				OR = {
-					area = naples_area
-					area = apulia_area
-					area = calabria_area
 					area = sicily_area
 					area = western_sicily_area
 				}
-				trade_goods = fish
 				base_production = 10
 				has_manufactory_trigger = yes
-				OR = {
-					has_building = workshop
-					has_building = counting_house
-				}
+				has_production_building_trigger = yes
 			}
 		}
 		effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						area = naples_area
-						area = apulia_area
-						area = calabria_area
-						area = sicily_area
-						area = western_sicily_area
-					}
-					trade_goods = fish
+			sicily_area = {
+				add_permanent_province_modifier = {
+					name = tts_tonnara_siciliana
+					duration = -1
 				}
+			}
+			western_sicily_area = {
 				add_permanent_province_modifier = {
 					name = tts_tonnara_siciliana
 					duration = -1
@@ -912,27 +1151,18 @@ the_two_sicilies_missions_5 = {
 		position = 12
 		required_missions = { tts_army_sea }
 		trigger = {
-			NOT = {
-				any_country = {
-					home_trade_node = {
-						privateer_power = {
-							share = 10
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_country = {
-						culture_group = maghrebi
-					}
-				}
-				NOT = {
-					any_country = {
-						culture_group = maghrebi
-						naval_strength = {
-							who = ROOT
-							value = 1
+			custom_trigger_tooltip = {
+				tooltip = TTS_Privateer_TT
+				home_trade_node = {
+					NOT = {
+						any_country = {
+							NOT = { tag = ROOT }
+							PREV = {
+								trade_share = {
+									country = PREV
+									share = 25
+								}
+							}
 						}
 					}
 				}
@@ -956,6 +1186,22 @@ the_two_sicilies_missions_5 = {
 				}
 				TUR = {
 					NOT = {
+						naval_strength = {
+							who = ROOT
+							value = 1
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_country = {
+						culture_group = maghrebi
+					}
+				}
+				NOT = {
+					any_country = {
+						culture_group = maghrebi
 						naval_strength = {
 							who = ROOT
 							value = 1

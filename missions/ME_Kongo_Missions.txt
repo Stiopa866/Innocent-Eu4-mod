@@ -1596,7 +1596,7 @@ KON_missions_4 = {
 			culture = ROOT
 			OR = {
 				NOT = { country_or_non_sovereign_subject_holds = ROOT }
-				devastation = 0.01
+				devastation = 1
 			}
 		}
 		trigger = {
@@ -1617,7 +1617,7 @@ KON_missions_4 = {
 					any_province = {
 						culture = ROOT
 						OR = {
-							devastation = 0.01
+							devastation = 1
 							NOT = { country_or_non_sovereign_subject_holds = ROOT }
 						}
 					}

@@ -6,11 +6,13 @@ country_has_both_paradox_and_me_missions = {
 			OR = {
 				#Italy
 				tag = ITA
-				tag = LAN
 				tag = MLO
 				tag = NAP
+				tag = TTS
 				tag = SAV
 				tag = SPI
+				tag = VEN
+				tag = LAN
 				tag = TUS
 				#Crusader
 				tag = CYP
@@ -128,6 +130,7 @@ country_has_both_paradox_and_me_missions = {
 		tag = ENG
 		tag = GBR
 		tag = GLH
+		tag = INC
 		# Manchurian Tribes
 		AND = {
 			OR = {
@@ -148,6 +151,7 @@ country_has_both_paradox_and_me_missions = {
 		tag = QOM
 		tag = AFG
 		tag = OTM
+
 		# Japan
 		AND = {
 			OR = {
@@ -169,46 +173,47 @@ country_has_both_paradox_and_me_missions = {
 		tag = DTT
 		tag = GER
 		tag = HLR
-		tag = POM
-		tag = STE
-		tag = WOL
-		#Franconia
-		tag = WBG
-		tag = ANS
-		tag = BAM
-		tag = BYT
-		tag = ROT
-		tag = NUM
-		tag = FKN
-		#Westphalia
-		tag = RVA
-		tag = OSN
-		tag = OLD
-		tag = LPP
-		tag = MUN
-		tag = HES
-		tag = BRG
-		tag = NSA
-		tag = KLE
-		tag = FRN
-		tag = AAC
-		tag = WES
-		#Hanover
-		tag = BRU
-		tag = LUN
-		tag = CLB
-		tag = HAN
-		#Swabia
-		tag = WUR
-		tag = BAD
-		tag = ALS
-		tag = MLH
-		tag = KNZ
-		tag = MEM
-		tag = ULM
-		tag = AUG
-		tag = DWT
-		tag = SWA
+			#Pomerania
+			tag = POM
+			tag = STE
+			tag = WOL
+			#Franconia
+			tag = WBG
+			tag = ANS
+			tag = BAM
+			tag = BYT
+			tag = ROT
+			tag = NUM
+			tag = FKN
+			#Westphalia
+			tag = RVA
+			tag = OSN
+			tag = OLD
+			tag = LPP
+			tag = MUN
+			tag = HES
+			tag = BRG
+			tag = NSA
+			tag = KLE
+			tag = FRN
+			tag = AAC
+			tag = WES
+			#Hanover
+			tag = BRU
+			tag = LUN
+			tag = CLB
+			tag = HAN
+			#Swabia
+			tag = WUR
+			tag = BAD
+			tag = ALS
+			tag = MLH
+			tag = KNZ
+			tag = MEM
+			tag = ULM
+			tag = AUG
+			tag = DWT
+			tag = SWA
 		#Low Countries
 		tag = UTR
 		tag = GEL
@@ -216,17 +221,14 @@ country_has_both_paradox_and_me_missions = {
 		tag = FLA
 		tag = BRB
 		#Italy
+		is_italian_minor = yes
 		tag = FER
 		tag = GEN
-		tag = LUC
 		tag = MAN
 		tag = MFA
-		tag = MOD
-		tag = PAR
 		tag = PIS
 		tag = SAR
-		tag = SIE
-		tag = URB
+		tag = SIC
 		tag = VEN
 		#France
 		tag = BUR
@@ -296,5 +298,43 @@ country_gets_japanese_unique_missions = {
 		tag = ODA
 		tag = RYU
 		tag = OTM
+	}
+}
+
+is_italian_minor = {
+	OR = {
+		tag = AQU
+		tag = BLG
+		tag = LUC
+		tag = MOD
+		tag = PAR
+		tag = PDV
+		tag = PGA
+		tag = SIE
+		tag = SPL
+		tag = SZO
+		tag = URB
+		tag = VRN
+		#from FE
+		tag = LML
+	}
+}
+
+was_italian_minor = {
+	OR = {
+		was_tag = AQU
+		was_tag = BLG
+		was_tag = LUC
+		was_tag = MOD
+		was_tag = PAR
+		was_tag = PDV
+		was_tag = PGA
+		was_tag = SIE
+		was_tag = SPL
+		was_tag = SZO
+		was_tag = URB
+		was_tag = VRN
+		#from FE
+		was_tag = LML
 	}
 }

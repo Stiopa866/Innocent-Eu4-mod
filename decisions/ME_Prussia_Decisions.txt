@@ -113,7 +113,7 @@ country_decisions = {
 				add_core = BAV
 				hidden_effect = { remove_core = ROOT }
 			}
-			475 = {
+			4715 = {
 				cede_province = BAV
 				add_core = BAV
 				hidden_effect = { remove_core = ROOT }

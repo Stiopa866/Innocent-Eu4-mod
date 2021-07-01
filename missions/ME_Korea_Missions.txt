@@ -1522,7 +1522,7 @@ KOR_missions_4 = {
 		required_missions = { KOR_naval_might }
 		position = 12
 		provinces_to_highlight = {
-			province_id = 737
+			province_id = 4228
 			OR = {
 				NOT = { owned_by = ROOT }
 				AND = {
@@ -1534,8 +1534,8 @@ KOR_missions_4 = {
 			}
 		}
 		trigger = {
-			owns = 737
-			737 = {
+			owns = 4228
+			4228 = {
 				OR = {
 					has_building = shipyard
 					has_building = dock

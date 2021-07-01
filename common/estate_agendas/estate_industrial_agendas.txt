@@ -700,7 +700,12 @@ estate_industrial_blast_furnaces = {
 	}
 	can_select = {
 		has_country_flag = RHN_Blast_furnaces
-		NOT = { blast_furnace = 15 }
+		NOT = {
+			num_of_owned_provinces_with = {
+				has_building = blast_furnace
+				value = 15
+			}
+		}
 		any_owned_province = {
 			OR = {
 				area = hesse_area
@@ -725,7 +730,7 @@ estate_industrial_blast_furnaces = {
 		}
 		if = {
 			limit = {
-				blast_furnace = 0
+				always = yes
 			}
 			set_variable = {
 				which = estate_industrial_amount_of_furnaces
@@ -733,7 +738,10 @@ estate_industrial_blast_furnaces = {
 			}
 			if = {
 				limit = {
-					blast_furnace = 3
+					num_of_owned_provinces_with = {
+						has_building = blast_furnace
+						value = 3
+					}
 				}
 				set_variable = {
 					which = estate_industrial_amount_of_furnaces
@@ -741,7 +749,10 @@ estate_industrial_blast_furnaces = {
 				}
 				if = {
 					limit = {
-						blast_furnace = 6
+						num_of_owned_provinces_with = {
+							has_building = blast_furnace
+							value = 6
+						}
 					}
 					set_variable = {
 						which = estate_industrial_amount_of_furnaces
@@ -749,7 +760,10 @@ estate_industrial_blast_furnaces = {
 					}
 					if = {
 						limit = {
-							blast_furnace = 9
+							num_of_owned_provinces_with = {
+								has_building = blast_furnace
+								value = 9
+							}
 						}
 						set_variable = {
 							which = estate_industrial_amount_of_furnaces
@@ -757,7 +771,10 @@ estate_industrial_blast_furnaces = {
 						}
 						if = {
 							limit = {
-								blast_furnace = 12
+								num_of_owned_provinces_with = {
+									has_building = blast_furnace
+									value = 12
+								}
 							}
 							set_variable = {
 								which = estate_industrial_amount_of_furnaces
@@ -799,7 +816,10 @@ estate_industrial_blast_furnaces = {
 					value = 15
 				}
 			}
-			blast_furnace = 15
+			num_of_owned_provinces_with = {
+				has_building = blast_furnace
+				value = 15
+			}
 		}
 		else_if = {
 			limit = {
@@ -808,7 +828,10 @@ estate_industrial_blast_furnaces = {
 					value = 12
 				}
 			}
-			blast_furnace = 12
+			num_of_owned_provinces_with = {
+				has_building = blast_furnace
+				value = 12
+			}
 		}
 		else_if = {
 			limit = {
@@ -817,7 +840,10 @@ estate_industrial_blast_furnaces = {
 					value = 9
 				}
 			}
-			blast_furnace = 9
+			num_of_owned_provinces_with = {
+				has_building = blast_furnace
+				value = 9
+			}
 		}
 		else_if = {
 			limit = {
@@ -826,7 +852,10 @@ estate_industrial_blast_furnaces = {
 					value = 6
 				}
 			}
-			blast_furnace = 6
+			num_of_owned_provinces_with = {
+				has_building = blast_furnace
+				value = 6
+			}
 		}
 		else_if = {
 			limit = {
@@ -835,7 +864,13 @@ estate_industrial_blast_furnaces = {
 					value = 3
 				}
 			}
-			blast_furnace = 3
+			num_of_owned_provinces_with = {
+				has_building = blast_furnace
+				value = 3
+			}
+		}
+		else = {
+			always = yes
 		}
     }
     task_completed_effect = {
@@ -856,3 +891,4 @@ estate_industrial_blast_furnaces = {
 			duration = 7300
         }
     }
+}

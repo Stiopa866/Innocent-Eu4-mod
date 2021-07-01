@@ -4,7 +4,13 @@ KLE_Missions_1 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = KLE
+		OR = {
+			tag = KLE
+			AND = {
+				tag = RHN
+				was_tag = KLE
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -87,7 +93,13 @@ KLE_Missions_4 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = KLE
+		OR = {
+			tag = KLE
+			AND = {
+				tag = RHN
+				was_tag = KLE
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -139,7 +151,13 @@ KLE_Missions_5 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = KLE
+		OR = {
+			tag = KLE
+			AND = {
+				tag = RHN
+				was_tag = KLE
+			}
+		}
 	}
 	has_country_shield = yes
 	

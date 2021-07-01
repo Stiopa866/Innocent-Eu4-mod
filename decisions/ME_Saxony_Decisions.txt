@@ -5,11 +5,16 @@ country_decisions = {
 			ai = no
 			has_country_flag = sax_unlock_decision_release_nordmark
 			NOT = { has_country_flag = enacted_sax_release_the_nordmark }
-			NOT = { exists = BRA }
-			any_owned_province = {
-				is_city = yes
-				NOT = { area = mittelmark_area }
-				NOT = { area = neumark_area }
+			OR = {
+				AND = {
+					NOT = { exists = BRA }
+					any_owned_province = {
+						is_city = yes
+						NOT = { area = mittelmark_area }
+						NOT = { area = neumark_area }
+					}
+				}
+				overlord_of = BRA
 			}
 		}
 		provinces_to_highlight = {
@@ -21,28 +26,47 @@ country_decisions = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
 			}
+			NOT = { exists = BRA }
 		}
 		allow = {
 			is_at_war = no
-			mittelmark_area = {
-				type = all
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			neumark_area = {
-				type = all
-				owned_by = ROOT
-				is_core = ROOT
+			OR = {
+				AND = {
+					overlord_of = BRA
+					BRA = {
+						is_subject_other_than_tributary_trigger = yes
+					}
+				}
+				AND = {
+					mittelmark_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+					}
+					neumark_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+					}
+				}
 			}
 		}
 		effect = {
 			set_country_flag = enacted_sax_release_the_nordmark
 			mittelmark_area = {
+				limit = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 				cede_province = BRA
 				add_core = BRA
 				remove_core = ROOT
 			}
 			neumark_area = {
+				limit = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 				cede_province = BRA
 				add_core = BRA
 				remove_core = ROOT

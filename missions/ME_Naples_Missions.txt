@@ -11,15 +11,47 @@ naples_missions_1 = {
 					tag = TTS
 					AND = {
 						tag = NAP
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
 			}
 			AND = {
 				NOT = { was_tag = NAP }
 				NOT = { was_tag = SIC }
-				tag = TTS
+				OR = { 
+					tag = TTS
+					AND = {
+						was_tag = TTS
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+				}
 			}
 		}
 		OR = {
@@ -39,37 +71,29 @@ naples_missions_1 = {
 		position = 1
 		trigger = {
 			OR = {
-				OR = {
-					alliance_with = PAP
-					AND = {
-						has_opinion = {
-							who = PAP
-							value = 150
-						}
-						PAP = {
-							has_opinion = {
-								who = ROOT
-								value = 150
-							}
-						}
+				alliance_with = PAP
+				is_rival = PAP
+				AND = {
+					has_opinion = {
+						who = PAP
+						value = 125
+					}
+					reverse_has_opinion = {
+						who = PAP
+						value = 125
 					}
 				}
-				OR = {
-					is_rival = PAP
-					AND = {
-						NOT = {
-							has_opinion = {
-								who = PAP
-								value = -100
-							}
+				AND = {
+					NOT = {
+						has_opinion = {
+							who = PAP
+							value = -100
 						}
-						NOT = {
-							PAP = {
-								has_opinion = {
-									who = ROOT
-									value = -100
-								}
-							}
+					}
+					NOT = {
+						reverse_has_opinion = {
+							who = PAP
+							value = -100
 						}
 					}
 				}
@@ -132,7 +156,19 @@ naples_missions_1 = {
 			hidden_effect = {
 				if = {
 					limit = {
-						alliance_with = PAP
+						OR = {
+							alliance_with = PAP
+							AND = {
+								has_opinion = {
+									who = PAP
+									value = 125
+								}
+								reverse_has_opinion = {
+									who = PAP
+									value = 125
+								}
+							}
+						}
 					}
 					add_country_modifier = {
 						name = nap_dominus_vobiscum
@@ -183,7 +219,7 @@ naples_missions_1 = {
 			}
 		}
 		effect = {
-			add_legitimacy = 10
+			add_legitimacy = 15
 			western_sicily_area = {
 				if = {
 					limit = { has_dlc = "Mandate of Heaven" }
@@ -298,7 +334,7 @@ naples_missions_1 = {
 		}
 		effect = {
 			2983 = {
-				add_province_modifier = {
+				add_permanent_province_modifier = {
 					name = nap_controller_spice_trade
 					duration = -1
 				}
@@ -396,15 +432,47 @@ naples_missions_2 = {
 					tag = TTS
 					AND = {
 						tag = NAP
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
 			}
 			AND = {
 				NOT = { was_tag = NAP }
 				NOT = { was_tag = SIC }
-				tag = TTS
+				OR = { 
+					tag = TTS
+					AND = {
+						was_tag = TTS
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+				}
 			}
 		}
 		OR = {
@@ -428,7 +496,10 @@ naples_missions_2 = {
 			legitimacy = 90
 			diplomatic_reputation = 3
 			if = {
-				limit = { exists = PRO }
+				limit = {
+					exists = PRO
+					PRO = { is_vassal = no }
+				}
 				reverse_has_opinion = {
 					who = PRO
 					value = 100
@@ -452,7 +523,10 @@ naples_missions_2 = {
 				}
 			}
 			if = {
-				limit = { exists = HUN }
+				limit = { 
+					exists = HUN
+					HUN = { is_vassal = no }
+				}
 				reverse_has_opinion = {
 					who = HUN
 					value = 100
@@ -628,7 +702,12 @@ naples_missions_2 = {
 				limit = { exists = GEN }
 				num_of_light_ship = GEN	
 			}
-			else = {
+			else_if = {
+				limit = {
+					101 = {
+						NOT = { owned_by = ROOT }
+					}
+				}
 				101 = {
 					owner = {
 						NOT = { num_of_light_ship = ROOT }
@@ -920,15 +999,47 @@ naples_missions_3 = {
 					tag = TTS
 					AND = {
 						tag = NAP
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
 			}
 			AND = {
 				NOT = { was_tag = NAP }
 				NOT = { was_tag = SIC }
-				tag = TTS
+				OR = { 
+					tag = TTS
+					AND = {
+						was_tag = TTS
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+				}
 			}
 		}
 		OR = {
@@ -993,15 +1104,15 @@ naples_missions_3 = {
 		provinces_to_highlight = {
 			province_id = 2983
 			OR = {
-				NOT = { base_production = 6 }
+				NOT = { base_production = 4 }
 				has_trade_building_trigger = no
 			}
 		}
 		trigger = {
 			2983 = {
 				OR = {
-					num_of_times_improved = 5
-					base_production = 6
+					num_of_times_improved = 3
+					base_production = 4
 				}
 				has_trade_building_trigger = yes
 			}
@@ -1010,7 +1121,7 @@ naples_missions_3 = {
 			add_navy_tradition = 10
 			add_mercantilism = 5
 			2983 = {
-				add_province_modifier = {
+				add_permanent_province_modifier = {
 					name = nap_restore_republic
 					duration = -1
 				}
@@ -1366,15 +1477,47 @@ naples_missions_4 = {
 					tag = TTS
 					AND = {
 						tag = NAP
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
 			}
 			AND = {
 				NOT = { was_tag = NAP }
 				NOT = { was_tag = SIC }
-				tag = TTS
+				OR = { 
+					tag = TTS
+					AND = {
+						was_tag = TTS
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+				}
 			}
 		}
 		OR = {
@@ -1392,10 +1535,14 @@ naples_missions_4 = {
 		required_missions = { nap_kingdom_of_naples }
 		position = 2
 		trigger = {
-			manpower_percentage = 1
+			OR = {
+				manpower_percentage = 0.75
+				army_size_percentage = 0.75
+			}
 			NOT = { war_exhaustion = 1 }
 		}
 		effect = {
+			add_yearly_manpower = 1
 			albania_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -1440,7 +1587,7 @@ naples_missions_4 = {
 		}
 		effect = {
 			albania_area = {
-				add_province_modifier = {
+				add_permanent_province_modifier = {
 					name = nap_home_skanderbeg
 					duration = -1
 				}
@@ -1467,9 +1614,12 @@ naples_missions_4 = {
 			aleppo_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-				religion = catholic
+				OR = {
+					religion = catholic
+					culture = ROOT
+				}
 			}
-			legitimacy = 85
+			legitimacy_equivalent = 85
 		}
 		effect = {
 			country_event = { id = ME_Naples_Events.5 }
@@ -1509,10 +1659,21 @@ naples_missions_4 = {
 			}
 		}
 		effect = {
-			random_owned_province = {
-				limit = { area = apulia_area }
-				add_base_production = 2
-				create_or_add_center_of_trade_level = { level = 1 }
+			if = {
+				limit = {
+					owns = 122
+				}
+				122 = {
+					add_base_production = 2
+					create_or_add_center_of_trade_level = { level = 1 }
+				}
+			}
+			else = {
+				random_owned_province = {
+					limit = { area = apulia_area }
+					add_base_production = 2
+					create_or_add_center_of_trade_level = { level = 1 }
+				}
 			}
 			add_country_modifier = {
 				name = nap_dominating_adriatic
@@ -1625,15 +1786,47 @@ naples_missions_5 = {
 					tag = TTS
 					AND = {
 						tag = NAP
-						has_country_flag = TTS_without_tts #this is needed if you don't have FE active
+						has_country_flag = TTS_without_tts #this is needed if people don't form TTS
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+					AND = {
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
 					}
 				}
-				#tag = ITA
 			}
 			AND = {
 				NOT = { was_tag = NAP }
 				NOT = { was_tag = SIC }
-				tag = TTS
+				OR = { 
+					tag = TTS
+					AND = {
+						was_tag = TTS
+						tag = ITA
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								was_tag = TUS
+								was_tag = TTS
+								was_tag = SPI
+							}
+						}
+					}
+				}
 			}
 		}
 		OR = {
@@ -1681,16 +1874,41 @@ naples_missions_5 = {
 		}
 		position = 2
 		trigger = {
-			121 = {
-				owned_by = ROOT
-				has_building = university
+			if = {
+				limit = {
+					is_expanded_mod_active = { mod = great_monuments }
+				}
+				121 = {
+					owned_by = ROOT
+					has_great_project = {
+						type = naples_federico_II
+						tier = 2
+					}
+				}
+			}
+			else = {
+				121 = {
+					owned_by = ROOT
+					has_building = university
+				}
 			}
 		}
 		effect = {
 			add_prestige = 10
-			add_country_modifier = {
-				name = nap_federico_II
-				duration = -1
+			if = {
+				limit = {
+					is_expanded_mod_active = { mod = great_monuments }
+				}
+				add_splendor = 200
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+			}
+			else = {
+				add_country_modifier = {
+					name = nap_federico_II
+					duration = -1
+				}
 			}
 		}
 	}

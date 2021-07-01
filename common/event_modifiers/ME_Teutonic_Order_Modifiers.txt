@@ -79,3 +79,7 @@ TEU_return_of_the_victual_brothers = {
 	privateer_efficiency = 0.25
 }
 	
+TEU_loyal_to_the_pope = {
+	tolerance_own = 1
+	warscore_cost_vs_other_religion = -0.1
+}

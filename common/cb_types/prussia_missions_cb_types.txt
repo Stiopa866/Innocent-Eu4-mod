@@ -11,16 +11,6 @@ cb_humiliate_prussia = {
 	war_goal = humiliate_prussia
 }
 
-cb_coalition_prussia = {
-	valid_for_subject = no
-	
-	prerequisites = {
-		always = no
-	}
-	
-	war_goal = coalition_prussia 
-}
-
 cb_liberate_prussia = {
 	valid_for_subject = no
 	

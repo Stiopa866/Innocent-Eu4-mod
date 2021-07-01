@@ -21,7 +21,7 @@ Azerbaijani_Generic_Missions_2 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			azerbaijan_area = {	
+			azerbaijan_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -94,7 +94,7 @@ Azerbaijani_Generic_Missions_3 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			shirvan_area = {	
+			shirvan_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -209,7 +209,7 @@ Azerbaijani_Generic_Missions_4= {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			tabriz_area = {	
+			tabriz_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -731,7 +731,7 @@ AZE_Missions_2 = {
 		}
 		trigger = {
 			persia_region = {
-				country_or_non_sovereign_subject_holds = ROOT 
+				country_or_non_sovereign_subject_holds = ROOT
 				type = all
 			}
 		}
@@ -1167,11 +1167,13 @@ AZE_Missions_5 = {
 			}
 		}
 		trigger = {
-			NOT = {
-				any_province = {
-					culture = azerbaijan_area
-					NOT = { religion = ROOT }
-					NOT = { owned_by = ROOT }
+			all_province = {
+				OR = {
+					NOT = { culture = azerbaijani }
+					AND = {
+						religion = ROOT
+						owned_by = ROOT
+					}
 				}
 			}
 		}

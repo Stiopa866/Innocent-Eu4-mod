@@ -428,12 +428,6 @@ crimean_missions_column_3 = {
 			}
 		}
 		effect = {
-			# TUR = {
-				# create_subject = {
-					# subject_type = timar
-					# subject = ROOT
-				# }
-			# }
 			TUR = {
 				country_event = {
 					id = ME_Ottoman_Events.30

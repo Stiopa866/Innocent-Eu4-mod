@@ -93,3 +93,130 @@ defined_text = {
         }
     }
 }
+
+defined_text = {
+    name = PomeraniaHasAdmAdvisor
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			has_adm_advisor = yes
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = PomeraniaHasDipAdvisor
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			has_dip_advisor = yes
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = PomeraniaHasMilAdvisor
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			has_mil_advisor = yes
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = PomeraniaIsCatholic
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			religion = catholic
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = PomeraniaIsNotCatholic
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			NOT = { religion = catholic }
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = FranconiaMissionFirst
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			NOT = { has_global_flag = FKN_emperor_mission_taken }
+			NOT = { average_unrest = 0 }
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = FranconiaMissionRebelFactions
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			NOT = { average_unrest = 0 }
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}

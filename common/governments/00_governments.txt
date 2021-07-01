@@ -290,6 +290,7 @@ republic = {
 				# ME Reforms:
 				greek_league_reform
 				athenian_republic
+				constitutional_republic_reform
 			}
 		}
 		republican_virtues = {
@@ -305,6 +306,7 @@ republic = {
 				fraternite_reform
 				# ME Reforms:
 				sharia_reform
+				republican_virtues_reform
 			}
 		}
 		frequent_elections_vs_consolidation_of_power = {
@@ -327,6 +329,8 @@ republic = {
 				administrative_divisions_reform
 				union_of_states_reform
 				penal_colonies_reform
+				citizen_soldiers_reform
+				institutionalized_repbulican_army_reform
 			}
 		}
 		parliamentary_vs_presidential = {
@@ -342,6 +346,8 @@ republic = {
 				two_chamber_reform
 				# ME Reforms:
 				imperial_reform
+				federalism_reform
+				supremacy_constitution_reform
 			}
 		}
 		consolidation_of_power_category = {
@@ -350,6 +356,8 @@ republic = {
 				devolution_of_powers_reform
 				absolute_president_reform
 				revolutionary_council_reform
+				primacy_legislature_reform
+				judicial_review_reform
 			}
 		}
 		guiding_principle_of_administration = {
@@ -359,6 +367,8 @@ republic = {
 				revolutionary_principle_reform
 				equality_principle_reform
 				imperial_principle_reform
+				imperial_executive_branch_power_reform
+				federal_governorship_reform
 			}
 		}
 		electorate = {
@@ -369,6 +379,7 @@ republic = {
 				equal_electorate_reform
 				three_classes_reform
 				military_electorate_reform
+				amendable_constitution_reform
 			}
 		}
 		office_selection = {
@@ -376,6 +387,8 @@ republic = {
 				appointment_by_committee_reform
 				bureaucratic_aparatus_reform
 				universal_suffrage_reform
+				electoral_college_reform
+				direct_majority_rule_reform
 			}
 		}
 		question_of_dictatorship = {
@@ -388,6 +401,8 @@ republic = {
 				president_for_life_reform
 				government_for_people_reform
 				become_rev_empire_reform
+				vice_presidential_system_reform
+				legislative_office_selection_reform
 			}
 		}
 	}

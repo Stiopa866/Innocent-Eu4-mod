@@ -155,7 +155,7 @@ RHN_ideas = {
         build_cost = -0.1
     }
     RHN_idea_5 = {
-        global_trade_goods_size_modifier = 0.1
+        global_trade_goods_size_modifier = 0.15
     }
     RHN_idea_6 = {
         same_culture_advisor_cost = -0.15
@@ -469,47 +469,6 @@ HNS_ideas = {
 	HNS7 = {
 		global_trade_power = 0.1
 		trade_efficiency = 0.05
-	}
-}
-
-kingdom_of_god_ideas = {
-	start = {
-		missionaries = 1
-		trade_efficiency = 0.10
-	}
-
-	bonus = {
-		development_cost = -0.1
-	}
-
-	trigger = {
-		tag = PAP
-		has_country_flag = Kingdom_Of_Many
-	}
-	free = yes
-
-	kingdom_of_god_idea_1 = {
-		galley_power = 0.20
-		global_ship_trade_power = 0.15
-	}
-	kingdom_of_god_idea_2 = {
-		infantry_power = 0.10
-	}
-	kingdom_of_god_idea_3 = {
-		global_unrest = -1
-	}
-	kingdom_of_god_idea_4 = {
-		core_creation = -0.15
-	}
-	kingdom_of_god_idea_5 = {
-		technology_cost = -0.05
-		idea_cost = -0.05
-	}
-	kingdom_of_god_idea_6 = {
-		advisor_cost = -0.10
-	}
-	kingdom_of_god_idea_7 = {
-		discipline = 0.05
 	}
 }
 

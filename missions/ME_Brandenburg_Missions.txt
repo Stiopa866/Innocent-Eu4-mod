@@ -647,7 +647,7 @@ BRA_missions_3 = {
 				}
 				add_local_autonomy = -25
 			}
-			add_accepted_culture = prussian
+			add_accepted_culture_or_dip_power = { culture = prussian }
 			if = {
 				limit = {
 					tag = BRA
@@ -735,6 +735,7 @@ BRA_missions_4 = {
 		provinces_to_highlight = {
 		}
 		trigger = {
+			has_dip_advisor = yes
 			variable_arithmetic_trigger = {
 				custom_tooltip = BRA_larger_army
 				export_to_variable = {
@@ -1000,16 +1001,7 @@ BRA_missions_4 = {
 		}
 		effect = {
 			2969 = {
-				if = {
-					limit = {
-						NOT = { has_building = university }
-					}
-					add_building = university
-				}
-				else = {
-					add_base_tax = 1
-					add_base_production = 1
-				}
+				add_or_upgrade_university_building = yes
 				add_province_modifier = {
 					name = BRA_universita_viadrina_modifier
 					duration = -1

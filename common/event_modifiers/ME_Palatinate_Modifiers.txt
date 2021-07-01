@@ -3,7 +3,7 @@ PAL_palatina = {
 }
 
 PAL_bibliotheca_palatina = {
-	missionary_strength = 0.01
+	global_missionary_strength = 0.01
 	church_power_modifier = 0.25
  	monthly_fervor_increase = 1
 }

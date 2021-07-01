@@ -741,7 +741,7 @@ australia_missions_5 = {
 			is_capital_of = ROOT
 			OR = {
 				unrest = 0.1
-				devastation = 0.1
+				devastation = 1
 			}
 		}
 		trigger = {
@@ -753,7 +753,7 @@ australia_missions_5 = {
 			natural_scientist = 2
 			capital_scope = {
 				NOT = {	unrest = 0.1 }
-				NOT = {	devastation = 0.1 }
+				NOT = {	devastation = 1 }
 			}
 		}
 		effect = {

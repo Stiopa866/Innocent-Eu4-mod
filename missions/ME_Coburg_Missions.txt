@@ -136,23 +136,14 @@ COB_missions_5 = {
 				PAP = {
 					has_opinion = {
 						who = ROOT
-						amount = 100
+						value = 100
 					}
 				}
 			}
 		}
 		effect = {
 			4716 = {
-				if = {
-					limit = {
-						NOT = { has_building = university }
-					}
-					add_building = university
-				}
-				else = {
-					add_base_tax = 1
-					add_base_production = 1
-				}
+				add_or_upgrade_university_building =  yes
 			}
 		}
 	}

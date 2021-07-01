@@ -873,7 +873,7 @@ caucasia_missions_5 = {
 			OR = {
 				NOT = { owned_by = ROOT }
 				unrest = 0.01
-				local_autonomy = 0.01
+				local_autonomy = 0.1
 			}
 		}
 		trigger = {
@@ -884,19 +884,19 @@ caucasia_missions_5 = {
 				type = all
 				owned_by = ROOT
 				NOT = { unrest = 0.01 }
-				NOT = { local_autonomy = 0.01 }
+				NOT = { local_autonomy = 0.1 }
 			}
 			imereti_area = {
 				type = all
 				owned_by = ROOT
 				NOT = { unrest = 0.01 }
-				NOT = { local_autonomy = 0.01 }
+				NOT = { local_autonomy = 0.1 }
 			}
 			samtskhe_area = {
 				type = all
 				owned_by = ROOT
 				NOT = { unrest = 0.01 }
-				NOT = { local_autonomy = 0.01 }
+				NOT = { local_autonomy = 0.1 }
 			}
 		}
 		effect = {

@@ -495,34 +495,23 @@ add_prestige_or_monarch_power = {
 	}
 	custom_tooltip = ME_ADD_PRESTIGE_OR_MONARCHPOWER
 	hidden_effect = {
-		set_variable = {
-			which = prestigetoadd
-			value = $amount$
-		}
-		while = {
-			limit = {
-				check_variable = {
-					which = prestigetoadd
-					value = 1
+		for = {
+			amount = $amount$
+			effect = "
+				if = {
+					limit = {
+						NOT = { prestige = 100 }
+					}
+					add_prestige = 1
 				}
-			}
-			if = {
-				limit = {
-					NOT = { prestige = 100 }
+				else = {
+					random_list = {
+						1 = { add_adm_power = 1 }
+						1 = { add_dip_power = 1 }
+						1 = { add_mil_power = 1 }
+					}
 				}
-				add_prestige = 1
-			}
-			else = {
-				random_list = {
-					1 = { add_adm_power = 1 }
-					1 = { add_dip_power = 1 }
-					1 = { add_mil_power = 1 }
-				}
-			}
-			subtract_variable = {
-				which = prestigetoadd
-				value = 1
-			}
+			"
 		}
 	}
 }
@@ -535,30 +524,19 @@ add_army_tradition_or_mil_power = {
 	}
 	custom_tooltip = ME_ADD_ARMY_TRADITION_OR_MIL_POWER
 	hidden_effect = {
-		set_variable = {
-			which = armytradtoadd
-			value = $amount$
-		}
-		while = {
-			limit = {
-				check_variable = {
-					which = armytradtoadd
-					value = 1
+		for = {
+			amount = $amount$
+			effect = "
+				if = {
+					limit = {
+						NOT = { army_tradition = 99.9 }
+					}
+					add_army_tradition = 1
 				}
-			}
-			if = {
-				limit = {
-					NOT = { army_tradition = 99.9 }
+				else = {
+					add_mil_power = 1
 				}
-				add_army_tradition = 1
-			}
-			else = {
-				add_mil_power = 1
-			}
-			subtract_variable = {
-				which = armytradtoadd
-				value = 1
-			}
+			"
 		}
 	}
 }
@@ -824,19 +802,59 @@ add_accepted_culture_or_dip_power = {
 #			allied_with = ROOT
 #		}"
 #		scale = your trigger type here REQUIRED
-#       <example> scale = army_size
+#       <example>
+#		scale = army_size
 #		<number of tags here> = yes (supported numbers: 1-3) REQUIRED
 #		event_target_name = "your name for event target here> REQUIRED
+#		scope = "your scope here> OPTIONAL
+#		<example>
+#		scope = "every_neighbor_country"
+#		default is every_country
 #	}
 #####################
 
 pick_best_tags = {
+	[[scope]
+		pick_best_tags_2 = {
+			scope = $scope$
+			scale = $scale$
+			event_target_name = $event_target_name$
+			global_trigger = "$global_trigger$"
+			1 = "$1$"
+			2 = "$2$"
+			3 = "$3$"
+			4 = "$4$"
+			5 = "$5$"
+		}
+		set_global_flag = PICK_BEST_TAG_FLAG
+	] #curses for not having an [ELSE ] or something.
+	if = {
+		limit = {
+			NOT = { has_global_flag = PICK_BEST_TAG_FLAG } #This check is here to prevent the algorithm from being run again after the scoped version was executed
+		}
+		pick_best_tags_2 = {
+			scope = every_country
+			scale = $scale$
+			event_target_name = $event_target_name$
+			global_trigger = "$global_trigger$"
+			1 = "$1$"
+			2 = "$2$"
+			3 = "$3$"
+			4 = "$4$"
+			5 = "$5$"
+		}
+	}
+	else = { clr_global_flag = PICK_BEST_TAG_FLAG }
+}
+
+pick_best_tags_2 = {
 	hidden_effect = {
 		[[1]
 			if = {
 				limit = { always = $1$ }
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 1
@@ -848,12 +866,14 @@ pick_best_tags = {
 				limit = { always = $2$ }
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 1
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 2
@@ -865,23 +885,25 @@ pick_best_tags = {
 				limit = { always = $3$ }
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 1
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 2
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 3
 				}
-				
 			}
 		]
 		[[4]
@@ -889,24 +911,28 @@ pick_best_tags = {
 				limit = { always = $4$ }
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 1
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 2
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 3
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 4
@@ -918,37 +944,42 @@ pick_best_tags = {
 				limit = { always = $5$ }
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 1
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 2
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 3
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 4
 				}
 				pick_best_tag = {
 					scale = "$scale$"
+					scope = $scope$
 					global_trigger = "$global_trigger$"
 					event_target_name = "$event_target_name$"
 					number = 5
 				}
 			}
 		]
-		every_country = {
+		$scope$ = {
 			limit = {
 				has_country_flag = $event_target_name$_exclude
 			}
@@ -958,23 +989,260 @@ pick_best_tags = {
 }
 
 pick_best_tag = {
-	random_country = {
+    1 = { save_event_target_as = $event_target_name$_$number$ }
+	$scope$ = {
 		limit = {
+			[[global_trigger] $global_trigger$ ]
+			$scale$ = event_target:$event_target_name$_$number$
 			NOT = { has_country_flag = $event_target_name$_exclude }
-			$global_trigger$
-			NOT = {
-				any_country = {
-					NOT = { has_country_flag = $event_target_name$_exclude }
-					$global_trigger$
-					NOT = { 
-						PREV = {
-							$scale$ = PREV
-						}
-					}
-				}
-			}
 		}
 		save_event_target_as = $event_target_name$_$number$
+	}
+	event_target:$event_target_name$_$number$ = {
 		set_country_flag = $event_target_name$_exclude
+	}
+}
+
+#####################
+# 	USAGE
+# 	pick_best_provinces = {
+#   	global_trigger = "your global triggers here" OPTIONAL
+#		<example>
+#		global_trigger = "
+#		OR = {
+#			continent = europe
+#			allied_with = ROOT
+#		}"
+#		scale = your trigger type here REQUIRED
+#       <example> scale = army_size
+#		<number of provinces here> = yes (supported numbers: 1-3) REQUIRED
+#		event_target_name = "your name for event target here> REQUIRED
+#		scope = <Your scope here> (default: every_province)
+#	}
+#####################
+
+pick_best_provinces = {
+	[[scope]
+		pick_best_provinces_2 = {
+			scope = "$scope$"
+			scale = "$scale$"
+			event_target_name = "$event_target_name$"
+			global_trigger = "$global_trigger$"
+			1 = "$1$"
+			2 = "$2$"
+			3 = "$3$"
+			4 = "$4$"
+			5 = "$5$"
+		}
+		set_global_flag = PICK_BEST_PROVINCES_FLAG
+	] #curses for not having an [ELSE ] or something.
+	if = {
+		limit = {
+			NOT = { has_global_flag = PICK_BEST_PROVINCES_FLAG } #This check is here to prevent the algorithm from being run again after the scoped version was executed
+		}
+		pick_best_provinces_2 = {
+			scope = " every_province "
+			scale = "$scale$"
+			event_target_name = "$event_target_name$"
+			global_trigger = "$global_trigger$"
+			1 = "$1$"
+			2 = "$2$"
+			3 = "$3$"
+			4 = "$4$"
+			5 = "$5$"
+		}
+	}
+	else = { clr_global_flag = PICK_BEST_PROVINCES_FLAG }
+}
+
+pick_best_provinces_2 = {
+	hidden_effect = {
+		[[1]
+			if = {
+				limit = { always = $1$ }
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 1
+				}
+			}
+		]
+		[[2]
+			if = {
+				limit = { always = $2$ }
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 1
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 2
+				}
+			}
+		]
+		[[3]
+			if = {
+				limit = { always = $3$ }
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 1
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 2
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 3
+				}
+			}
+		]
+		[[4]
+			if = {
+				limit = { always = $4$ }
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 1
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 2
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 3
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 4
+				}
+			}
+		]
+		[[5]
+			if = {
+				limit = { always = $5$ }
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 1
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 2
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 3
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 4
+				}
+				pick_best_province = {
+					scale = "$scale$"
+					scope = $scope$
+					global_trigger = "$global_trigger$"
+					event_target_name = "$event_target_name$"
+					number = 5
+				}
+			}
+		]
+		$scope$ = {
+			limit = {
+				has_province_flag = $event_target_name$_exclude
+			}
+			clr_province_flag = $event_target_name$_exclude
+		}
+	}
+}
+
+pick_best_province = {
+    1 = { 
+		owner = { save_event_target_as = $event_target_name$_$number$ }
+	}
+	$scope$ = {
+		limit = {
+			[[global_trigger] $global_trigger$ ]
+			$scale$ = event_target:$event_target_name$_$number$
+			NOT = { has_province_flag = $event_target_name$_exclude }
+		}
+		save_event_target_as = $event_target_name$_$number$
+	}
+	event_target:$event_target_name$_$number$ = {
+		set_province_flag = $event_target_name$_exclude
+	}
+}
+#####
+# FOR LOOP
+# Executes the $effect$ $amount$ of times.
+# for = { 
+#	amount = 5
+#	effect = "
+#	random_owned_province = {
+#		add_base_tax = 1
+#	}		 
+#	"
+# }
+#####
+	
+
+for = {
+	set_variable = {
+		which = ForLoopCounter
+		value = $amount$
+	}
+	
+	while = {
+		limit = {
+			check_variable = {
+				which = ForLoopCounter
+				value = 1
+			}
+		}
+		$effect$
+		subtract_variable = {
+			which = ForLoopCounter
+			value = 1
+		}
 	}
 }

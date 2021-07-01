@@ -4,7 +4,13 @@ BRG_Missions_1 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = BRG
+		OR = {
+			tag = BRG
+			AND = {
+				tag = RHN
+				was_tag = BRG
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -87,7 +93,13 @@ BRG_Missions_4 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = BRG
+		OR = {
+			tag = BRG
+			AND = {
+				tag = RHN
+				was_tag = BRG
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -130,7 +142,13 @@ BRG_Missions_5 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = BRG
+		OR = {
+			tag = BRG
+			AND = {
+				tag = RHN
+				was_tag = BRG
+			}
+		}
 	}
 	has_country_shield = yes
 	

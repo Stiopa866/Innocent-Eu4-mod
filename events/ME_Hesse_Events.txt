@@ -23,7 +23,7 @@ country_event = {
 					limit = {
 						exists = HES
 						HES = {
-							has_country_flag = HES_schmal
+							has_country_flag = HES_guaranteed
 							religion = protestant
 						}
 					}

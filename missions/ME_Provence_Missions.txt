@@ -22,7 +22,7 @@ PRO_Missions_1 = {
 			province_id = 178
 			OR = {
 				NOT = { owned_by = ROOT }
-				devastation = 0.01
+				devastation = 1
 				NOT = { development = 20 }
 				NOT = { has_tax_building_trigger = yes }
 			}
@@ -40,7 +40,7 @@ PRO_Missions_1 = {
 			}
 			178 = {
 				owned_by = ROOT
-				NOT = { devastation = 0.01 }
+				NOT = { devastation = 1 }
 				development = 20
 				has_tax_building_trigger = yes
 			}
@@ -65,7 +65,7 @@ PRO_Missions_1 = {
 				NOT = { owned_by = ROOT }
 				NOT = { has_production_building_trigger = yes }
 				NOT = { has_tax_building_trigger = yes }
-				devastation = 0.01
+				devastation = 1
 			}
 		}
 		trigger = {
@@ -75,7 +75,7 @@ PRO_Missions_1 = {
 				owned_by = ROOT
 				has_production_building_trigger = yes
 				has_tax_building_trigger = yes
-				NOT = { devastation = 0.01 }
+				NOT = { devastation = 1 }
 			}
 		}
 		effect = {

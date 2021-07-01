@@ -16,3 +16,4 @@ l_english:
  string_me_get_country_flag: "@[This.GetTag]"
  ME_yes: "£yes£"
  ME_no: "£no£"
+ ME_nothing: ""

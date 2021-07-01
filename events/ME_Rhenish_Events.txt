@@ -233,26 +233,6 @@ country_event = {
 		}
 		custom_tooltip = RHN_if_they_deny
 	}
-	after = {
-		event_target:Rhineland_target_1 = {
-			set_variable = {
-				which = Rhineland_years_of_income
-				value = 0
-			}
-		}
-		event_target:Rhineland_target_2 = {
-			set_variable = {
-				which = Rhineland_years_of_income
-				value = 0
-			}
-		}
-		event_target:Rhineland_target_3 = {
-			set_variable = {
-				which = Rhineland_years_of_income
-				value = 0
-			}
-		}
-	}
 }
 
 country_event = {
@@ -300,7 +280,7 @@ country_event = {
 				NOT = {
 					has_opinion = {
 						who = FROM
-						amount = -150
+						value = -150
 					}
 				}
 			}
@@ -318,7 +298,7 @@ country_event = {
 				NOT = {
 					has_opinion = {
 						who = FROM
-						amount = -50
+						value = -50
 					}
 				}
 			}
@@ -327,7 +307,7 @@ country_event = {
 				NOT = {
 					has_opinion = {
 						who = FROM
-						amount = -100
+						value = -100
 					}
 				}
 			}
@@ -427,28 +407,28 @@ country_event = {
 				factor = 0
 				has_opinion = {
 					who = FROM
-					amount = 200
+					value = 200
 				}
 			}
 			modifier = {
 				factor = 0.5
 				has_opinion = {
 					who = FROM
-					amount = 150
+					value = 150
 				}
 			}
 			modifier = {
 				factor = 0.5
 				has_opinion = {
 					who = FROM
-					amount = 100
+					value = 100
 				}
 			}
 			modifier = {
 				factor = 0.5
 				has_opinion = {
 					who = FROM
-					amount = 50
+					value = 50
 				}
 			}
 		}
@@ -459,6 +439,20 @@ country_event = {
 			}
 		}
 		add_prestige_or_monarch_power = { amount = 10 }
+	}
+	after = {
+		every_country = {
+			limit = {
+				check_variable = {
+					which = Rhineland_years_of_income
+					value = 1
+				}
+			}
+			set_variable = {
+				which = Rhineland_years_of_income
+				value = 0
+			}
+		}
 	}
 }
 
@@ -716,12 +710,51 @@ country_event = {
 		
 		ai_chance = { factor = 1 }
 		
+		trigger = {
+			is_expanded_mod_active = { mod = trade_goods }
+		}
+		
 		event_target:diamond_province = {
 			add_permanent_province_modifier = {
                 name = diamond_district
                 duration = -1
             }
 		}
+		add_prestige_or_monarch_power = { amount = 50 }
+	}
+	
+	option = {
+		name = "ME_Rhenish_Events.9.a" #Advanced Faceting
+		
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			NOT = {
+				is_expanded_mod_active = { mod = trade_goods } 
+			}
+		}
+		
+		event_target:diamond_province = {
+			change_trade_goods = gems
+			add_permanent_province_modifier = {
+                name = diamond_district
+                duration = -1
+            }
+		}
+		add_prestige_or_monarch_power = { amount = 50 }
+	}
+	
+	option = {
+		name = "ME_Rhenish_Events.9.b" #Advanced Faceting
+		
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			NOT = {
+				is_expanded_mod_active = { mod = trade_goods } 
+			}
+		}
+		add_years_of_income = 0.5		
 		add_prestige_or_monarch_power = { amount = 50 }
 	}
 }

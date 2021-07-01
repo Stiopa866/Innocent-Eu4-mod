@@ -716,14 +716,14 @@ Yuan_missions_5 = {
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { development = 15 }
-				devastation = 0.01
+				devastation = 1
 			}
 		}
 		trigger = {
 			2116 = {
 				owned_by = ROOT
 				development = 15
-				NOT = { devastation = 0.01 }
+				NOT = { devastation = 0.1
 			}
 		}
 		effect = {
@@ -742,13 +742,13 @@ Yuan_missions_5 = {
 			province_id = 1816
 			OR = {
 				NOT = { owned_by = ROOT }
-				devastation = 0.01
+				devastation = 1
 			}
 		}
 		trigger = {
 			1816 = {
 				owned_by = ROOT
-				NOT = { devastation = 0.01 }
+				NOT = { devastation = 0.1
 			}
 		}
 		effect = {

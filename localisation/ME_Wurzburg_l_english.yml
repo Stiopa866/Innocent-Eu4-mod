@@ -5,13 +5,13 @@
  WBG_bishoprics_title: "Befriend Other Bishoprics"
  WBG_bishoprics_desc: "Despite our position in the Holy Roman Empire, we do recognize the strength of potential neighboring threats despite the Emperor's guarantees of peace and stability. Therefore, it is crucial to make the necessary preparations and have the diplomatic finesse needed in order to forge vital alliances to see us through these troubled times."
  WBG_wurzburg_residenz_title: "Würzburger Residenz"
- WBG_wurzburg_residenz_desc: ""
+ WBG_wurzburg_residenz_desc: "Alike to the other bishoprics in the Holy Roman Empire, the seat of the holy rule in Würzburg must have a residence to rule from as well. No resources shall be spared in the construction of the residence, which will reign above all else."
  WBG_munster_title: "Würzburger Dom"
- WBG_munster_desc: "The Wurzburg Cathedral was built in the 11th century and consecrated in 1187. In the following century, the famous eastern towers were raised in the emerging gothic style. Now, it's time to further fund the expansion of the church and remodel the side aisles."
+ WBG_munster_desc: "The Würzburg Cathedral was built in the 11th century and consecrated in 1187. In the following century, the famous eastern towers were raised in the emerging gothic style. Now, it's time to further fund the expansion of the church and remodel the side aisles."
  WBG_kilianimesse_title: "Kiliani-messe"
- WBG_kilianimesse_desc: ""
+ WBG_kilianimesse_desc: "Saint Kilian is the patron apostle of Franconia. Under his spiritual guidence, not only was the local elite converted, but also a large chunk of the population. Unfortunately, not all were converted, for the wife of the duke, angered by his condemnation of their marriage, sent soldiers to him and had him beheaded. To celebrate the work and life of Saint Kilian, mass is held in Würzburg annually, followed by a festival."
  WBG_university_title: "Universitas Herbipolensis"
- WBG_university_desc: ""
+ WBG_university_desc: "The University of Würzburg was founded in 1402, but closed soon after. It was only thanks to the initiative of Julius Echter von Mespelbrunn that it was reopened in the late 16th century. In latin it took the name of Universitas Herbipoli, where Herbipoli stands for the old Latin name of Würzburg, Herbipolis."
  
  # Modifiers:
  WBG_diplomacy: "Christian Diplomacy"

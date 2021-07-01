@@ -34,7 +34,7 @@ country_decisions = {
 			}
 			any_owned_province = {
 				trade_goods = naval_supplies
-				has_building = shipyard
+				has_shipyard_building_trigger = yes
 			}
 		}
 		effect = {
@@ -98,14 +98,8 @@ country_decisions = {
 					}
 					OR = {
 						NOT = { base_production = 15 }
-						OR = {
-							NOT = { has_building = shipyard }
-							NOT = { has_building = grand_shipyard }
-						}
-						OR = {
-							NOT = { has_building = dock }
-							NOT = { has_building = drydock }
-						}
+						NOT = { has_shipyard_building_trigger = yes }
+						NOT = { has_dock_building_trigger = yes }
 					}
 				}
 				AND = {
@@ -139,14 +133,8 @@ country_decisions = {
 				112 = {
 					base_production = 15
 					OR = {
-						OR = {
-							has_building = shipyard
-							has_building = grand_shipyard
-						}
-						OR = {
-							has_building = dock
-							has_building = drydock
-						}
+						has_shipyard_building_trigger = yes
+						has_dock_building_trigger = yes
 					}
 				}
 			}
@@ -156,14 +144,8 @@ country_decisions = {
 				101 = {
 					base_production = 15
 					OR = {
-						OR = {
-							has_building = shipyard
-							has_building = grand_shipyard
-						}
-						OR = {
-							has_building = dock
-							has_building = drydock
-						}
+						has_shipyard_building_trigger = yes
+						has_dock_building_trigger = yes
 					}
 				}
 			}
@@ -172,28 +154,16 @@ country_decisions = {
 				115 = {
 					base_production = 15
 					OR = {
-						OR = {
-							has_building = shipyard
-							has_building = grand_shipyard
-						}
-						OR = {
-							has_building = dock
-							has_building = drydock
-						}
+						has_shipyard_building_trigger = yes
+						has_dock_building_trigger = yes
 					}
 				}
 			}
 			num_of_owned_provinces_with = {
 				value = 10
 				base_production = 10
-				OR = {
-					has_building = shipyard
-					has_building = grand_shipyard
-				}
-				OR = {
-					has_building = dock
-					has_building = drydock
-				}
+				has_shipyard_building_trigger = yes
+				has_dock_building_trigger = yes
 			}
 		}
 		effect = {

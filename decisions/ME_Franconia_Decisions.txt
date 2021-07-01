@@ -33,56 +33,56 @@ country_decisions = {
 			factor = 0 #doubt ai can use it
 		}
 	}
-	FKN_demand_from_cities = {
-		major = no
-		potential = {
-			primary_culture = franconian
-			is_year = 1490
-			OR = {
-				franconia_area = {
-					owner = {
-						has_reform = free_city_reform
-					}
-				}
-				upper_franconia_area = {
-					owner = {
-						has_reform = free_city_reform
-					}
-				}
-			}
+	# FKN_demand_from_cities = {
+		# major = no
+		# potential = {
+			# primary_culture = franconian
+			# is_year = 1490
+			# OR = {
+				# franconia_area = {
+					# owner = {
+						# has_reform = free_city_reform
+					# }
+				# }
+				# upper_franconia_area = {
+					# owner = {
+						# has_reform = free_city_reform
+					# }
+				# }
+			# }
 			
-		}
-		allow = {
-			num_of_owned_provinces_with = {
-				culture = franconian
-				value = 5
-			}
-		}
-		effect = {
-			custom_tooltip = FKN_high_autonomy
-			franconia_area = {
-				owner = {
-					if = {
-						limit = {
-							has_reform = free_city_reform
-						}
-						country_event = { id = ME_Franconia_Events.5 }
-					}
-				}
-			}
-			upper_franconia_area = {
-				owner = {
-					if = {
-						limit = {
-							has_reform = free_city_reform
-						}
-						country_event = { id = ME_Franconia_Events.5 }
-					}
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1 #doubt ai can use it
-		}
-	}
+		# }
+		# allow = {
+			# num_of_owned_provinces_with = {
+				# culture = franconian
+				# value = 5
+			# }
+		# }
+		# effect = {
+			# custom_tooltip = FKN_high_autonomy
+			# franconia_area = {
+				# owner = {
+					# if = {
+						# limit = {
+							# has_reform = free_city_reform
+						# }
+						# country_event = { id = ME_Franconia_Events.5 }
+					# }
+				# }
+			# }
+			# upper_franconia_area = {
+				# owner = {
+					# if = {
+						# limit = {
+							# has_reform = free_city_reform
+						# }
+						# country_event = { id = ME_Franconia_Events.5 }
+					# }
+				# }
+			# }
+		# }
+		# ai_will_do = {
+			# factor = 1 #doubt ai can use it
+		# }
+	# }
 }

@@ -40,7 +40,7 @@ sic_thousand_sigil = {
 }
 #5
 sic_parramentu_sicilianu_modifier = {
-	local_unrest = -2
+	reform_progress_growth = 0.15
 	local_tax_modifier = 0.10
 }
 sic_champion_christianity = {
@@ -78,10 +78,10 @@ sic_guardia_ospitaliera = {
 	local_regiment_cost = -0.25
 }
 sic_iron_fist = {
-	min_local_autonomy = 0.25
+	min_local_autonomy = -0.25
 	province_trade_power_modifier = -0.33
 }
 sic_preserving = {
-	min_local_autonomy = -0.25
+	min_local_autonomy = 0.25
 	province_trade_power_modifier = 0.33
 }

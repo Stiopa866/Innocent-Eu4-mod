@@ -12,33 +12,6 @@ humiliate_prussia = {
 	war_name = PRU_HUMILIATE
 }
 
-coalition_prussia = {
-	type = superiority
-	
-	attacker = {
-        badboy_factor = 1
-        prestige_factor = 1
-        peace_cost_factor = 1
-
-        peace_options = {
-            po_demand_provinces
-        }
-    }
-
-    defender = {
-        badboy_factor = 1
-        prestige_factor = 1
-        peace_cost_factor = 1
-
-        peace_options = {
-            po_prussia_coalition_victory
-        }
-    }
-
-
-	war_name = PRU_COALITION
-}
-
 liberate_prussia = {
 	type = superiority
 	

@@ -58,6 +58,10 @@
  POM_minting_a_coin_desc: "In the year of 1500, Boguslaw the Great has issued the 'Boguslaw' coin to be minted in Stettin. It weighted 4,86g of which 4.29 was pure silver and was worth half of a mark, or 8 schillings. The issue of a new coin cemented the Boguslaw's revitalization of the [POM.GetAdjective] Economy."
  POM_legacy_of_eric_title: "Legacy of Eric"
  POM_legacy_of_eric_desc: "Eric of Pomerania is certainly one of the most prominent rulers of the House of Gryf. His fame is largely attributed to his coronation as the first king of the Kalmar Union - an entity spanning from the green fields of Jutland to the coasts of Finnmark. Unfortunately though, Eric has recently been ousted from the throne, which is now held by a new dynasty. The time is nigh to restore the [Root.Monarch.Dynasty.GetName] to the thrones bounded by Union in Kalmar!"
+ 
+ POM_advisor: "[Root.PomeraniaHasAdmAdvisor] If we have an §YAdministrative§! Advisor, gain §G25§! Administrative Power.\n[Root.PomeraniaHasDipAdvisor] If we have an §YDiplomatic§! Advisor, gain §G25§! Diplomatic Power.\n[Root.PomeraniaHasMilAdvisor] If we have an §YMilitary§! Advisor, gain §G25§! Military Power."
+ POM_if_we_are_catholic: "[Root.PomeraniaIsCatholic] If the mission has been completed by being §MCatholic§!:"
+ POM_if_we_are_not_catholic: "[Root.PomeraniaIsNotCatholic] If the mission has been completed by §Mnot§! being §MCatholic§!:"
  POM_FOR_EVERY_STAB: "For every positive point of §YStability§!, we will get §G25§! Church Power/Fervor."
  POM_if_we_get_attacked: "If we get attacked by §Y[BRA.GetName]§!, we can get an event to request §Y100§! ¤ from the Emperor."
  POM_seek_greatest_minds_trigger_tt: " advisors employed"

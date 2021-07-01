@@ -5,10 +5,14 @@ ferrara_missions_1 = {
 	potential = {
 		OR = {
 			tag = FER
-			#AND = {
-			#	was_tag = FER
-			#	#tag = ITA
-			#}
+			AND = {
+				was_tag = FER
+				tag = ITA
+				NOT = { was_tag = SPI }
+				NOT = { was_tag = TUS }
+				NOT = { was_tag = TTS }
+				NOT = { was_tag = LML }
+			}
 		}
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
@@ -35,6 +39,7 @@ ferrara_missions_1 = {
 				add_casus_belli = {
 					type = cb_italy_humiliation_rivals
 					target = MLO
+					months = 300
 				}
 			}
 			if = {
@@ -44,6 +49,7 @@ ferrara_missions_1 = {
 				add_casus_belli = {
 					type = cb_italy_humiliation_rivals
 					target = VEN
+					months = 300
 				}
 			}
 			if = {
@@ -53,6 +59,7 @@ ferrara_missions_1 = {
 				add_casus_belli = {
 					type = cb_italy_humiliation_rivals
 					target = MAN
+					months = 300
 				}
 			}
 		}
@@ -137,9 +144,12 @@ ferrara_missions_1 = {
 		icon = control_the_means_of_transaction
 		required_missions = { fer_po_valley }
 		position = 7
+		provinces_to_highlight = {
+			area = venetia_area
+			NOT = { owned_by = ROOT }
+		}
 		trigger = {
 			venetia_area = {
-				NOT = { province_id = 112 }
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
@@ -153,11 +163,23 @@ ferrara_missions_1 = {
 		icon = nuova_promissione_ducale
 		required_missions = { fer_conquest_venetia }
 		position = 9
+		provinces_to_highlight = {
+			area = venetia_area
+			NOT = { owned_by = ROOT }
+		}
 		trigger = {
-			owns = 112
+			venetia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			OR = {
 				NOT = { exists = VEN }
 				overlord_of = VEN
+				VEN = {
+					NOT = {
+						any_province = { region = italy_region }
+					}
+				}
 			}
 		}
 		effect = {
@@ -176,10 +198,14 @@ ferrara_missions_2 = {
 	potential = {
 		OR = {
 			tag = FER
-			#AND = {
-			#	was_tag = FER
-			#	#tag = ITA
-			#}
+			AND = {
+				was_tag = FER
+				tag = ITA
+				NOT = { was_tag = SPI }
+				NOT = { was_tag = TUS }
+				NOT = { was_tag = TTS }
+				NOT = { was_tag = LML }
+			}
 		}
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
@@ -195,9 +221,12 @@ ferrara_missions_2 = {
 			calc_true_if = {
 				amount = 2
 				all_country = {
-					army_strength = {
-						who = ROOT
-						value = 1.5
+					OR = {
+						army_strength = {
+							who = ROOT
+							value = 1.5
+						}
+						total_development = ROOT
 					}
 					OR = {
 						alliance_with = ROOT
@@ -242,9 +271,9 @@ ferrara_missions_2 = {
 		required_missions = { fer_ward_save }
 		position = 4
 		trigger = {
-			emilia_romagna_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+			num_of_owned_provinces_with = {
+				value = 4
+				area = emilia_romagna_area
 			}
 		}
 		effect = {
@@ -366,10 +395,14 @@ ferrara_mission_3 = {
 	potential = {
 		OR = {
 			tag = FER
-			#AND = {
-			#	was_tag = FER
-			#	#tag = ITA
-			#}
+			AND = {
+				was_tag = FER
+				tag = ITA
+				NOT = { was_tag = SPI }
+				NOT = { was_tag = TUS }
+				NOT = { was_tag = TTS }
+				NOT = { was_tag = LML }
+			}
 		}
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
@@ -381,9 +414,18 @@ ferrara_mission_3 = {
 		position = 1
 		trigger = {
 			PAP = {
-				has_opinion = {
-					who = ROOT
-					value = 125
+				OR = {
+					has_opinion = {
+						who = ROOT
+						value = 125
+					}
+					is_rival = ROOT
+					NOT = {
+						has_opinion = {
+							who = ROOT
+							value = -50
+						}
+					}
 				}
 			}
 		}
@@ -450,9 +492,12 @@ ferrara_mission_3 = {
 		icon = all_roads_lead_to_milan
 		required_missions = { fer_po_valley }
 		position = 7
+		provinces_to_highlight = {
+			area = lombardy_area
+			NOT = { owned_by = ROOT }
+		}
 		trigger = {
 			lombardy_area = {
-				NOT = { province_id = 104 }
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
@@ -466,11 +511,25 @@ ferrara_mission_3 = {
 		icon = italian_riches
 		required_missions = { fer_war_lombardy }
 		position = 9
+		provinces_to_highlight = {
+			area = lombardy_area
+			NOT = { owned_by = ROOT }
+		}
 		trigger = {
-			owns = 104
+			lombardy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			OR = {
 				NOT = { exists = MLO }
 				overlord_of = MLO
+				MLO = {
+					NOT = {
+						any_province = {
+							region = italy_region
+						}
+					}
+				}
 			}
 		}
 		effect = {
@@ -485,7 +544,6 @@ ferrara_mission_3 = {
 		icon = king_of_poland
 		required_missions = {
 			fer_lombardo_veneto
-			fer_welfen
 		}
 		position = 11
 		trigger = {
@@ -521,6 +579,7 @@ ferrara_mission_3 = {
 		}
 		effect = {
 			118 = { add_core = ROOT }
+			complete_conquest_of_rome_missions = yes
 		}
 	}
 }
@@ -532,10 +591,14 @@ ferrara_mission_4 = {
 	potential = {
 		OR = {
 			tag = FER
-			#AND = {
-			#	was_tag = FER
-			#	#tag = ITA
-			#}
+			AND = {
+				was_tag = FER
+				tag = ITA
+				NOT = { was_tag = SPI }
+				NOT = { was_tag = TUS }
+				NOT = { was_tag = TTS }
+				NOT = { was_tag = LML }
+			}
 		}
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
@@ -769,10 +832,14 @@ ferrara_mission_5 = {
 	potential = {
 		OR = {
 			tag = FER
-			#AND = {
-			#	was_tag = FER
-			#	#tag = ITA
-			#}
+			AND = {
+				was_tag = FER
+				tag = ITA
+				NOT = { was_tag = SPI }
+				NOT = { was_tag = TUS }
+				NOT = { was_tag = TTS }
+				NOT = { was_tag = LML }
+			}
 		}
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}

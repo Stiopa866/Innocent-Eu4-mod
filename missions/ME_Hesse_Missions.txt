@@ -4,7 +4,13 @@ HES_Missions_1 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = HES
+		OR = {
+			tag = HES
+			AND = {
+				tag = RHN
+				was_tag = HES
+			}
+		}
 	}
 	has_country_shield = yes
 
@@ -115,7 +121,13 @@ HES_Missions_3 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = HES
+		OR = {
+			tag = HES
+			AND = {
+				tag = RHN
+				was_tag = HES
+			}
+		}
 	}
 	has_country_shield = yes
 
@@ -224,7 +236,13 @@ HES_Missions_4 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = HES
+		OR = {
+			tag = HES
+			AND = {
+				tag = RHN
+				was_tag = HES
+			}
+		}
 	}
 	has_country_shield = yes
 
@@ -368,7 +386,13 @@ HES_Missions_5 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = HES
+		OR = {
+			tag = HES
+			AND = {
+				tag = RHN
+				was_tag = HES
+			}
+		}
 	}
 	has_country_shield = yes
 	

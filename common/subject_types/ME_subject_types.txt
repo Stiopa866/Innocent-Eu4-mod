@@ -185,7 +185,7 @@ prussian_vassal = {
 	}
 	
 	can_fight = {
-		independent_nations = yes
+		other_overlord = all
 	}
 	can_rival = {
 		independent_nations = yes
@@ -211,7 +211,6 @@ brotherly_order = {
 	overlord_can_attack = no
 	can_use_claims = no
 	can_fight = {
-		independent_nations = yes
 		other_overlord = all
 	}
 	can_rival = {

@@ -4,7 +4,13 @@ MAI_Missions_1 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = MAI
+		OR = {
+			tag = MAI
+			AND = {
+				tag = RHN
+				was_tag = MAI
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -85,7 +91,13 @@ MAI_Missions_3 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = MAI
+		OR = {
+			tag = MAI
+			AND = {
+				tag = RHN
+				was_tag = MAI
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -125,7 +137,13 @@ MAI_Missions_4 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = MAI
+		OR = {
+			tag = MAI
+			AND = {
+				tag = RHN
+				was_tag = MAI
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -172,7 +190,13 @@ MAI_Missions_5 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = MAI
+		OR = {
+			tag = MAI
+			AND = {
+				tag = RHN
+				was_tag = MAI
+			}
+		}
 	}
 	has_country_shield = yes
 	

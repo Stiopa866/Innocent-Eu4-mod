@@ -1,5 +1,7 @@
 namespace = ME_Naples_Events
-country_event = { #Neapolitan Renaissance
+
+#Neapolitan Renaissance
+country_event = {
 	id = ME_Naples_Events.1
 	title = ME_Naples_Events.1.T
 	desc = ME_Naples_Events.1.D
@@ -72,7 +74,8 @@ country_event = { #Neapolitan Renaissance
 	}
 }
 
-country_event = { #Repubblica Marinara d'Amalfi
+#Repubblica Marinara d'Amalfi
+country_event = {
 	id = ME_Naples_Events.2
 	title = ME_Naples_Events.2.T
 	desc = ME_Naples_Events.2.D
@@ -180,7 +183,8 @@ country_event = { #Repubblica Marinara d'Amalfi
 	}
 }
 
-country_event = { #The Throne of Provence for Provence
+#The Throne of Provence for Provence
+country_event = {
 	id = ME_Naples_Events.3
 	title = ME_Naples_Events.3.T
 	desc = ME_Naples_Events.3.D
@@ -203,15 +207,17 @@ country_event = { #The Throne of Provence for Provence
 			}
 		}
 
+		trigger = {
+			hidden_trigger = {
+				NOT = { is_subject = yes }
+			}
+		}
+
 		set_dynasty = FROM
 		FROM = {
 			if = {
 				limit = {
 					is_expanded_mod_active = { mod = subjects }
-					can_create_subject_type = {
-						subject = ROOT
-						subject_type = brother_kingdom
-					}
 				}
 				create_subject = {
 					subject_type = brother_kingdom
@@ -241,6 +247,13 @@ country_event = { #The Throne of Provence for Provence
 			type = cb_insult
 			target = FROM
 		}
+		every_owned_province = {
+			limit = {
+				NOT = { is_core = FROM }
+				NOT = { owned_by = FROM }
+			}
+			add_permanent_claim = FROM
+		}
 		FROM = {
 			add_casus_belli = {
 				type = cb_restore_personal_union
@@ -251,7 +264,8 @@ country_event = { #The Throne of Provence for Provence
 	}
 }
 
-country_event = { #The bond with Naples for Hungary
+#The bond with Naples for Hungary
+country_event = {
 	id = ME_Naples_Events.4
 	title = ME_Naples_Events.4.T
 	desc = ME_Naples_Events.4.D
@@ -275,15 +289,17 @@ country_event = { #The bond with Naples for Hungary
 			}
 		}
 
+		trigger = {
+			hidden_trigger = {
+				NOT = { is_subject = yes }
+			}
+		}
+
 		set_dynasty = FROM
 		FROM = {
 			if = {
 				limit = {
 					is_expanded_mod_active = { mod = subjects }
-					can_create_subject_type = {
-						subject = ROOT
-						subject_type = brother_kingdom
-					}
 				}
 				create_subject = {
 					subject_type = brother_kingdom
@@ -314,6 +330,13 @@ country_event = { #The bond with Naples for Hungary
 			type = cb_insult
 			target = FROM
 		}
+		every_owned_province = {
+			limit = {
+				NOT = { is_core = FROM }
+				NOT = { owned_by = FROM }
+			}
+			add_permanent_claim = FROM
+		}
 		FROM = {
 			add_casus_belli = {
 				type = cb_restore_personal_union
@@ -324,7 +347,8 @@ country_event = { #The bond with Naples for Hungary
 	}
 }
 
-country_event = { #The Crown of Jerusalem
+#The Crown of Jerusalem
+country_event = {
 	id = ME_Naples_Events.5
 	title = ME_Naples_Events.5.T
 	desc = ME_Naples_Events.5.D

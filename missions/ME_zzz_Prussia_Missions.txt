@@ -1,3 +1,82 @@
+PRU_generic_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = PRU
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = {
+			OR = {
+				was_tag = TEU
+				was_tag = BRA
+				was_tag = STE
+				was_tag = POM
+				was_tag = WOL
+				was_tag = RUG
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	PRU_prussian_might = {
+		icon = edict_of_potsdam
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = { 
+				province_id = 50
+				province_id = 41
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns = 50
+			owns = 41
+		}
+		effect = {
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 10
+			}
+		}
+	}
+	
+	PRU_prussian_ascendance = {
+		icon = an_army_with_a_state
+		required_missions = { PRU_prussian_might }
+		position = 6
+		provinces_to_highlight = {
+			province_id = 50
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT } 
+				NOT = { is_state = yes }
+				local_autonomy_above_min = 10
+				nationalism = 1
+			}
+		}
+		trigger = {
+			OR = {
+				tag = PRU
+				50 = {
+					owned_by = ROOT
+					is_core = ROOT
+					is_state = yes
+					NOT = { local_autonomy_above_min = 10 }
+					NOT = { nationalism = 1 }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = BRA_prussian_ambition_2
+				duration = 5475
+			}
+			complete_prussian_ascendance_missions = yes
+		}
+	}
+}
+
 PRU_missions_1 = {
 	slot = 1
 	generic = no
@@ -5,6 +84,7 @@ PRU_missions_1 = {
 	potential = {
 		tag = PRU
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = { has_country_flag = PRU_ducal }
 	}
 	has_country_shield = yes
 	
@@ -127,6 +207,7 @@ PRU_missions_1_2 = {
 	potential = {
 		tag = PRU
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = { has_country_flag = PRU_ducal }
 	}
 	has_country_shield = yes
 	
@@ -275,6 +356,7 @@ PRU_missions_2 = {
 	potential = {
 		tag = PRU
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = { has_country_flag = PRU_ducal }
 	}
 	has_country_shield = yes
 	
@@ -396,6 +478,7 @@ PRU_missions_2_2 = {
 	potential = {
 		tag = PRU
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = { has_country_flag = PRU_ducal }
 	}
 	has_country_shield = yes
 	
@@ -853,12 +936,13 @@ PRU_missions_3 = {
 	potential = {
 		tag = PRU
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = { has_country_flag = PRU_ducal }
 	}
 	has_country_shield = yes
 	
 	PRU_eagle_in_the_north = {
 		icon = ger_kaiserreich
-		required_missions = { POM_prussian_glory BRA_prussian_ascendance TEU_prussian_ascendance }
+		required_missions = { POM_prussian_glory BRA_prussian_ascendance TEU_prussian_ascendance PRU_prussian_ascendance }
 		position = 7
 		provinces_to_highlight = {
 		}
@@ -1481,6 +1565,7 @@ PRU_missions_4 = {
 	potential = {
 		tag = PRU
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = { has_country_flag = PRU_ducal }
 	}
 	has_country_shield = yes
 	
@@ -2498,6 +2583,7 @@ PRU_missions_5 = {
 	potential = {
 		tag = PRU
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		NOT = { has_country_flag = PRU_ducal }
 	}
 	has_country_shield = yes
 	

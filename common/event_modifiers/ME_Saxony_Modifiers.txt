@@ -171,10 +171,6 @@ saxony_eisenkammer_pirna_modifier = {
 	global_regiment_cost = -0.1
 }
 
-saxony_renovation_of_the_st_sebastian_cathedral_province_modifier = {
-	local_religious_conversion_resistance = 1
-}
-
 saxony_construct_the_german_cathedral_modifier = {
 	tolerance_heretic = 0.5
 	papal_influence = 2
@@ -240,7 +236,7 @@ saxony_integrate_the_city_of_goslar_province_modifier = {
 }
 
 saxony_construct_the_royal_library_modifier = {
-	technology_cost = -0.1
+	technology_cost = -0.05
 }
 
 saxony_the_origin_of_knowledge_and_culture_modifier = {
@@ -257,7 +253,7 @@ saxony_the_weimar_classic_modifier = {
 saxony_the_enlightenment_ideals_modifier = {
 	yearly_absolutism = 1
 	yearly_revolutionary_zeal = 2
-	min_autonomy = -0.1
+	min_autonomy_in_territories = -0.1
 	legitimacy = 1
 	horde_unity = 1
 	devotion = 1
