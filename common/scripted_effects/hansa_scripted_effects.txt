@@ -66,3 +66,8 @@ destroy_hanseatic_outpost = {
 	clr_province_flag = HNS_deactivated
 	clr_province_flag = HNS_activated
 }
+
+Hansa_complete_leadership_missions = {
+	complete_mission = HSA_leadership
+	complete_mission = HNS_leadership
+}

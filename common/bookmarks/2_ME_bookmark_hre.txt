@@ -3,19 +3,20 @@ bookmark = {
 	desc = "ME_BOOKMARK_HRE_DESC"
 	date = 1444.11.11
 	
-	center = 71
+	center = 67
 	default = yes
 	
-	country = HAB
-	country = AAC
-	country = HSA
+	country = BRA
 	country = SAX
-	country = WUR
-	country = NUM
+	country = TEU
 	country = CLI
+	country = STE
+	country = HES
+	country = PAL
+	country = NUM
 	
-	easy_country = HAB
-	easy_country = AAC
-	easy_country = HSA
+	easy_country = BRA
+	easy_country = SAX
+	easy_country = TEU
 	easy_country = CLI
 }

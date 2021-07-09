@@ -442,6 +442,10 @@ country_event = {
 			name = muscovy_codex_modifier
 			duration = 7300 #20 years
 		}
+		add_country_modifier = {
+			name = muscovy_codex_modifier_1
+			duration = -1
+		}
 	}
 
 	option = {
@@ -450,6 +454,10 @@ country_event = {
 		add_country_modifier = {
 			name = muscovy_sudebnik_compromise
 			duration = 7300 #20 years
+		}
+		add_country_modifier = {
+			name = muscovy_sudebnik_compromise_1
+			duration = -1
 		}
 	}
 
@@ -468,6 +476,10 @@ country_event = {
 		add_country_modifier = {
 			name = muscovy_noble_priviliges
 			duration = 7300 #20 years
+		}
+		add_country_modifier = {
+			name = muscovy_noble_priviliges_1
+			duration = -1
 		}
 	}
 }

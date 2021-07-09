@@ -131,3 +131,65 @@ HAN_advisor_board = {
 	stability_cost_modifier = -0.1
 	global_autonomy = -0.05
 }
+
+HAN_agrarian_constitution = {
+	global_tax_modifier = 0.1
+	global_trade_goods_size_modifier = 0.05
+}
+
+HAN_guilds = {
+	trade_efficiency = 0.1
+	burghers_loyalty_modifier = 0.05
+}
+
+HAN_ascanian_lineage_returns = {
+	land_morale = 0.1
+	prestige = 0.5
+}
+
+HAN_franconians = {
+	monthly_splendor = 1
+	prestige = 0.25
+}
+	
+HAN_toppled_the_giant = {
+	discipline = 0.05
+}
+
+HAN_the_home_of_weserrenaissance = {
+	global_institution_spread = 0.25
+	global_own_trade_power = 0.05
+}
+
+HAN_north_resolved = {
+	defensiveness = 0.1
+}
+
+HAN_propagation = {
+	ship_power_propagation = 0.25
+	trade_efficiency = 0.1
+}
+
+HAN_growing_capital = {
+	prestige = 1
+	production_efficiency = 0.1
+}
+
+HAN_the_dynastic_struggles = {
+	improve_relation_modifier = 0.1
+}
+
+HAN_hanover_reformed = {
+	legitimacy = 1
+	devotion = 1
+	republican_tradition = 0.5
+}
+
+HAN_loyal_to_emperor = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.1
+}
+
+HAN_in_defiance = {
+	ae_impact = -0.1
+}

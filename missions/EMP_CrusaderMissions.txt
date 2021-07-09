@@ -12,11 +12,11 @@ EMP_crusader_1 = {
 				tag = CYP
 				tag = KNI
 				tag = NAX
-				tag = KOJ
 				tag = EPI
 				has_country_flag = use_paradox_missions
 			}
 			tag = ATH
+			tag = KOJ
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -110,11 +110,11 @@ EMP_crusader_2 = {
 				tag = CYP
 				tag = KNI
 				tag = NAX
-				tag = KOJ
 				tag = EPI
 				has_country_flag = use_paradox_missions
 			}
 			tag = ATH
+			tag = KOJ
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -337,11 +337,11 @@ EMP_crusader_3 = {
 				tag = CYP
 				tag = KNI
 				tag = NAX
-				tag = KOJ
 				tag = EPI
 				has_country_flag = use_paradox_missions
 			}
 			tag = ATH
+			tag = KOJ
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -566,11 +566,11 @@ EMP_crusader_4 = {
 				tag = CYP
 				tag = KNI
 				tag = NAX
-				tag = KOJ
 				tag = EPI
 				has_country_flag = use_paradox_missions
 			}
 			tag = ATH
+			tag = KOJ
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -836,11 +836,11 @@ EMP_crusader_5 = {
 				tag = CYP
 				tag = KNI
 				tag = NAX
-				tag = KOJ
 				tag = EPI
 				has_country_flag = use_paradox_missions
 			}
 			tag = ATH
+			tag = KOJ
 		}
 		NOT = { map_setup = map_setup_random }
 		is_random_new_world = no

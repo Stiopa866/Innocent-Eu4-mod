@@ -205,7 +205,7 @@ WES_manufactory_advent = {
 	global_prov_trade_power_modifier = 0.2
 }
 
-WES_hansa = {
+WES_hansa_modifier = {
 	trade_efficiency = 0.1
 	trade_steering = 0.2
 }
@@ -218,4 +218,65 @@ WES_the_noble_of_westphalia = {
 WES_more_property = {
 	development_cost = -0.1
 	state_maintenance_modifier = -0.1
-]
+}
+
+WES_centralization_modifier = {
+	state_maintenance_modifier = -02
+}
+
+WES_favored = {
+	local_development_cost = -0.1
+	local_production_efficiency = 0.25
+	local_tax_modifier = 0.1
+}
+
+WES_equal = {
+	local_production_efficiency = 0.1
+	local_tax_modifier = 0.1
+}
+
+WES_theological_faculties = {
+	tolerance_own = 1
+	papal_influence = 2
+	church_power_modifier = 0.2
+	fervor = 0.5
+}
+
+WES_united_in_faith = {
+	global_unrest = -1
+	church_loyalty_modifier = 0.05
+}
+
+WES_tolerance_all_around = {
+	tolerance_heretic = 1
+	religious_unity = 0.1
+}
+
+MUN_st_pauls_church_modifier = {
+	local_unrest = -2
+	production_efficiency = 0.1
+}
+
+MUN_the_pious_state = {
+	tolerance_own = 1
+	enforce_religion_cost = -0.5
+}
+
+CLB_the_guelphs = {
+	diplomatic_reputation = 1
+}
+
+OSN_diocese_founded_by_charlemagne = {
+	papal_influence = 1
+	church_loyalty_modifier = 0.025
+}
+
+OSN_city_of_peace = {
+	monthly_splendor = 1
+	improve_relation_modifier = 0.05
+}
+
+WES_significant_religious_minority = {
+	production_efficiency = 0.25
+	local_missionary_strength = -0.05
+}

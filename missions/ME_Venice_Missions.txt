@@ -300,6 +300,14 @@ me_venice_missions_1 = {
 					power = 15
 					key = ven_discovered_trade_route
 				}
+				every_trade_node_member_province = {
+					limit = {
+						trade_goods = spices
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
 			}
 			1334 = {
 				add_trade_modifier = {
@@ -1979,7 +1987,6 @@ me_venice_missions_5 = {
 			}
 			tihama_al_yemen_area = {
 				limit = {
-					has_port = yes
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
@@ -1987,7 +1994,6 @@ me_venice_missions_5 = {
 			}
 			aussa_area = {
 				limit = {
-					has_port = yes
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
@@ -1995,7 +2001,6 @@ me_venice_missions_5 = {
 			}
 			yemen_area = {
 				limit = {
-					has_port = yes
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}

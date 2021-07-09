@@ -103,7 +103,7 @@
 
  #Tooltip
  tts_pizza_TIME_PROVINCE_BONUS_TOOLTIP: "All the provinces owned by §Y[Root.GetName]§!, or its non-Tributary Subjects, in Italy region, that have either §MGrain§! or §MLivestock§!gains:\nLocal Goods Produced Modifier §G+5.0%§! \nLocal Unrest §G-2.00§! until the end of the game§!\n"
- tts_pizza_TIME_PROVINCE_BONUS_TOOLTIP: "All the provinces owned by §Y[Root.GetName]§!, or its non-Tributary Subjects, in Italy region, that have either §MGrain§!, §MLivestock§!, §MTomatoes§!, §MOlive Oil§! or §MCheese§! gains:\nLocal Goods Produced Modifier §G+15.0%§! \nLocal Unrest §G-2.00§! until the end of the game§!\n"
+ tts_pizza_TIME_PROVINCE_BONUS_TOOLTIP_TGE: "All the provinces owned by §Y[Root.GetName]§!, or its non-Tributary Subjects, in Italy region, that have either §MGrain§!, §MLivestock§!, §MTomatoes§!, §MOlive Oil§! or §MCheese§! gains:\nLocal Goods Produced Modifier §G+15.0%§! \nLocal Unrest §G-2.00§! until the end of the game§!\n"
  TTS_ARMY_TT: "Up to 5 random provinces, in the §MNaples, Apulia, Calabria, Western Sicily or Sicily area§!, will get their §YBarracks§! or §YRegimental Camp§! upgraded"
  TTS_NAVY_TT: "Up to 5 random provinces, in the §MNaples, Apulia, Calabria, Western Sicily or Sicily area§!, will get their §YDock§! or §YShipyard§! upgraded"
  TTS_GRANARY_TT: "Every Owned Province, in the §MNaples, Apulia, Calabria, Western Sicily or Sicily area§! with §YLivestock§! will gain:"

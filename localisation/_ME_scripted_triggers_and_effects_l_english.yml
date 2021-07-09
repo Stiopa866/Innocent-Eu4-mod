@@ -109,6 +109,8 @@
 
  ADD_ACCEPTED_CULTURE_TT: "If the §YCulture§! is already an §YAccepted Culture§!, or if there are not enough §YSlots§!, gain §G100§! Diplomatic Power instead."
  
+ ME_advisor_originates_from_PREV_THIS: "The Advisor's Culture will be §Y[Prev.Culture.GetName]§! and the religion §Y[This.Religion.GetName]§!."
+ 
  add_or_upgrade_trade_building_tt: "§Y[This.GetName]§! gets their §YTrade Building§! upgraded. If no building is present, add §YMarketplace§!, and if §YStock Exchange§! is, gain §G1§! Base Tax and §G1§! Base Production in §Y[This.GetName]§!."
  add_or_upgrade_tax_building_tt: "§Y[This.GetName]§! gets their §YTax Building§! upgraded. If no building is present, add §YTemple§!, and if §YCathedral§! is, gain §G2§! Base Tax in §Y[This.GetName]§!."
  add_or_upgrade_production_building_tt: "§Y[This.GetName]§! gets their §YProduction Building§! upgraded. If no building is present, add §YWorkshop§!, and if §YCounting House§! is, gain §G2§! Base Production in §Y[This.GetName]§!."

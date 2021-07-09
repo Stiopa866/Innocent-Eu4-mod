@@ -498,7 +498,7 @@ naples_missions_2 = {
 			if = {
 				limit = {
 					exists = PRO
-					PRO = { is_vassal = no }
+					PRO = { is_subject = no }
 				}
 				reverse_has_opinion = {
 					who = PRO
@@ -525,7 +525,7 @@ naples_missions_2 = {
 			if = {
 				limit = { 
 					exists = HUN
-					HUN = { is_vassal = no }
+					HUN = { is_subject = no }
 				}
 				reverse_has_opinion = {
 					who = HUN

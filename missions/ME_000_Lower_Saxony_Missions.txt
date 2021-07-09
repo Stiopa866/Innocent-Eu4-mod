@@ -4,20 +4,24 @@ HAN_gen_missions_1 = {
 	ai = yes
 	potential = {
 		OR = {
-			tag = HAN
-			tag = BRU
-			tag = LUN
 			tag = LAU
 			tag = VER
-			tag = DTT
 			tag = SHL
+			AND = {
+				has_country_flag = use_missions_expanded_missions_instead_of_paradox
+				OR = {
+					tag = BRU
+					tag = LUN
+					tag = HAN
+					tag = DTT
+				}
+			}
 		}
-		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 	
 	HAN_advisor = {
-		icon = the_viennese_waltz
+		icon = catholic_confraternity
 		required_missions = { }
 		position = 1
 		provinces_to_highlight = {
@@ -38,28 +42,196 @@ HAN_gen_missions_1 = {
 	}
 	
 	HAN_renaissance = {
-		icon = the_viennese_waltz
+		icon = fund_the_monasteries
 		required_missions = { HAN_advisor  }
 		position = 2
 		provinces_to_highlight = {
+			if = { #Weser Renaissance
+				limit = {
+					ROOT = {
+						OR = {
+							tag = HAN
+							tag = BRU
+							tag = LUN
+							tag = VER
+							tag = BRE
+							AND = {
+								tag = HAN
+								OR = {
+									was_tag = HAN
+									was_tag = BRU
+									was_tag = LUN
+									was_tag = VER
+									was_tag = BRE
+								}
+							}
+						}
+					}
+				}
+			}
+			else = { #Brick Renaissance
+				is_capital_of = ROOT
+				OR = {
+					NOT = { owned_by = ROOT }
+					NOT = { renaissance = 100 }
+					NOT = { num_of_buildings_in_province = 3 }
+				}
+			}
 		}
 		trigger = {
-			has_institution = renaissance
-			
+			if = { #Weser Renaissance
+				limit = {
+					OR = {
+						tag = HAN
+						tag = BRU
+						tag = LUN
+						tag = VER
+						tag = BRE
+						AND = {
+							tag = HAN
+							OR = {
+								was_tag = HAN
+								was_tag = BRU
+								was_tag = LUN
+								was_tag = VER
+								was_tag = BRE
+							}
+						}
+					}
+				}
+				capital_scope = {
+					num_of_buildings_in_province = 2
+				}
+			}
+			else = { #Brick Renaissance
+				capital_scope = {
+					num_of_buildings_in_province = 3
+					renaissance = 100
+					owned_by = ROOT
+				}
+			}
 		}
 		effect = {
+			if = { #Weser Renaissance
+				limit = {
+					OR = {
+						tag = HAN
+						tag = BRU
+						tag = LUN
+						tag = VER
+						tag = BRE
+						AND = {
+							tag = HAN
+							OR = {
+								was_tag = HAN
+								was_tag = BRU
+								was_tag = LUN
+								was_tag = VER
+								was_tag = BRE
+							}
+						}
+					}
+				}
+				define_advisor = {
+					type = muscovy_architect
+					religion = ROOT
+					culture = ROOT
+					skill = 1
+					cost_multiplier = 0.5
+				}
+				capital_scope = {
+					province_event = { id = ME_Westphalian_Events.2 } #build either town hall, castle or church
+				}
+			}
+			else = { #Brick Renaissance
+				add_country_modifier = {
+					name = HSA_gothic
+					duration = 9125
+				}
+				capital_scope = {
+					add_prosperity = 100
+				}
+			}
 		}
 	}
 	
 	HAN_reformation = {
-		icon = the_viennese_waltz
+		icon = victor_for_the_true_faith
 		required_missions = { HAN_renaissance }
 		position = 4
 		provinces_to_highlight = {
 		}
 		trigger = {
+			OR = {
+				religion = protestant
+				religion = reformed
+				religion = catholic
+				if = {
+					limit = {
+						has_dlc = "Emperor"
+					}
+					is_all_concessions_in_council_taken = yes
+				}
+				else = {
+					is_papal_controller = yes
+				}
+			}
 		}
 		effect = {
+			custom_tooltip = WES_if_catholic
+			tooltip = {
+				add_country_modifier = {
+					name = HAN_loyal_to_emperor
+					duration = 9125
+				}
+			}
+			custom_tooltip = WES_if_not_catholic
+			tooltip = {
+				add_country_modifier = {
+					name = HAN_in_defiance
+					duration = 9125
+				}
+				custom_tooltip = HAN_if_we_are_the_first_protestant
+				define_advisor = {
+					name = "Gottschalk Kruse"
+					culture = lower_saxon
+					religion = ROOT
+					type = theologian
+					skill = 2
+					cost_multiplier = 0.5
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						religion = catholic
+					}
+					add_country_modifier = {
+						name = HAN_loyal_to_emperor
+						duration = 9125
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = HAN_in_defiance
+						duration = 9125
+					}
+					if = {
+						limit = {
+							NOT = { has_global_flag = HAN_religion_non_catholic }
+						}
+						define_advisor = {
+							name = "Gottschalk Kruse"
+							culture = lower_saxon
+							religion = ROOT
+							type = theologian
+							skill = 2
+							cost_multiplier = 0.5
+						}
+					}
+					set_global_flag = HAN_religion_non_catholic
+				}
+			}
 		}
 	}
 }
@@ -70,20 +242,24 @@ HAN_gen_missions_2 = {
 	ai = yes
 	potential = {
 		OR = {
-			tag = HAN
-			tag = BRU
-			tag = LUN
 			tag = LAU
 			tag = VER
-			tag = DTT
 			tag = SHL
+			AND = {
+				has_country_flag = use_missions_expanded_missions_instead_of_paradox
+				OR = {
+					tag = BRU
+					tag = LUN
+					tag = HAN
+					tag = DTT
+				}
+			}
 		}
-		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 	
 	HAN_weser = {
-		icon = the_viennese_waltz
+		icon = take_the_bishoprics
 		required_missions = { HAN_army }
 		position = 2
 		provinces_to_highlight = {
@@ -97,7 +273,11 @@ HAN_gen_missions_2 = {
 			}
 		}
 		effect = {
-			
+			add_country_modifier = {
+				name = HAN_the_home_of_weserrenaissance
+				duration = 9125
+			}
+			add_dip_power = 50
 		}
 	}
 	
@@ -106,10 +286,36 @@ HAN_gen_missions_2 = {
 		required_missions = { HAN_weser HAN_renaissance }
 		position = 3
 		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = {
+				NOT = { has_tax_building_trigger = yes }
+				NOT = { num_of_times_improved = 5 }
+			}
 		}
 		trigger = {
+			any_owned_province = {
+				has_tax_building_trigger = yes
+				num_of_times_improved = 5
+			}
 		}
 		effect = {
+			custom_tooltip = HAN_random_province_fulfilling_req
+			tooltip = {
+				add_or_upgrade_tax_building = yes
+				add_local_autonomy = -25
+			}
+			hidden_effect = {
+				random_owned_province = {
+					limit = {
+						has_tax_building_trigger = yes
+						num_of_times_improved = 5
+					}
+					add_or_upgrade_tax_building = yes
+					add_local_autonomy = -25
+				}
+			}
+			
+			add_prestige_or_monarch_power = { amount = 15 }
 		}
 	}
 }
@@ -120,20 +326,24 @@ HAN_gen_missions_3 = {
 	ai = yes
 	potential = {
 		OR = {
-			tag = HAN
-			tag = BRU
-			tag = LUN
 			tag = LAU
 			tag = VER
-			tag = DTT
 			tag = SHL
+			AND = {
+				has_country_flag = use_missions_expanded_missions_instead_of_paradox
+				OR = {
+					tag = BRU
+					tag = LUN
+					tag = HAN
+					tag = DTT
+				}
+			}
 		}
-		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 	
 	HAN_army = {
-		icon = the_viennese_waltz
+		icon = mercenary_companies
 		required_missions = { }
 		position = 1
 		provinces_to_highlight = {
@@ -145,6 +355,8 @@ HAN_gen_missions_3 = {
 			}
 		}
 		effect = {
+			create_general = { tradition = 40 }
+			add_mil_power = 25
 			weser_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
@@ -167,13 +379,6 @@ HAN_gen_missions_3 = {
 				add_permanent_claim = ROOT
 			}
 			lower_saxony_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			neumark_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -208,6 +413,11 @@ HAN_gen_missions_3 = {
 			53 = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
+			add_country_modifier = {
+				name = HAN_the_dynastic_struggles
+				duration = 9125
+			}
+			add_dip_power = 50
 		}
 	}
 	
@@ -216,10 +426,32 @@ HAN_gen_missions_3 = {
 		required_missions = { HAN_welf }
 		position = 4
 		provinces_to_highlight = {
+			OR = {
+				area = weser_area
+				area = holstein_area
+				area = braunschweig_area
+				area = lower_saxony_area
+				province_id = 45
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = weser_area
+					area = holstein_area
+					area = braunschweig_area
+					area = lower_saxony_area
+					province_id = 45
+				}
+				value = 10
+			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = HAN_hanover_reformed
+				duration = 9125
+			}
 			neumark_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
@@ -286,15 +518,19 @@ HAN_gen_missions_4 = {
 	ai = yes
 	potential = {
 		OR = {
-			tag = HAN
-			tag = BRU
-			tag = LUN
 			tag = LAU
 			tag = VER
-			tag = DTT
 			tag = SHL
+			AND = {
+				has_country_flag = use_missions_expanded_missions_instead_of_paradox
+				OR = {
+					tag = BRU
+					tag = LUN
+					tag = HAN
+					tag = DTT
+				}
+			}
 		}
-		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 
@@ -320,7 +556,11 @@ HAN_gen_missions_4 = {
 			}
 		}
 		effect = {
-			
+			add_country_modifier = {
+				name = HAN_north_resolved
+				duration = 9125
+			}
+			add_army_tradition_or_mil_power = { amount = 10 }
 		}
 	}
 	
@@ -386,15 +626,19 @@ HAN_gen_missions_5 = {
 	ai = yes
 	potential = {
 		OR = {
-			tag = HAN
-			tag = BRU
-			tag = LUN
 			tag = LAU
 			tag = VER
-			tag = DTT
 			tag = SHL
+			AND = {
+				has_country_flag = use_missions_expanded_missions_instead_of_paradox
+				OR = {
+					tag = BRU
+					tag = LUN
+					tag = HAN
+					tag = DTT
+				}
+			}
 		}
-		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 	}
 	has_country_shield = yes
 	
@@ -414,6 +658,28 @@ HAN_gen_missions_5 = {
 			}
 		}
 		effect = {
+			custom_tooltip = HAN_random_province_fulfilling_req
+			tooltip = {
+				add_center_of_trade_level = 1
+				custom_tooltip = HAN_if_we_are_the_first
+				add_or_upgrade_trade_building = yes
+			}
+			hidden_effect = {
+				random_owned_province = {
+					limit = {
+						province_has_center_of_trade_of_level = 1
+						has_trade_building_trigger = yes
+					}
+					add_center_of_trade_level = 1
+					if = {
+						limit = {
+							NOT = { has_global_flag = ME_hanover_mission }
+						}
+						add_or_upgrade_trade_building = yes
+					}
+				}
+			}
+			set_global_flag = ME_hanover_mission
 		}
 	}
 	
@@ -422,6 +688,7 @@ HAN_gen_missions_5 = {
 		required_missions = { HAN_entrepot }
 		position = 2
 		provinces_to_highlight = {
+			is_capital_of = ROOT
 		}
 		trigger = {
 			capital_scope = {
@@ -430,6 +697,10 @@ HAN_gen_missions_5 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = HAN_growing_capital
+				duration = 9125
+			}
 		}
 	}
 	
@@ -448,6 +719,11 @@ HAN_gen_missions_5 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = HAN_propagation
+				duration = 9125
+			}
+			add_mercantilism = 2
 		}
 	}
 }

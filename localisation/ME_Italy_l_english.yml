@@ -260,3 +260,7 @@
  ita_monarchy_rebels_demand: "Install a Parliamentary Monarchy"
  ita_monarchy_rebels_demand_desc: "These Monarchy rebels fight to overthrow the government and install a parliamentary monarchy where the rule will reign supreme."
  ita_monarchy_rebels_army: "Armata dei Monarchici"
+
+ #Disaster
+ italy_republican_matter_disaster: "The Republican Matter"
+ ITA_DISASTER_REPUBLICAN_TT: "The Distater will stop if the Republican or Monarchich rebels enforce their demand through their revolt."

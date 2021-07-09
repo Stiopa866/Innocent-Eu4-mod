@@ -37,7 +37,8 @@ man_grazing_fields_emilia = {
 	cavalry_cost = -0.33
 }
 man_mearas = {
-	cavalry_flanking = 0.50
+	cavalry_cost = -0.25
+	cavalry_flanking = 1
 	cavalry_shock = 1
 }
 man_milanese_knowledge = {
@@ -46,7 +47,7 @@ man_milanese_knowledge = {
 }
 man_eothed_rulers = {
 	cavalry_power = 0.10
-	mercenary_manpower = 0.10
+	tolerance_own = 1
 }
 
 man_court_intrigue = {

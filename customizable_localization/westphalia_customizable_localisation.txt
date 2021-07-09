@@ -168,7 +168,7 @@ defined_text = {
 					marriage_with = ROOT
 					has_opinion = {
 						who = ROOT
-						amount = 100
+						value = 100
 					}
 				}
 			}
@@ -190,9 +190,9 @@ defined_text = {
         localisation_key = ME_yes
         trigger = {
 			estate_loyalty = {
-					estate = estate_nobles
-					loyalty = 60
-				}
+				estate = estate_nobles
+				loyalty = 60
+			}
         }
     }
     text = {
@@ -236,16 +236,13 @@ defined_text = {
 				tag = VER
 				tag = BRE
 				AND = {
+					tag = HAN
 					OR = {
-						tag = HAN
-						tag = HNS
-					}
-					OR = {
-						tag = HAN
-						tag = BRU
-						tag = LUN
-						tag = VER
-						tag = BRE
+						was_tag = HAN
+						was_tag = BRU
+						was_tag = LUN
+						was_tag = VER
+						was_tag = BRE
 					}
 				}
 			}
@@ -335,6 +332,42 @@ defined_text = {
         localisation_key = ME_yes
         trigger = {
 			trader = 1
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = HanoverFirstNation
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			NOT = { has_global_flag = ME_hanover_mission }
+        }
+    }
+    text = {
+        localisation_key = ME_no
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = HanoverFirstNationProtestant
+	random = no
+
+    text = {
+        localisation_key = ME_yes
+        trigger = {
+			NOT = { has_global_flag = HAN_religion_non_catholic }
         }
     }
     text = {

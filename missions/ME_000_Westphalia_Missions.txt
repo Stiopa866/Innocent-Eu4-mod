@@ -84,7 +84,13 @@ OLD_Missions_1 = {
 	ai = yes
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
-		tag = OLD
+		OR = {
+			tag = OLD
+			AND = {
+				was_tag = OLD
+				tag = WES
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -114,6 +120,46 @@ OLD_Missions_1 = {
 					type = cb_restore_personal_union
 					months = -1
 				}
+			}
+		}
+	}
+}
+
+CLB_Missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		OR = {
+			tag = CLB
+			AND = {
+				was_tag = CLB
+				tag = WES
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	CLB_guelphs = {
+		icon = unite_the_wittelsbachs
+		required_missions = { WES_army }
+		position = 3
+		provinces_to_highlight = {
+			area = braunschweig_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			braunschweig_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_accepted_culture_or_dip_power = { culture = lower_saxon }
+			add_country_modifier = {
+				name = CLB_the_guelphs
+				duration = -1
 			}
 		}
 	}
@@ -165,6 +211,43 @@ WES_Generic_Missions_1_2 = {
 	}
 }
 
+SOE_Missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = SOE
+			AND = {
+				was_tag = SOE
+				has_country_flag = use_missions_expanded_missions_instead_of_paradox
+				tag = WES
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	SOE_feud = {
+		icon = spread_the_von_wettins
+		required_missions = { WES_rhineland }
+		position = 5
+		provinces_to_highlight = {
+			owned_by = overlord
+		}
+		trigger = {
+			is_subject = no
+		}
+		effect = {
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 20
+			}
+		
+			add_mil_power = 50
+		}
+	}
+}
+
 WES_Generic_Missions_2 = {
 	slot = 2
 	generic = no
@@ -200,6 +283,18 @@ WES_Generic_Missions_2 = {
 				every_province = {
 					limit = {
 						culture = hannoverian
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = { 
+				limit = {
+					tag = CLB
+				}
+				braunschweig_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
 					}
 					add_permanent_claim = ROOT
 				}
@@ -345,12 +440,16 @@ WES_Generic_Missions_3_1 = {
 			tag = SOE
 			#tag = PAD
 			#tag = RVA
-			tag = LPP
+			#tag = LPP
 			tag = CLB
 			tag = OLD
-			tag = OSN
+			#tag = OSN
 			tag = WES
 		}
+		NOT = { was_tag = RVA }
+		NOT = { was_tag = PAD }
+		NOT = { was_tag = OSN }
+		NOT = { was_tag = LPP }
 	}
 	has_country_shield = yes
 	
@@ -416,12 +515,107 @@ PAD_Missions_3 = {
 	}
 }
 
+OSN_Missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		OR = {
+			tag = OSN
+			AND = {
+				tag = WES
+				was_tag = OSN
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	OSN_friedenstadt = {
+		icon = negotiate_for_avignon
+		required_missions = { WES_expand_city }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 56
+			OR = {
+				NOT = { development = 25 }
+				NOT = { owned_by = ROOT }
+			}
+		}
+		trigger = {
+			56 = {
+				development = 25
+				owned_by = ROOT
+			}
+			NOT = { had_recent_war = 5 }
+		}
+		effect = {
+			56 = {
+				add_province_modifier = {
+					name = OSN_city_of_peace
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+LPP_Missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		OR = {
+			tag = LPP
+			AND = {
+				tag = WES
+				was_tag = LPP
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	LPP_a_city_by_the_lippe = {
+		icon = mission_advance_to_the_dnieper
+		required_missions = { WES_expand_city }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 4775
+			OR = {
+				NOT = { development = 15 }
+				NOT = { owned_by = ROOT }
+				NOT = { has_trade_building_trigger = yes }
+			}
+		}
+		trigger = {
+			4775 = {
+				development = 15
+				owned_by = ROOT
+				has_trade_building_trigger = yes
+			}
+		}
+		effect = {
+			add_adm_power = 50
+			4775 = {
+				add_or_upgrade_trade_building = yes
+			}
+		}
+	}
+}
+
 RVA_Missions_3 = {
 	slot = 3
 	generic = no
 	ai = yes
 	potential = {
-		tag = RVA
+		OR = {
+			tag = RVA
+			AND = {
+				was_tag = RVA
+				tag = WES
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -568,9 +762,15 @@ WES_Generic_Missions_3_2 = {
 				religion = protestant
 				religion = reformed
 				religion = catholic
-			}
-			OR = {
-				is_all_concessions_in_council_taken = yes
+				if = {
+					limit = {
+						has_dlc = "Emperor"
+					}
+					is_all_concessions_in_council_taken = yes
+				}
+				else = {
+					is_papal_controller = yes
+				}
 			}
 		}
 		effect = {
@@ -651,6 +851,51 @@ WES_Generic_Missions_3_2 = {
 	}
 }
 
+MUN_Missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = MUN
+			AND = {
+				was_tag = MUN
+				tag = WES
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	MUN_a_new_jerusalem = {
+		icon = kingdom_of_heaven
+		required_missions = { WES_reformation }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 86
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { development = 30 }
+			}
+		}
+		trigger = {
+			86 = {
+				owned_by = ROOT
+				development = 30
+			}
+			custom_trigger_tooltip = {
+				tooltip = obj_convert_10_provinces_tooltip
+				check_variable = { which = num_converted_religion value = 10 }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = MUN_the_pious_state
+				duration = 9125
+			}
+		}
+	}
+}
+
 WES_Generic_Missions_4_1 = {
 	slot = 4
 	generic = no
@@ -668,6 +913,8 @@ WES_Generic_Missions_4_1 = {
 			tag = OSN
 			tag = WES
 		}
+		NOT = { was_tag = PAD }
+		NOT = { was_tag = RVA }
 	}
 	has_country_shield = yes
 	
@@ -716,7 +963,13 @@ PAD_Missions_4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PAD
+		OR = {
+			tag = PAD
+			AND = {
+				was_tag = PAD
+				tag = WES
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -781,7 +1034,13 @@ RVA_Missions_4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = RVA
+		OR = {
+			tag = RVA
+			AND = {
+				was_tag = RVA
+				tag = WES
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -896,15 +1155,20 @@ WES_Generic_Missions_5_1 = {
 	potential = {
 		has_country_flag = use_missions_expanded_missions_instead_of_paradox
 		OR = {
-			tag = MUN
+			#tag = MUN
 			tag = SOE
 			#tag = RVA
+			#tag = PAD
 			tag = LPP
 			tag = CLB
 			tag = OLD
-			tag = OSN
+			#tag = OSN
 			tag = WES
 		}
+		NOT = { was_tag = RVA }
+		NOT = { was_tag = PAD }
+		NOT = { was_tag = MUN } 
+		NOT = { was_tag = OSN }
 	}
 	has_country_shield = yes
 	
@@ -937,12 +1201,74 @@ WES_Generic_Missions_5_1 = {
 	}
 }
 
+MUN_Missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = MUN
+			AND = {
+				was_tag = MUN
+				tag = WES
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	
+	MUN_st_pauls_church = {
+		icon = mission_european_church
+		required_missions = { WES_expand_city }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 86
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { has_tax_building_trigger = yes }
+			}
+		}
+		trigger = {
+			86 = {
+				owned_by = ROOT
+				has_tax_building_trigger = yes
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					religion = catholic
+				}
+				country_event = { id = ME_Westphalian_Events.1 } #Pick a Catholic Bonus
+			}
+			else = {
+				add_adm_power = 50
+				add_church_power = 50
+				add_fervor = 50
+			}
+			86 = {
+				add_province_modifier = {
+					name = MUN_st_pauls_church_modifier
+					duration = -1
+				}
+				add_or_upgrade_tax_building = yes
+			}
+		}
+	}
+}
+
 PAD_Missions_5 = {
 	slot = 5
 	generic = no
 	ai = yes
 	potential = {
-		tag = PAD
+		OR = {
+			tag = PAD
+			AND = {
+				was_tag = PAD
+				tag = WES
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -992,7 +1318,13 @@ RVA_Missions_5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = RVA
+		OR = {
+			tag = RVA
+			AND = {
+				was_tag = RVA
+				tag = WES
+			}
+		}
 	}
 	has_country_shield = yes
 	
@@ -1026,6 +1358,62 @@ RVA_Missions_5 = {
 				add_fervor = 50
 			}
 			69 = {
+				add_or_upgrade_tax_building = yes
+			}
+		}
+	}
+}
+
+OSN_Missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		has_country_flag = use_missions_expanded_missions_instead_of_paradox
+		OR = {
+			tag = OSN
+			AND = {
+				was_tag = OSN
+				tag = WES
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	OSN_founded_by_charlemagne = {
+		icon = carolingian_empire
+		required_missions = { WES_expand_city }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 86
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { has_tax_building_trigger = yes }
+			}
+		}
+		trigger = {
+			86 = {
+				owned_by = ROOT
+				has_tax_building_trigger = yes
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					religion = catholic
+				}
+				country_event = { id = ME_Westphalian_Events.1 } #Pick a Catholic Bonus
+			}
+			else = {
+				add_adm_power = 50
+				add_church_power = 50
+				add_fervor = 50
+			}
+			86 = {
+				add_province_modifier = {
+					name = OSN_diocese_founded_by_charlemagne
+					duration = -1
+				}
 				add_or_upgrade_tax_building = yes
 			}
 		}

@@ -91,6 +91,13 @@ LombardyVenetia_missions_1 = {
 			add_accepted_culture = ligurian
 			add_accepted_culture = romagnan
 			add_yearly_manpower = 1
+			tuscany_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 

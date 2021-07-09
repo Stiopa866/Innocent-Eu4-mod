@@ -441,6 +441,21 @@ HSA_missions_3 = {
 			custom_tooltip = HNS_decision_for_hansa
 			set_country_flag = HNS_decision
 			custom_tooltip = HNS_we_may_inherit_bremen_and_hamburg
+			
+			hidden_effect = {
+				every_country = {
+					limit = {
+						is_in_trade_league_with = ROOT
+						OR = {
+							owns = 45
+							owns = 44
+							owns = 1874
+						}
+					}
+					country_event = { id = ME_Hansa_Events.17 }
+				}
+				Hansa_complete_leadership_missions = yes
+			}
 		}
 	}
 }
@@ -1365,7 +1380,7 @@ HNS_missions_3 = {
 	
 	HNS_restore_trade_links = {
 		icon = medici_bank_ledgers
-		required_missions = { HSA_leadership }
+		required_missions = { HSA_leadership HNS_leadership }
 		position = 5
 		trigger = {
 			num_of_light_ship = 15
@@ -1414,6 +1429,8 @@ HNS_missions_3 = {
 			home_trade_node_effect_scope = {
 				add_trade_node_income = 60
 			}
+			
+			set_country_flag = HNS_can_have_more_kontors
 		}
 	}
 	

@@ -167,6 +167,8 @@ country_event = {
 		ai_chance = { factor = 1 }
 		
 		custom_tooltip = HAN_unlock_electorship_mission
+		set_country_flag = HAN_electorship_mission
+		swap_non_generic_missions = yes
 		add_country_modifier = {
 			name = HAN_salic_law_abolished
 			duration = -1
@@ -401,6 +403,7 @@ country_event = {
 			}
 			FROM = { elector = yes }
 		}
+		add_imperial_influence = 5
 	}
 	
 	option = {
@@ -408,6 +411,45 @@ country_event = {
 		
 		ai_chance = { factor = 0 }
 		
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = ME_Hannover_Events.9
+	title = ME_Hannover_Events.9.t
+	desc = ME_Hannover_Events.9.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_consort = no
+	}
+	
+	major = yes
+	major_trigger = {
+		tag = FROM
+	}
+	
+	option = {
+		name = ME_Hannover_Events.9.a
 		
+		ai_chance = { factor = 1 }
+		
+		define_consort = {
+			country_of_origin = FROM
+			dynasty = FROM
+			religion = FROM
+			culture = FROM
+		}
+	}
+	
+	option = {
+		name = ME_Hannover_Events.9.b
+		
+		ai_chance = { factor = 0 }
+		
+		add_dip_power = 5
 	}
 }

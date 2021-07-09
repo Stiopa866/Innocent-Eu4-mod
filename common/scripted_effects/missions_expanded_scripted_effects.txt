@@ -1198,7 +1198,7 @@ pick_best_provinces_2 = {
 
 pick_best_province = {
     1 = { 
-		owner = { save_event_target_as = $event_target_name$_$number$ }
+		save_event_target_as = $event_target_name$_$number$
 	}
 	$scope$ = {
 		limit = {
@@ -1243,6 +1243,59 @@ for = {
 		subtract_variable = {
 			which = ForLoopCounter
 			value = 1
+		}
+	}
+}
+
+######
+# Define Foreign Advisor
+# Automates the process of defining an advisor's culture and religion based on a foreign province
+# Accepts the regular variables of define_advisor + uses province IDs for culture and religion variables
+# define_foreign_advisor = {
+#	type = recruit_master etc. optional
+#   skill = 3 etc. optional
+# 	name = "Giovanni Battista" optional
+#	cost_multiplier = 0.25 optional
+#	culture = province_id of origin
+#	religion = province_id of origin
+#	female = no optional
+# }
+#########
+ 
+define_foreign_advisor = {
+    hidden_effect = {
+		export_to_variable = {
+			which = cultureOrigin
+			value = culture
+			[[culture] who = $culture$ ]
+		}
+		export_to_variable = {
+			which = religionOrigin
+			value = religion
+			[[religion] who = $religion$ ]
+		}
+		define_advisor = {
+			[[type] type = $type$ ]
+			[[name] name = "$name$" ]
+			[[skill] skill = $skill$ ]
+			culture = variable:cultureOrigin
+			religion = variable:religionOrigin
+			[[cost_multiplier] cost_multiplier = $cost_multiplier$ ]
+			[[female] female = $female$ ]
+		}
+	}
+	tooltip = {
+		define_advisor = {
+			[[type] type = $type$ ]
+			[[name] name = "$name$" ]
+			[[skill] skill = $skill$ ]
+			[[cost_multiplier] cost_multiplier = $cost_multiplier$ ]
+			[[female] female = $female$ ]
+		}
+	}
+	$culture$ = {
+		$religion$ = {
+			custom_tooltip = ME_advisor_originates_from_PREV_THIS
 		}
 	}
 }

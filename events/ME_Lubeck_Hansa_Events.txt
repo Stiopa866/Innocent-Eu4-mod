@@ -1,4 +1,3 @@
-namespace = ME_Lubeck_Events
 namespace = ME_Hansa_Events
 
 country_event = { #Establish Outposts
@@ -37,6 +36,9 @@ country_event = { #Establish Outposts
 				create_hanseatic_outpost = yes
 			}
 			23 = {
+				create_hanseatic_outpost = yes
+			}
+			1744 = {
 				create_hanseatic_outpost = yes
 			}
 		}
@@ -497,7 +499,11 @@ country_event = { #Baltic - Conquest or Peace?
 		
 		ai_chance = { factor = 1 }
 		
-		custom_tooltip = HNS_get_cores_baltic
+		#custom_tooltip = HNS_get_cores_baltic
+		25 = { add_core = ROOT }
+		43 = { add_core = ROOT }
+		38 = { add_core = ROOT }
+		33 = { add_core = ROOT }
 	}
 	
 	option = {
@@ -526,8 +532,12 @@ country_event = { #North Sea - Conquest or Peace?
 		
 		ai_chance = { factor = 1 }
 		
-		custom_tooltip = HNS_get_cores_north_sea
-		set_country_flag = HNS_get_cores_on_new_thingies
+		#custom_tooltip = HNS_get_cores_north_sea
+		#set_country_flag = HNS_get_cores_on_new_thingies
+		236 = { add_core = ROOT }
+		23 = { add_core = ROOT }
+		90 = { add_core = ROOT }
+		1744 = { add_core = ROOT }
 	}
 	
 	option = {
@@ -720,688 +730,248 @@ country_event = { # Emergence of a New League
 	}
 }
 
-
-
-
-
-
-
-
-country_event = { #norway kontor
-	id = ME_Lubeck_Events.1
-	title = ME_Lubeck_Events.1.t
-	desc = ME_Lubeck_Events.1.d
+country_event = { # Emergence of a New League
+	id = ME_Hansa_Events.12
+	title = ME_Hansa_Events.12.t
+	desc = ME_Hansa_Events.12.d
 	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
+	
 	is_triggered_only = yes
 	
 	option = {
-		name = ME_Lubeck_Events.1.a
+		name = ME_Hansa_Events.12.a
 		
-		ai_chance = { factor = 0.33 }
+		ai_chance = { factor = 1 }
+			
+		add_government_reform = merchants_reform 
+		custom_tooltip = HNS_in_order_to_finish_tree
+	}
+	
+	option = {
+		name = ME_Hansa_Events.12.b
 		
-		23 = {
-			add_province_modifier = {
-				name = lbk_bergen_mod
-				duration = -1
+		ai_chance = { factor = 1 }
+		
+		add_republican_tradition = 10
+	}
+}
+
+
+country_event = { # FROM wants to become the trade league leader
+	id = ME_Hansa_Events.13
+	title = ME_Hansa_Events.13.t
+	desc = ME_Hansa_Events.13.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		is_in_trade_league_with = ROOT
+	}
+	
+	option = {
+		name = ME_Hansa_Events.13.a
+		
+		ai_chance = { factor = 1 }
+			
+		custom_tooltip = HNS_from_become_new_leader_of_the_league
+		add_country_modifier = {
+			name = HNS_second_in_command
+			duration = -1
+		}
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_in_trade_league_with = ROOT
+				}
+				set_country_flag = HNS_new_league
 			}
+		}
+		add_government_reform = oligarchy_reform 
+		FROM = {
+			add_government_reform = merchants_reform
+			hidden_effect = { save_global_event_target_as = HNS_new_trade_league_leader }
+		}
+		FROM = {
+			custom_tooltip = HNS_hansetage
+			set_country_flag = HNS_hansetage
 		}
 		hidden_effect = {
-			23 = {
-				owner = {
-					country_event = { id = ME_Lubeck_Events.2 }
-				}
-			}
-		}
-		1975 = {
-			add_trade_modifier = {
-				who = ROOT
-				duration = -1
-				power = 10
-				key = NORWAY_KONTOR
-			}
-		}
-		add_years_of_income = -3.0
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.1.b
-		
-		ai_chance = { factor = 0.33 }
-		
-		23 = {
-			add_province_modifier = {
-				name = lbk_bergen_weak
-				duration = -1
-			}
-		}
-		hidden_effect = {
-			23 = {
-				owner = {
-					country_event = { id = ME_Lubeck_Events.2 }
-				}
-			}
-		}
-		23 = {
-			add_trade_modifier = {
-				who = ROOT
-				duration = -1
-				power = 5
-				key = NORWAY_KONTOR_WEAK
-			}
-		}
-		add_years_of_income = -1.75
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.1.c
-		
-		ai_chance = { factor = 0.33 }
-		
-		add_mercantilism = 1
-	}
-}
-
-country_event = { #norway informed
-	id = ME_Lubeck_Events.2
-	title = ME_Lubeck_Events.2.t
-	desc = ME_Lubeck_Events.2.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.2.a
-		
-		trigger = {
-			23 = {
-				has_province_modifier = lbk_bergen_mod
-			}
-		}
-		23 = {
-			add_base_production = 1
-		}
-		tooltip = {
-			23 = {
-				add_province_modifier = {
-					name = lbk_bergen_weak
-					duration = -1
-				}
+			country_event = {
+				id = ME_Hansa_Events.18
+				days = 3
 			}
 		}
 	}
 	
 	option = {
-		name = ME_Lubeck_Events.2.b
-		
-		trigger = {
-			23 = {
-				has_province_modifier = lbk_bergen_weak
-			}
-		}
-		23 = {
-			add_base_production = 1
-		}
-		tooltip = {
-			23 = {
-				add_province_modifier = {
-					name = lbk_bergen_weak
-					duration = -1
-				}
-			}
-		}
-	}
-}
-
-country_event = { #england kontor event
-	id = ME_Lubeck_Events.3
-	title = ME_Lubeck_Events.3.t
-	desc = ME_Lubeck_Events.3.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.3.a
-		
-		ai_chance = { factor = 0.5 }
-		
-		236 = {
-			add_province_modifier = {
-				name = lbk_steelyard
-				duration = -1
-			}
-		}
-		hidden_effect = {
-			236 = {
-				owner = {
-					country_event = { id = ME_Lubeck_Events.4 }
-				}
-			}
-		}
-		236 = {
-			add_trade_modifier = {
-				who = ROOT
-				duration = -1
-				power = 10
-				key = LONDON_KONTOR
-			}
-		}
-		if = {
-			limit = {
-				236 = {
-					owner = {
-						is_at_war = no
-					}
-				}
-			}
-			236 = {
-				owner = {
-					add_opinion = {
-						who = ROOT
-						modifier = lbk_london_kontor
-					}
-				}
-			}
-		}
-		add_years_of_income = -4.0
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.3.b
-		
-		ai_chance = { factor = 0.5 }
-		
-		add_mercantilism = 1
-	}
-}
-
-country_event = { #england is informed
-	id = ME_Lubeck_Events.4
-	title = ME_Lubeck_Events.4.t
-	desc = ME_Lubeck_Events.4.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.4.a
-		
-		add_years_of_income = 1.0
-		23 = {
-			add_base_production = 1
-		}
-		tooltip = {
-			23 = {
-				add_province_modifier = {
-					name = lbk_steelyard
-					duration = -1
-				}
-			}
-		}
-	}
-}
-
-country_event = {
-	id = ME_Lubeck_Events.5
-	title = ME_Lubeck_Events.5.t
-	desc = ME_Lubeck_Events.5.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.5.a
-	}
-}
-
-country_event = { #novgorod kontor
-	id = ME_Lubeck_Events.6
-	title = ME_Lubeck_Events.6.t
-	desc = ME_Lubeck_Events.6.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.6.a
-		
-		ai_chance = { factor = 0.5 }
-		
-		310 = {
-			add_province_modifier = {
-				name = lbk_novgorod_mod
-				duration = -1
-			}
-		}
-		hidden_effect = {
-			310 = {
-				owner = {
-					country_event = { id = ME_Lubeck_Events.7 }
-				}
-			}
-		}
-		310 = {
-			add_trade_modifier = {
-				who = ROOT
-				duration = -1
-				power = 10
-				key = NOVGOROD_KONTOR
-			}
-		}
-		add_years_of_income = -4.0
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.6.b
-		
-		ai_chance = { factor = 0.5 }
-		
-		add_mercantilism = 1
-	}
-}
-
-country_event = { #novgorod informed
-	id = ME_Lubeck_Events.7
-	title = ME_Lubeck_Events.7.t
-	desc = ME_Lubeck_Events.7.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.7.a
-		
-		310 = {
-			add_base_production = 1
-		}
-		tooltip = {
-			310 = {
-				add_province_modifier = {
-					name = lbk_novgorod_mod
-					duration = -1
-				}
-			}
-		}
-	}
-}
-
-country_event = { #dutch kontor
-	id = ME_Lubeck_Events.8
-	title = ME_Lubeck_Events.8.t
-	desc = ME_Lubeck_Events.8.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.8.a
-		
-		ai_chance = { factor = 0.5 }
-		
-		1744 = {
-			add_province_modifier = {
-				name = lbk_dutch_mod
-				duration = -1
-			}
-		}
-		hidden_effect = {
-			1744 = {
-				owner = {
-					country_event = {
-						id = ME_Lubeck_Events.9
-					}
-				}
-			}
-		}
-		1744 = {
-			add_trade_modifier = {
-				who = ROOT
-				duration = -1
-				power = 10
-				key = DUTCH_KONTOR
-			}
-		}
-		add_years_of_income = -5.0
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.8.b
-		
-		ai_chance = { factor = 0.5 }
-		
-		add_mercantilism = 1
-	}
-}
-
-country_event = { #dutch informed
-	id = ME_Lubeck_Events.9
-	title = ME_Lubeck_Events.9.t
-	desc = ME_Lubeck_Events.9.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.9.a
-		
-		1744 = {
-			add_base_production = 1
-		}
-		tooltip = {
-			1744 = {
-				add_province_modifier = {
-					name = lbk_dutch_mod
-					duration = -1
-				}
-			}
-		}
-	}
-}
-
-country_event = { #iberia kontor event
-	id = ME_Lubeck_Events.10
-	title = ME_Lubeck_Events.10.t
-	desc = ME_Lubeck_Events.10.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.10.a
-		
-		ai_chance = { factor = 0.5 }
-		
-		1745 = {
-			add_province_modifier = {
-				name = lbk_gran_puerto
-				duration = -1
-			}
-		}
-		hidden_effect = {
-			1745 = {
-				owner = {
-					country_event = {
-						id = ME_Lubeck_Events.11
-					}
-				}
-			}
-		}
-		1745 = {
-			add_trade_modifier = {
-				who = ROOT
-				duration = -1
-				power = 10
-				key = IBERIA_KONTOR
-			}
-		}
-		if = {
-			limit = {
-				1745 = {
-					owner = {
-						is_at_war = no
-					}
-				}
-			}
-			1745 = {
-				owner = {
-					add_opinion = {
-						who = ROOT
-						modifier = lbk_iberia_kontor
-					}
-				}
-			}
-		}
-		add_years_of_income = -4.0
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.10.b
-		
-		ai_chance = { factor = 0.5 }
-		
-		add_mercantilism = 1
-	}
-}
-
-country_event = { #spain is informed
-	id = ME_Lubeck_Events.11
-	title = ME_Lubeck_Events.11.t
-	desc = ME_Lubeck_Events.11.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.11.a
-		
-		add_years_of_income = 1.0
-		1745 = {
-			add_base_production = 1
-		}
-		tooltip = {
-			1745 = {
-				add_province_modifier = {
-					name = lbk_gran_puerto
-					duration = -1
-				}
-			}
-		}
-	}
-}
-
-country_event = { #portugal kontor event
-	id = ME_Lubeck_Events.12
-	title = ME_Lubeck_Events.12.t
-	desc = ME_Lubeck_Events.12.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.12.a
-		
-		ai_chance = { factor = 0.5 }
-		
-		227 = {
-			add_province_modifier = {
-				name = lbk_bairro_alemao
-				duration = -1
-			}
-		}
-		hidden_effect = {
-			227 = {
-				owner = {
-					country_event = {
-						id = ME_Lubeck_Events.11
-					}
-				}
-			}
-		}
-		227 = {
-			add_trade_modifier = {
-				who = ROOT
-				duration = -1
-				power = 10
-				key = PORTUGAL_KONTOR
-			}
-		}
-		if = {
-			limit = {
-				227 = {
-					owner = {
-						is_at_war = no
-					}
-				}
-			}
-			227 = {
-				owner = {
-					add_opinion = {
-						who = ROOT
-						modifier = lbk_portugal_kontor
-					}
-				}
-			}
-		}
-		add_years_of_income = -4.0
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.12.b
-		
-		ai_chance = { factor = 0.5 }
-		
-		add_mercantilism = 1
-	}
-}
-
-country_event = { #portugal is informed
-	id = ME_Lubeck_Events.13
-	title = ME_Lubeck_Events.13.t
-	desc = ME_Lubeck_Events.13.d
-	picture = SHIP_SAILING_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.13.a
-		
-		add_years_of_income = 1.0
-		227 = {
-			add_base_production = 1
-		}
-		tooltip = {
-			227 = {
-				add_province_modifier = {
-					name = lbk_bairro_alemao
-					duration = -1
-				}
-			}
-		}
-	}
-}
-
-country_event = { #invitation to the confederacy
-	id = ME_Lubeck_Events.14
-	title = ME_Lubeck_Events.14.t
-	desc = ME_Lubeck_Events.14.d
-	picture = SHIP_SAILING_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.14.a
-		
-		ai_chance = { factor = 100 }
-		
-		every_owned_province = {
-			cede_province = FROM
-			add_territorial_core = FROM
-		}
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.14.b
+		name = ME_Hansa_Events.13.b
 		
 		ai_chance = { factor = 0 }
 		
-		capital_scope = {
-			add_permanent_claim = FROM
-		}
+		add_stability = -1
+		add_prestige_or_monarch_power = { amount = 25 }
 	}
 }
 
-country_event = { #indian trade policies
-	id = ME_Lubeck_Events.15
-	title = ME_Lubeck_Events.15.t
-	desc = ME_Lubeck_Events.15.d
+province_event = { # A New Kontor
+	id = ME_Hansa_Events.14
+	title = ME_Hansa_Events.14.t
+	desc = ME_Hansa_Events.14.d
 	picture = SHIP_SAILING_eventPicture
 	
-	is_triggered_only = yes
+	mean_time_to_happen = {
+		months = 120
+	}
+	hidden = yes
 	
-	option = {
-		name = ME_Lubeck_Events.15.a
-		
-		ai_chance = { factor = 0.5 }
-		
-		add_country_modifier = {
-			name = lbk_indian_trade
-			duration = 9125
+	trigger = {
+		event_target:target_HANSA = {
+			has_country_flag = HNS_can_have_more_kontors
+		}
+		NOT = { has_province_flag = HNS_this_node_has_kontor }
+		province_is_trade_node_center_province = yes
+		trade_share = {
+			country = event_target:target_HANSA
+			share = 5
 		}
 	}
 	
 	option = {
-		name = ME_Lubeck_Events.15.b
+		name = ME_Hansa_Events.14.a
 		
-		ai_chance = { factor = 0.5 }
-		
-		add_country_modifier = {
-			name = lbk_indian_trade_2
-			duration = 9125
+		ai_chance = { factor = 1 }
+			
+		if = {
+			limit = {
+				any_trade_node_member_province = {
+					is_hanseatic_port = yes
+				}
+			}
+			set_province_flag = HNS_this_node_has_kontor
 		}
-	}
-}
-
-country_event = { # mediterranian control
-	id = ME_Lubeck_Events.16
-	title = ME_Lubeck_Events.16.t
-	desc = ME_Lubeck_Events.16.d
-	picture = SHIP_SAILING_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = ME_Lubeck_Events.16.a
-		
-		ai_chance = { factor = 0.33 }
-		
-		change_price = {
-			trade_goods = grain
-			key = HANSA_GRAIN
-			value = 0.33
-			duration = -1
-		}
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.16.b
-		
-		ai_chance = { factor = 0.33 }
-		
-		change_price = {
-			trade_goods = wine
-			key = HANSA_WINE
-			value = 0.33
-			duration = -1
-		}
-	}
-	
-	option = {
-		name = ME_Lubeck_Events.16.c
-		
-		ai_chance = { factor = 0.33 }
-		
-		capital_scope = {
-			change_trade_goods = glass
-			add_province_modifier = {
-				name = lbk_artisans
-				duration = -1
+		else = {
+			random_trade_node_member_province = {
+				province_event = { id = ME_Hansa_Events.16 } #need to rescope FROM
 			}
 		}
 	}
 }
 
+country_event = { # A New Kontor
+	id = ME_Hansa_Events.15
+	title = ME_Hansa_Events.15.t
+	desc = ME_Hansa_Events.15.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+	
+	goto = FROM
+	
+	option = {
+		name = ME_Hansa_Events.15.a
+		
+		ai_chance = { factor = 1 }
+		
+		highlight = yes
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = HNS_we_have_25_trade_share
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = HNS_we_have_no_hansa_outpost
+				always = yes
+			}
+		}
+		
+		FROM = {
+			create_hanseatic_outpost = yes
+		}
+	}
+}
+	
+province_event = { # A New Kontor
+	id = ME_Hansa_Events.16
+	title = ME_Hansa_Events.14.t
+	desc = ME_Hansa_Events.14.d
+	picture = SHIP_SAILING_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:target_HANSA = {
+			country_event = { id = ME_Hansa_Events.15 }
+		}
+	}
+	
+	option = {
+		name = ME_Hansa_Events.14.a
+		
+		ai_chance = { factor = 1 }
+		
+	}
+}
+
+country_event = { # FROM requests membership
+	id = ME_Hansa_Events.17
+	title = ME_Hansa_Events.17.t
+	desc = ME_Hansa_Events.17.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		is_in_trade_league_with = FROM
+	}
+	
+	option = {
+		name = ME_Hansa_Events.17.a
+		
+		ai_chance = { factor = 1 }
+		
+		FROM = {
+			inherit = ROOT
+		}
+	}
+	
+	option = {
+		name = ME_Hansa_Events.17.b
+		
+		ai_chance = { factor = 0 }
+		
+		add_prestige = -25
+	}
+}
+
+country_event = { # A New Kontor
+	id = ME_Hansa_Events.18
+	title = ME_Hansa_Events.18.t
+	desc = ME_Hansa_Events.18.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	option = {
+		name = ME_Hansa_Events.18.a
+		
+		ai_chance = { factor = 1 }
+		
+		event_target:HNS_new_trade_league_leader = {
+			hidden_effect = {
+				every_country = {
+					limit = {
+						has_country_flag = HNS_new_league
+					}
+					event_target:HNS_new_trade_league_leader = {
+						join_trade_league = PREV
+					}
+					clr_country_flag = HNS_new_league
+				}
+			}
+		}
+	}
+}

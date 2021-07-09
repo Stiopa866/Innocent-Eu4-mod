@@ -264,3 +264,43 @@ HNS_eclipsed_lubeck = {
 	global_trade_power = 0.1
 	trade_efficiency = 0.05
 }
+
+HNS_proper_internal_politics = {
+	trade_efficiency = 0.1
+	global_prov_trade_power_modifier = 0.2
+}
+
+HNS_new_hansa_leader = {
+	diplomatic_reputation = 1
+	global_trade_power = 0.05
+}
+
+HNS_king_of_the_league = {
+	improve_relation_modifier = 0.15
+	global_trade_power = 0.05
+}
+
+HNS_powerful_member = {
+	ship_power_propagation = 0.2
+	placed_merchant_power = 5
+}
+
+HNS_loyalty_rewards = {
+	global_tax_income = 12
+}
+
+HNS_conquered_lubeck = {
+	land_morale = 0.1
+	trade_efficiency = 0.05
+}
+
+HNS_second_in_command = {
+	stability_cost_modifier = -0.25
+	diplomatic_reputation = 1
+	trade_efficiency = 0.05
+}
+
+HNS_purely_commerce = {
+	global_ship_trade_power = 0.1
+	caravan_power = 0.2
+}

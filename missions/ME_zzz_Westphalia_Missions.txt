@@ -33,7 +33,7 @@ WES_missions_1 = {
 			}
 		}
 		effect = {
-			custom_tooltip = WES_add_or_accept_rhenish
+			add_accepted_culture_or_dip_power = { culture = hessian  }
 			add_country_modifier = {
 				name = WES_rhenish_goods
 				duration = 9125
@@ -419,7 +419,7 @@ WES_missions_2 = {
 			}
 		}
 		effect = {
-			home_trade_node = {
+			home_trade_node_effect_scope = {
 				add_trade_node_income = 12
 			}
 			add_country_modifier = {
@@ -494,7 +494,7 @@ WES_missions_3 = {
 			}
 		}
 		effect = {
-			custom_tooltip = WES_add_or_accept_lower_saxon
+			add_accepted_culture_or_dip_power = { culture = lower_saxon }
 			add_country_modifier = {
 				name = WES_conquest
 				duration = 9125
@@ -632,6 +632,29 @@ WES_missions_3 = {
 					skill = 1
 				}
 			}
+			hidden_effect = {
+				if = {
+					limit = {
+						any_country = {
+							culture_group = french
+							OR = {
+								marriage_with = ROOT
+								has_opinion = {
+									who = ROOT
+									value = 100
+								}
+							}
+						}
+					}
+					define_advisor = {
+						type = philosopher
+						culture = francien
+						religion = ROOT
+						cost_multiplier = 0.5
+						skill = 1
+					}
+				}
+			}
 		}
 	}
 	
@@ -699,8 +722,46 @@ WES_missions_3 = {
 		required_missions = { WES_reform_the_administration WES_parliament_2 WES_patrimonial_courts }
 		position = 12
 		trigger = {
-			NOT = { average_autonomy_above_min = 5 }
-			
+			has_adm_advisor_3 = yes
+			stability = 3
+			is_ahead_of_time_in_tech = { type = adm }
+			if = {
+				limit = {
+					government = monarchy
+				}
+				if = {
+					limit = {
+						is_expanded_mod_active = { mod = governments }
+					}
+					has_reform_on_level = 9
+				}
+				else = { has_reform_on_level = 7 }
+			}
+			else_if = {
+				limit = {
+					government = republic
+				}
+				if = {
+					limit = {
+						is_expanded_mod_active = { mod = governments }
+					}
+					has_reform_on_level = 11
+				}
+				else = { has_reform_on_level = 10 }
+			}
+			else_if = {
+				limit = {
+					government = theocracy
+				}
+				if = {
+					limit = {
+						is_expanded_mod_active = { mod = governments }
+					}
+					has_reform_on_level = 12
+				}
+				else = { has_reform_on_level = 8 }
+			}
+			else = { has_reform_on_level = 5 }
 		}
 		effect = {
 			add_country_modifier = {
@@ -714,6 +775,10 @@ WES_missions_3 = {
 		icon = establish_a_standing_army
 		required_missions = { WES_nobles }
 		position = 13
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { has_manpower_building_trigger = yes }
+		}
 		trigger = {
 			manpower_percentage = 0.6
 			num_of_owned_provinces_with = {
@@ -743,6 +808,10 @@ WES_missions_3 = {
 		}
 		effect = {
 			add_stability_or_adm_power = yes
+			add_country_modifier = {
+				name = WES_centralization_modifier
+				duration = 10950
+			}
 		}
 	}
 	
@@ -800,7 +869,7 @@ WES_missions_4 = {
 					NOT = { religion = ROOT }
 					has_opinion = {
 						who = ROOT
-						amount = 150
+						value = 150
 					}
 				}
 				amount = 5
@@ -830,6 +899,7 @@ WES_missions_4 = {
 				duration = -1
 			}
 			custom_tooltip = WES_invite_foreign_experts
+			set_country_flag = WES_experts_decision
 			#may take decision to invite foreign experts
 		}
 	}
@@ -890,6 +960,16 @@ WES_missions_4 = {
 		icon = subiaco_press
 		required_missions = { WES_centralization }
 		position = 15
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2972
+				province_id = 86
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { has_building = university }
+			}
+		}
 		trigger = {
 			OR = {
 				2972 = {
@@ -903,6 +983,89 @@ WES_missions_4 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = WES_theological_faculties
+				duration = 10950
+			}
+			custom_tooltip = WES_if_we_supported_paderborn
+			tooltip = {
+				westphalia_area = {
+					add_province_modifier = {
+						name = WES_favored
+						duration = 9125
+					}
+				}
+			}
+			custom_tooltip = WES_if_we_supported_munster
+			tooltip = {
+				north_westphalia_area = {
+					add_province_modifier = {
+						name = WES_favored
+						duration = 9125
+					}
+				}
+			}
+			custom_tooltip = WES_if_we_supported_both
+			tooltip = {
+				north_westphalia_area = {
+					add_province_modifier = {
+						name = WES_equal
+						duration = 9125
+					}
+				}
+				westphalia_area = {
+					add_province_modifier = {
+						name = WES_equal
+						duration = 9125
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						2972 = {
+							has_building = university
+							owned_by = ROOT
+						}
+					}
+					if = {
+						limit = {
+							86 = {
+								has_building = university
+								owned_by = ROOT
+							}
+						}
+						north_westphalia_area = {
+							add_province_modifier = {
+								name = WES_equal
+								duration = 9125
+							}
+						}
+						westphalia_area = {
+							add_province_modifier = {
+								name = WES_equal
+								duration = 9125
+							}
+						}
+					}
+					else = {
+						westphalia_area = {
+							add_province_modifier = {
+								name = WES_favored
+								duration = 9125
+							}
+						}
+					}
+				}
+				else = {
+					north_westphalia_area = {
+						add_province_modifier = {
+							name = WES_favored
+							duration = 9125
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -947,6 +1110,12 @@ WES_missions_5 = {
 			religious_unity = 0.9
 		}
 		effect = {
+			add_country_modifier = {
+				name = WES_united_in_faith
+				duration = -1
+			}
+			
+			add_stability_or_adm_power = yes
 		}
 	}
 	
@@ -978,7 +1147,7 @@ WES_missions_5 = {
 			}
 		}
 		effect = {
-			country_event = { id = ME_Prussia_Events.32 } #This or a new one, idk yet
+			country_event = { id = ME_Westphalian_Events.9 } #Religious Migration: Westphalian style
 		}
 	}
 	

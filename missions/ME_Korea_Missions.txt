@@ -1546,7 +1546,7 @@ KOR_missions_4 = {
 			light_ship_fraction = 0.2
 		}
 		effect = {
-			737 = {
+			4228 = {
 				add_province_modifier = {
 					name = KOR_cheonghaejin_modifier
 					duration = -1

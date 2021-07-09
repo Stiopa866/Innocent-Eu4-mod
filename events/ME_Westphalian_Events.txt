@@ -145,7 +145,18 @@ country_event = {
 		
 		ai_chance = { factor = 1 }
 	
-		custom_tooltip = WES_we_will_invite_foreign_theologians
+		define_advisor = {
+			type = theologian
+			skill = 3
+			culture = ROOT
+			religion = ROOT
+			cost_multiplier = 0.25
+		}
+		
+		add_country_modifier = {
+			name = WES_tolerance_all_around
+			duration = 9125
+		}
 	}
 	
 	option = {
@@ -157,7 +168,126 @@ country_event = {
 		add_stability_or_adm_power = yes
 	}
 }
-#5 reserved
+
+country_event = { 
+	id = ME_Westphalian_Events.5 #I regret doing this
+	title = ME_Westphalian_Events.5.t 
+	desc = ME_Westphalian_Events.5.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			pick_best_tags = {
+				scale = total_development
+				global_trigger = "
+					NOT = { tag = ROOT }
+					capital_scope = {
+						continent = europe
+					}
+					NOT = { culture_group = ROOT }
+				"
+				5 = yes
+				event_target_name = "Westphalia_Target"
+			}
+			
+			trigger_switch = { #valuates the amount of stab to give bonus
+				on_trigger = stability
+				3 = {
+					WES_give_every_target_reduction = { amount = 15 }
+				}
+				2 = {
+					WES_give_every_target_reduction = { amount = 10 }
+				}
+				1 = {
+					WES_give_every_target_reduction = { amount = 5 }
+				}
+			}
+			
+			trigger_switch = { #evaluates amount of dip rep to give a bonus
+				on_trigger = diplomatic_reputation
+				4 = {
+					WES_give_every_target_reduction = { amount = 20 }
+				}
+				3 = {
+					WES_give_every_target_reduction = { amount = 15 }
+				}
+				2 = {
+					WES_give_every_target_reduction = { amount = 10 }
+				}
+				1 = {
+					WES_give_every_target_reduction = { amount = 5 }
+				}
+			}
+			
+			
+			WES_every_target_opinion_evaluation = yes #evaluates the opinion of the target country to assign a reduction of maximum of -35%
+			
+			WES_assign_reduction_based_on_tolerance = yes #evaluates the ROOT tolerance of the religion to give a bonus of 0 to -15% 
+		}
+	}
+	
+	option = { 
+		name = ME_Westphalian_Events.5.a
+		
+		ai_chance = { factor = 1 }
+	
+		event_target:Westphalia_Target_1 = {
+			WES_pick_an_advisor = { type = commandant }
+		}
+	}
+	
+	option = {
+		name = ME_Westphalian_Events.5.b
+		
+		ai_chance = { factor = 1 }
+		
+		event_target:Westphalia_Target_2 = {
+			WES_pick_an_advisor = { type = philosopher }
+		}
+	}
+	
+	option = {
+		name = ME_Westphalian_Events.5.c
+		
+		ai_chance = { factor = 1 }
+		
+		event_target:Westphalia_Target_3 = {
+			WES_pick_an_advisor = { type = trader }
+		}
+	}
+	
+	option = {
+		name = ME_Westphalian_Events.5.e
+		
+		ai_chance = { factor = 1 }
+		
+		event_target:Westphalia_Target_4 = {
+			WES_pick_an_advisor = { type = natural_scientist  }
+		}
+	}
+	
+	option = {
+		name = ME_Westphalian_Events.5.f
+		
+		ai_chance = { factor = 1 }
+		
+		event_target:Westphalia_Target_5 = {
+			WES_pick_an_advisor = { type = army_reformer }
+		}
+	}
+	
+	after = {
+		WES_every_target = {
+			effect = "
+				set_variable = {
+					which = Westphalia_AdvisorCost
+					value = 0
+				}
+			"
+		}
+	}
+}
 
 country_event = { 
 	id = ME_Westphalian_Events.6 #Parliament
@@ -486,5 +616,91 @@ country_event = {
 			name = WES_nobles_laws
 			duration = 9125
 		}
+	}
+}
+
+country_event = { 
+	id = ME_Westphalian_Events.9 #Religious Migration
+	title = ME_Westphalian_Events.9.t 
+	desc = ME_Westphalian_Events.9.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			pick_best_provinces = {
+				scale = "higher_development_than"
+				2 = yes
+				global_trigger = "
+					is_capital = no
+					has_owner_religion = yes
+				"
+				scope = " every_owned_province "
+				event_target_name = "ME_WES_Target"
+			}
+			random_province = {
+				limit = {
+					OR = {
+						AND = {
+							religion = protestant
+							NOT = {
+								ROOT = { religion = protestant }
+							}
+						}
+						AND = {
+							religion = reformed
+							NOT = {
+								ROOT = { religion = reformed }
+							}
+						}
+						AND = {
+							religion = catholic
+							NOT = {
+								ROOT = { religion = catholic }
+							}
+						}
+					}
+				}
+				save_event_target_as = WES_province_religion
+			}
+		}
+	}
+	
+	option = { 
+		name = ME_Westphalian_Events.9.a #Welcome
+		
+		ai_chance = { factor = 1 }
+	
+		add_stability_or_adm_power = yes
+		event_target:ME_WES_Target_1 = {
+			change_religion = jewish
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			add_province_modifier = {
+				name = WES_significant_religious_minority
+				duration = 18250
+			}
+		}
+		
+		event_target:ME_WES_Target_2 = {
+			change_religion = event_target:WES_province_religion
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			add_province_modifier = {
+				name = WES_significant_religious_minority
+				duration = 18250
+			}
+		}
+	}
+	
+	option = { 
+		name = ME_Westphalian_Events.9.b #Welcome
+		
+		ai_chance = { factor = 1 }
+	
+		add_dip_power = 50
 	}
 }
